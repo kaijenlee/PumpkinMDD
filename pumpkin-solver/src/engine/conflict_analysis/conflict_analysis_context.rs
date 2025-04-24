@@ -92,14 +92,11 @@ impl ConflictAnalysisContext<'_> {
     pub(crate) fn get_conflict_nogood(&mut self) -> Vec<Predicate> {
         match self.solver_state.get_conflict_info() {
             StoredConflictInfo::Propagator {
-                conflict_nogood,
-                propagator_id,
+                conflict_nogood, ..
             } => {
-                let _ = self.proof_log.log_inference(
-                    self.propagators.get_tag(propagator_id),
-                    conflict_nogood.iter().copied(),
-                    None,
-                );
+                let _ = self
+                    .proof_log
+                    .log_inference(None, conflict_nogood.iter().copied(), None);
                 conflict_nogood
                     .iter()
                     .filter(|p| {
@@ -180,7 +177,6 @@ impl ConflictAnalysisContext<'_> {
                 .expect("Cannot be a null reason for propagation.");
 
             let propagator_id = reason_store.get_propagator(reason_ref);
-            let constraint_tag = propagators.get_tag(propagator_id);
 
             let explanation_context = ExplanationContext::new(assignments, current_nogood);
 
@@ -217,7 +213,7 @@ impl ConflictAnalysisContext<'_> {
             } else {
                 // Otherwise we log the inference which was used to derive the nogood
                 let _ = proof_log.log_inference(
-                    constraint_tag,
+                    None,
                     reason_buffer.as_ref().iter().copied(),
                     Some(predicate),
                 );
