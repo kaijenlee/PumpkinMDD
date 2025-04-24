@@ -348,7 +348,7 @@ mod tests {
     where
         Propagation: Fn(PropagationContextMut) -> PropagationStatusCP + 'static,
         ConsistencyCheck:
-            Fn(StatefulPropagationContext) -> Option<PropositionalConjunction> + 'static,
+            Fn(PropagationContextWithTrailedValues) -> Option<PropositionalConjunction> + 'static,
     {
         type PropagatorImpl = Self;
 
