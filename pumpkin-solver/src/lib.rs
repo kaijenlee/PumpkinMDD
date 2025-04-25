@@ -310,8 +310,6 @@ pub mod optimisation;
 pub mod proof;
 pub mod statistics;
 
-pub use engine::ConstraintTag;
-
 // We declare a private module with public use, so that all exports from API are exports directly
 // from the crate.
 //

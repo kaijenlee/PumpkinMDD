@@ -8,6 +8,7 @@ use crate::engine::predicates::predicate::Predicate;
 use crate::engine::variables::DomainGeneratorIterator;
 use crate::engine::variables::DomainId;
 use crate::predicate;
+use crate::proof::InferenceCode;
 use crate::pumpkin_assert_eq_simple;
 use crate::pumpkin_assert_moderate;
 use crate::pumpkin_assert_simple;
@@ -47,7 +48,7 @@ impl Default for Assignments {
 }
 
 #[derive(Clone, Copy, Debug)]
-pub struct EmptyDomain;
+pub(crate) struct EmptyDomain;
 
 impl Assignments {
     pub(crate) fn increase_decision_level(&mut self) {
@@ -412,7 +413,7 @@ impl Assignments {
         &mut self,
         domain_id: DomainId,
         new_lower_bound: i32,
-        reason: Option<ReasonRef>,
+        reason: Option<(ReasonRef, InferenceCode)>,
     ) -> Result<(), EmptyDomain> {
         // No need to do any changes if the new lower bound is weaker.
         if new_lower_bound <= self.get_lower_bound(domain_id) {
@@ -456,7 +457,7 @@ impl Assignments {
         &mut self,
         domain_id: DomainId,
         new_upper_bound: i32,
-        reason: Option<ReasonRef>,
+        reason: Option<(ReasonRef, InferenceCode)>,
     ) -> Result<(), EmptyDomain> {
         // No need to do any changes if the new upper bound is weaker.
         if new_upper_bound >= self.get_upper_bound(domain_id) {
@@ -500,7 +501,7 @@ impl Assignments {
         &mut self,
         domain_id: DomainId,
         assigned_value: i32,
-        reason: Option<ReasonRef>,
+        reason: Option<(ReasonRef, InferenceCode)>,
     ) -> Result<(), EmptyDomain> {
         // only tighten the lower bound if needed
         if self.get_lower_bound(domain_id) < assigned_value {
@@ -519,7 +520,7 @@ impl Assignments {
         &mut self,
         domain_id: DomainId,
         removed_value_from_domain: i32,
-        reason: Option<ReasonRef>,
+        reason: Option<(ReasonRef, InferenceCode)>,
     ) -> Result<(), EmptyDomain> {
         // No need to do any changes if the value is not present anyway.
         if !self.domains[domain_id].contains(removed_value_from_domain) {
@@ -574,7 +575,7 @@ impl Assignments {
     pub(crate) fn post_predicate(
         &mut self,
         predicate: Predicate,
-        reason: Option<ReasonRef>,
+        reason: Option<(ReasonRef, InferenceCode)>,
     ) -> Result<(), EmptyDomain> {
         match predicate {
             Predicate::LowerBound {
@@ -765,7 +766,7 @@ impl Assignments {
             .iter()
             .find_map(|entry| {
                 if entry.predicate == predicate {
-                    entry.reason
+                    entry.reason.map(|(reason_ref, _)| reason_ref)
                 } else {
                     None
                 }
@@ -784,7 +785,7 @@ pub(crate) struct ConstraintProgrammingTrailEntry {
     /// Stores the a reference to the reason in the `ReasonStore`, only makes sense if a
     /// propagation  took place, e.g., does _not_ make sense in the case of a decision or if
     /// the update was due  to synchronisation from the propositional trail.
-    pub(crate) reason: Option<ReasonRef>,
+    pub(crate) reason: Option<(ReasonRef, InferenceCode)>,
 }
 
 #[derive(Clone, Copy, Debug)]
