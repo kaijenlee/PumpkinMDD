@@ -26,6 +26,7 @@ use crate::engine::DomainEvents;
 use crate::engine::EmptyDomain;
 use crate::engine::WatchListCP;
 use crate::predicates::PropositionalConjunction;
+use crate::proof::ProofLog;
 
 /// A container for CP variables, which can be used to test propagators.
 #[derive(Debug)]
@@ -73,12 +74,14 @@ impl TestSolver {
         Constructor: PropagatorConstructor,
         Constructor::PropagatorImpl: 'static,
     {
+        let mut proof_log = ProofLog::default();
         let propagator_slot = self.propagator_store.new_propagator();
 
         let mut constructor_context = PropagatorConstructorContext::new(
             &mut self.watch_list,
             &mut self.trailed_values,
             propagator_slot.key(),
+            &mut proof_log,
             &mut self.assignments,
         );
 

@@ -1,5 +1,6 @@
 use crate::basic_types::PropagationStatusCP;
 use crate::conjunction;
+use crate::declare_inference_label;
 use crate::engine::cp::propagation::ReadDomains;
 use crate::engine::domain_events::DomainEvents;
 use crate::engine::propagation::constructor::PropagatorConstructor;
@@ -9,6 +10,11 @@ use crate::engine::propagation::PropagationContextMut;
 use crate::engine::propagation::Propagator;
 use crate::engine::variables::IntegerVariable;
 use crate::predicate;
+use crate::propagators::single_inference::SIInconsistency;
+use crate::propagators::single_inference::SIPropagationContextMut;
+use crate::propagators::single_inference::SIPropagator;
+use crate::propagators::single_inference::SIPropagatorConstructor;
+use crate::propagators::single_inference::SIPropagatorConstructorContext;
 
 /// Propagator for `absolute = |signed|`, where `absolute` and `signed` are integer variables.
 ///
@@ -26,14 +32,21 @@ impl<VA, VB> AbsoluteValuePropagator<VA, VB> {
     }
 }
 
-impl<VA, VB> PropagatorConstructor for AbsoluteValuePropagator<VA, VB>
+declare_inference_label!(pub AbsoluteValue);
+
+impl<VA, VB> SIPropagatorConstructor for AbsoluteValuePropagator<VA, VB>
 where
     VA: IntegerVariable + 'static,
     VB: IntegerVariable + 'static,
 {
     type PropagatorImpl = Self;
 
-    fn create(self, context: &mut PropagatorConstructorContext) -> Self::PropagatorImpl {
+    type InferenceLabelImpl = AbsoluteValue;
+
+    fn create(
+        self,
+        mut context: SIPropagatorConstructorContext,
+    ) -> (Self::PropagatorImpl, Self::InferenceLabelImpl) {
         context.register(self.signed.clone(), DomainEvents::BOUNDS, LocalId::from(0));
         context.register(
             self.absolute.clone(),
@@ -41,11 +54,11 @@ where
             LocalId::from(1),
         );
 
-        self
+        (self, AbsoluteValue)
     }
 }
 
-impl<VA, VB> Propagator for AbsoluteValuePropagator<VA, VB>
+impl<VA, VB> SIPropagator for AbsoluteValuePropagator<VA, VB>
 where
     VA: IntegerVariable + 'static,
     VB: IntegerVariable + 'static,
@@ -60,8 +73,8 @@ where
 
     fn debug_propagate_from_scratch(
         &self,
-        mut context: PropagationContextMut,
-    ) -> PropagationStatusCP {
+        mut context: SIPropagationContextMut,
+    ) -> Result<(), SIInconsistency> {
         // The bound of absolute may be tightened further during propagation, but it is at least
         // zero at the root.
         context.post(predicate![self.absolute >= 0], conjunction!())?;

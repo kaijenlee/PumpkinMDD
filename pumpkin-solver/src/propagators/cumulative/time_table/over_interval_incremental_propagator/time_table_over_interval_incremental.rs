@@ -27,7 +27,13 @@ use crate::propagators::cumulative::time_table::time_table_util::has_overlap_wit
 use crate::propagators::cumulative::time_table::time_table_util::insert_update;
 use crate::propagators::cumulative::time_table::time_table_util::propagate_based_on_timetable;
 use crate::propagators::cumulative::time_table::time_table_util::should_enqueue;
+use crate::propagators::cumulative::TimeTable;
 use crate::propagators::debug_propagate_from_scratch_time_table_interval;
+use crate::propagators::single_inference::SIInconsistency;
+use crate::propagators::single_inference::SIPropagationContextMut;
+use crate::propagators::single_inference::SIPropagator;
+use crate::propagators::single_inference::SIPropagatorConstructor;
+use crate::propagators::single_inference::SIPropagatorConstructorContext;
 use crate::propagators::util::check_bounds_equal_at_propagation;
 use crate::propagators::util::create_tasks;
 use crate::propagators::util::register_tasks;
@@ -90,20 +96,22 @@ pub(crate) struct TimeTableOverIntervalIncrementalPropagator<Var, const SYNCHRON
     is_time_table_outdated: bool,
 }
 
-impl<Var: IntegerVariable + 'static, const SYNCHRONISE: bool> PropagatorConstructor
+impl<Var: IntegerVariable + 'static, const SYNCHRONISE: bool> SIPropagatorConstructor
     for TimeTableOverIntervalIncrementalPropagator<Var, SYNCHRONISE>
 {
     type PropagatorImpl = Self;
 
+    type InferenceLabelImpl = TimeTable;
+
     fn create(
         mut self,
-        context: &mut crate::engine::propagation::constructor::PropagatorConstructorContext,
-    ) -> Self::PropagatorImpl {
+        mut context: SIPropagatorConstructorContext,
+    ) -> (Self::PropagatorImpl, Self::InferenceLabelImpl) {
         // We only register for notifications of backtrack events if incremental backtracking is
         // enabled
         register_tasks(
             &self.parameters.tasks,
-            context,
+            &mut context,
             self.parameters.options.incremental_backtracking,
         );
 
@@ -113,7 +121,7 @@ impl<Var: IntegerVariable + 'static, const SYNCHRONISE: bool> PropagatorConstruc
 
         self.is_time_table_outdated = true;
 
-        self
+        (self, TimeTable)
     }
 }
 
@@ -145,7 +153,7 @@ impl<Var: IntegerVariable + 'static, const SYNCHRONISE: bool>
         context: PropagationContext,
         mandatory_part_adjustments: &MandatoryPartAdjustments,
         task: &Rc<Task<Var>>,
-    ) -> PropagationStatusCP {
+    ) -> Result<(), SIInconsistency> {
         let mut conflict = None;
         // We consider both of the possible update ranges
         // Note that the upper update range is first considered to avoid any issues with the
@@ -221,7 +229,10 @@ impl<Var: IntegerVariable + 'static, const SYNCHRONISE: bool>
     /// [`TimeTableOverIntervalIncrementalPropagator::is_time_table_outdated`] is true.
     ///
     /// An error is returned if an overflow of the resource occurs while updating the time-table.
-    fn update_time_table(&mut self, context: &mut PropagationContextMut) -> PropagationStatusCP {
+    fn update_time_table(
+        &mut self,
+        context: &mut SIPropagationContextMut,
+    ) -> Result<(), SIInconsistency> {
         if self.is_time_table_outdated {
             // We create the time-table from scratch (and return an error if it overflows)
             self.time_table = create_time_table_over_interval_from_scratch(
@@ -352,10 +363,10 @@ impl<Var: IntegerVariable + 'static, const SYNCHRONISE: bool>
     }
 }
 
-impl<Var: IntegerVariable + 'static, const SYNCHRONISE: bool> Propagator
+impl<Var: IntegerVariable + 'static, const SYNCHRONISE: bool> SIPropagator
     for TimeTableOverIntervalIncrementalPropagator<Var, SYNCHRONISE>
 {
-    fn propagate(&mut self, mut context: PropagationContextMut) -> PropagationStatusCP {
+    fn propagate(&mut self, mut context: SIPropagationContextMut) -> Result<(), SIInconsistency> {
         pumpkin_assert_advanced!(
             check_bounds_equal_at_propagation(
                 context.as_readonly(),
@@ -484,8 +495,8 @@ impl<Var: IntegerVariable + 'static, const SYNCHRONISE: bool> Propagator
 
     fn debug_propagate_from_scratch(
         &self,
-        mut context: PropagationContextMut,
-    ) -> PropagationStatusCP {
+        mut context: SIPropagationContextMut,
+    ) -> Result<(), SIInconsistency> {
         // Use the same debug propagator from `TimeTableOverInterval`
         debug_propagate_from_scratch_time_table_interval(
             &mut context,

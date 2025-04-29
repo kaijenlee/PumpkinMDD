@@ -1,5 +1,6 @@
 use crate::basic_types::PropagationStatusCP;
 use crate::conjunction;
+use crate::declare_inference_label;
 use crate::engine::propagation::constructor::PropagatorConstructor;
 use crate::engine::propagation::constructor::PropagatorConstructorContext;
 use crate::engine::propagation::LocalId;
@@ -9,6 +10,11 @@ use crate::engine::propagation::ReadDomains;
 use crate::engine::variables::IntegerVariable;
 use crate::engine::DomainEvents;
 use crate::predicate;
+use crate::propagators::single_inference::SIInconsistency;
+use crate::propagators::single_inference::SIPropagationContextMut;
+use crate::propagators::single_inference::SIPropagator;
+use crate::propagators::single_inference::SIPropagatorConstructor;
+use crate::propagators::single_inference::SIPropagatorConstructorContext;
 use crate::pumpkin_assert_simple;
 
 /// A propagator for maintaining the constraint `numerator / denominator = rhs`; note that this
@@ -38,7 +44,9 @@ impl<VA, VB, VC> DivisionPropagator<VA, VB, VC> {
     }
 }
 
-impl<VA, VB, VC> PropagatorConstructor for DivisionPropagator<VA, VB, VC>
+declare_inference_label!(pub Division);
+
+impl<VA, VB, VC> SIPropagatorConstructor for DivisionPropagator<VA, VB, VC>
 where
     VA: IntegerVariable + 'static,
     VB: IntegerVariable + 'static,
@@ -46,7 +54,12 @@ where
 {
     type PropagatorImpl = Self;
 
-    fn create(self, context: &mut PropagatorConstructorContext) -> Self::PropagatorImpl {
+    type InferenceLabelImpl = Division;
+
+    fn create(
+        self,
+        mut context: SIPropagatorConstructorContext,
+    ) -> (Self::PropagatorImpl, Self::InferenceLabelImpl) {
         pumpkin_assert_simple!(
             !context.contains(&self.denominator, 0),
             "Denominator cannot contain 0"
@@ -59,11 +72,11 @@ where
         );
         context.register(self.rhs.clone(), DomainEvents::BOUNDS, ID_RHS);
 
-        self
+        (self, Division)
     }
 }
 
-impl<VA: 'static, VB: 'static, VC: 'static> Propagator for DivisionPropagator<VA, VB, VC>
+impl<VA: 'static, VB: 'static, VC: 'static> SIPropagator for DivisionPropagator<VA, VB, VC>
 where
     VA: IntegerVariable,
     VB: IntegerVariable,
@@ -77,17 +90,20 @@ where
         "Division"
     }
 
-    fn debug_propagate_from_scratch(&self, context: PropagationContextMut) -> PropagationStatusCP {
+    fn debug_propagate_from_scratch(
+        &self,
+        context: SIPropagationContextMut,
+    ) -> Result<(), SIInconsistency> {
         perform_propagation(context, &self.numerator, &self.denominator, &self.rhs)
     }
 }
 
 fn perform_propagation<VA: IntegerVariable, VB: IntegerVariable, VC: IntegerVariable>(
-    mut context: PropagationContextMut,
+    mut context: SIPropagationContextMut,
     numerator: &VA,
     denominator: &VB,
     rhs: &VC,
-) -> PropagationStatusCP {
+) -> Result<(), SIInconsistency> {
     if context.lower_bound(denominator) < 0 && context.upper_bound(denominator) > 0 {
         // For now we don't do anything in this case, note that this will not lead to incorrect
         // behaviour since any solution to this constraint will necessarily have to fix the
@@ -112,32 +128,42 @@ fn perform_propagation<VA: IntegerVariable, VB: IntegerVariable, VC: IntegerVari
 
     // We propagate the domains to their appropriate signs (e.g. if the numerator is negative and
     // the denominator is positive then the rhs should also be negative)
-    propagate_signs(&mut context, numerator, denominator, rhs)?;
+    propagate_signs(context.reborrow(), numerator, denominator, rhs)?;
 
     // If the upper-bound of the numerator is positive and the upper-bound of the rhs is positive
     // then we can simply update the upper-bounds
     if context.upper_bound(numerator) >= 0 && context.upper_bound(rhs) >= 0 {
-        propagate_upper_bounds(&mut context, numerator, denominator, rhs)?;
+        propagate_upper_bounds(context.reborrow(), numerator, denominator, rhs)?;
     }
 
     // If the lower-bound of the numerator is negative and the lower-bound of the rhs is negative
     // then we negate these variables and update the upper-bounds
     if context.upper_bound(negated_numerator) >= 0 && context.upper_bound(negated_rhs) >= 0 {
-        propagate_upper_bounds(&mut context, negated_numerator, denominator, negated_rhs)?;
+        propagate_upper_bounds(
+            context.reborrow(),
+            negated_numerator,
+            denominator,
+            negated_rhs,
+        )?;
     }
 
     // If the domain of the numerator is positive and the domain of the rhs is positive (and we know
     // that our denominator is positive) then we can propagate based on the assumption that all the
     // domains are positive
     if context.lower_bound(numerator) >= 0 && context.lower_bound(rhs) >= 0 {
-        propagate_positive_domains(&mut context, numerator, denominator, rhs)?;
+        propagate_positive_domains(context.reborrow(), numerator, denominator, rhs)?;
     }
 
     // If the domain of the numerator is negative and the domain of the rhs is negative (and we know
     // that our denominator is positive) then we propagate based on the views over the numerator and
     // rhs
     if context.lower_bound(negated_numerator) >= 0 && context.lower_bound(negated_rhs) >= 0 {
-        propagate_positive_domains(&mut context, negated_numerator, denominator, negated_rhs)?;
+        propagate_positive_domains(
+            context.reborrow(),
+            negated_numerator,
+            denominator,
+            negated_rhs,
+        )?;
     }
 
     Ok(())
@@ -154,11 +180,11 @@ fn perform_propagation<VA: IntegerVariable, VB: IntegerVariable, VC: IntegerVari
 /// - The denominator is at least as large as the ratio between the largest ceiled ratio between
 ///   `numerator + 1` and `rhs + 1`
 fn propagate_positive_domains<VA: IntegerVariable, VB: IntegerVariable, VC: IntegerVariable>(
-    context: &mut PropagationContextMut,
+    mut context: SIPropagationContextMut,
     numerator: &VA,
     denominator: &VB,
     rhs: &VC,
-) -> PropagationStatusCP {
+) -> Result<(), SIInconsistency> {
     let rhs_min = context.lower_bound(rhs);
     let rhs_max = context.upper_bound(rhs);
     let numerator_min = context.lower_bound(numerator);
@@ -239,11 +265,11 @@ fn propagate_positive_domains<VA: IntegerVariable, VB: IntegerVariable, VC: Inte
 /// - The maximum value of the numerator is smaller than `(ub(rhs) + 1) * denominator - 1`, note
 ///   that this might not be the most constrictive bound
 fn propagate_upper_bounds<VA: IntegerVariable, VB: IntegerVariable, VC: IntegerVariable>(
-    context: &mut PropagationContextMut,
+    mut context: SIPropagationContextMut,
     numerator: &VA,
     denominator: &VB,
     rhs: &VC,
-) -> PropagationStatusCP {
+) -> Result<(), SIInconsistency> {
     let rhs_max = context.upper_bound(rhs);
     let numerator_max = context.upper_bound(numerator);
     let denominator_min = context.lower_bound(denominator);
@@ -282,11 +308,11 @@ fn propagate_upper_bounds<VA: IntegerVariable, VB: IntegerVariable, VC: IntegerV
 /// - If the numerator is non-positive then the right-hand side must be non-positive as well
 /// - If the right-hand is negative then the numerator must be negative as well
 fn propagate_signs<VA: IntegerVariable, VB: IntegerVariable, VC: IntegerVariable>(
-    context: &mut PropagationContextMut,
+    mut context: SIPropagationContextMut,
     numerator: &VA,
     denominator: &VB,
     rhs: &VC,
-) -> PropagationStatusCP {
+) -> Result<(), SIInconsistency> {
     let rhs_min = context.lower_bound(rhs);
     let rhs_max = context.upper_bound(rhs);
     let numerator_min = context.lower_bound(numerator);

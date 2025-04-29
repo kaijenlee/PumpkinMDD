@@ -9,6 +9,7 @@ use super::NogoodWatchList;
 use crate::basic_types::moving_averages::MovingAverage;
 use crate::basic_types::Inconsistency;
 use crate::basic_types::PropagationStatusCP;
+use crate::basic_types::PropagatorConflict;
 use crate::basic_types::PropositionalConjunction;
 use crate::containers::KeyedVec;
 use crate::engine::conflict_analysis::Mode;
@@ -77,7 +78,7 @@ pub(crate) struct NogoodPropagator {
 impl PropagatorConstructor for NogoodPropagator {
     type PropagatorImpl = Self;
 
-    fn create(self, _: &mut PropagatorConstructorContext) -> Self::PropagatorImpl {
+    fn create(self, _: PropagatorConstructorContext) -> Self::PropagatorImpl {
         self
     }
 }
@@ -1326,12 +1327,17 @@ impl NogoodPropagator {
 
         // If all predicates in the nogood are satisfied, there is a conflict.
         if num_satisfied_predicates == nogood_len {
-            return Err(nogood
+            let conjunction = nogood
                 .predicates
                 .iter()
                 .copied()
-                .collect::<PropositionalConjunction>()
-                .into());
+                .collect::<PropositionalConjunction>();
+
+            return Err(PropagatorConflict {
+                conjunction,
+                inference_code: todo!(),
+            }
+            .into());
         }
         // If all but one predicate are satisfied, then we can propagate.
         //

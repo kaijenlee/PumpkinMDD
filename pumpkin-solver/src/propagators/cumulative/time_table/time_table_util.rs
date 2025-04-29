@@ -14,6 +14,8 @@ use crate::engine::propagation::Propagator;
 use crate::engine::propagation::ReadDomains;
 use crate::engine::variables::IntegerVariable;
 use crate::propagators::cumulative::time_table::propagation_handler::CumulativePropagationHandler;
+use crate::propagators::single_inference::SIInconsistency;
+use crate::propagators::single_inference::SIPropagationContextMut;
 use crate::propagators::CumulativeParameters;
 use crate::propagators::ResourceProfile;
 use crate::propagators::Task;
@@ -199,11 +201,11 @@ fn debug_check_whether_profiles_are_maximal_and_sorted<'a, Var: IntegerVariable 
 /// [`ResourceProfile`] is maximal (i.e. the [`ResourceProfile::start`] and [`ResourceProfile::end`]
 /// cannot be increased or decreased, respectively).
 pub(crate) fn propagate_based_on_timetable<'a, Var: IntegerVariable + 'static>(
-    context: &mut PropagationContextMut,
+    context: &mut SIPropagationContextMut,
     time_table: impl Iterator<Item = &'a ResourceProfile<Var>> + Clone,
     parameters: &CumulativeParameters<Var>,
     updatable_structures: &mut UpdatableStructures<Var>,
-) -> PropagationStatusCP {
+) -> Result<(), SIInconsistency> {
     pumpkin_assert_extreme!(
         debug_check_whether_profiles_are_maximal_and_sorted(time_table.clone()),
         "The provided time-table did not adhere to the invariants"
@@ -241,11 +243,11 @@ pub(crate) fn propagate_based_on_timetable<'a, Var: IntegerVariable + 'static>(
 /// This type of propagation is likely to be less beneficial for the explanation
 /// [`CumulativeExplanationType::Pointwise`].
 fn propagate_single_profiles<'a, Var: IntegerVariable + 'static>(
-    context: &mut PropagationContextMut,
+    context: &mut SIPropagationContextMut,
     time_table: impl Iterator<Item = &'a ResourceProfile<Var>> + Clone,
     updatable_structures: &mut UpdatableStructures<Var>,
     parameters: &CumulativeParameters<Var>,
-) -> PropagationStatusCP {
+) -> Result<(), SIInconsistency> {
     // We create the structure responsible for propagations and explanations
     let mut propagation_handler =
         CumulativePropagationHandler::new(parameters.options.explanation_type);
@@ -324,11 +326,11 @@ fn propagate_single_profiles<'a, Var: IntegerVariable + 'static>(
 /// Especially in the case of [`CumulativeExplanationType::Pointwise`] this is likely to be
 /// beneficial.
 fn propagate_sequence_of_profiles<'a, Var: IntegerVariable + 'static>(
-    context: &mut PropagationContextMut,
+    context: &mut SIPropagationContextMut,
     time_table: impl Iterator<Item = &'a ResourceProfile<Var>> + Clone,
     updatable_structures: &UpdatableStructures<Var>,
     parameters: &CumulativeParameters<Var>,
-) -> PropagationStatusCP {
+) -> Result<(), SIInconsistency> {
     // We create the structure responsible for propagations and explanations
     let mut propagation_handler =
         CumulativePropagationHandler::new(parameters.options.explanation_type);
@@ -590,7 +592,7 @@ enum CanUpdate {
 /// Note that this method can only find [`Inconsistency::EmptyDomain`] conflicts which means that we
 /// handle that error in the parent function
 fn find_possible_updates<Var: IntegerVariable + 'static>(
-    context: &mut PropagationContextMut,
+    context: &mut SIPropagationContextMut,
     task: &Rc<Task<Var>>,
     profile: &ResourceProfile<Var>,
     parameters: &CumulativeParameters<Var>,

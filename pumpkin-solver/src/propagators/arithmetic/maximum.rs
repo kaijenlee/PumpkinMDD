@@ -1,14 +1,21 @@
 use crate::basic_types::PropagationStatusCP;
 use crate::basic_types::PropositionalConjunction;
 use crate::conjunction;
+use crate::declare_inference_label;
 use crate::engine::cp::propagation::ReadDomains;
 use crate::engine::domain_events::DomainEvents;
 use crate::engine::propagation::constructor::PropagatorConstructor;
+use crate::engine::propagation::constructor::PropagatorConstructorContext;
 use crate::engine::propagation::LocalId;
 use crate::engine::propagation::PropagationContextMut;
 use crate::engine::propagation::Propagator;
 use crate::engine::variables::IntegerVariable;
 use crate::predicate;
+use crate::propagators::single_inference::SIInconsistency;
+use crate::propagators::single_inference::SIPropagationContextMut;
+use crate::propagators::single_inference::SIPropagator;
+use crate::propagators::single_inference::SIPropagatorConstructor;
+use crate::propagators::single_inference::SIPropagatorConstructorContext;
 
 /// Bounds-consistent propagator which enforces `max(array) = rhs`. Can be constructed through
 /// [`MaximumConstructor`].
@@ -24,15 +31,21 @@ impl<ElementVar: IntegerVariable, Rhs: IntegerVariable> MaximumPropagator<Elemen
     }
 }
 
-impl<ElementVar: IntegerVariable + 'static, Rhs: IntegerVariable + 'static> PropagatorConstructor
-    for MaximumPropagator<ElementVar, Rhs>
+declare_inference_label!(pub Maximum);
+
+impl<ElementVar, Rhs> SIPropagatorConstructor for MaximumPropagator<ElementVar, Rhs>
+where
+    ElementVar: IntegerVariable + 'static,
+    Rhs: IntegerVariable + 'static,
 {
     type PropagatorImpl = Self;
 
+    type InferenceLabelImpl = Maximum;
+
     fn create(
         self,
-        context: &mut crate::engine::propagation::constructor::PropagatorConstructorContext,
-    ) -> Self::PropagatorImpl {
+        mut context: SIPropagatorConstructorContext,
+    ) -> (Self::PropagatorImpl, Self::InferenceLabelImpl) {
         for (idx, var) in self.array.iter().enumerate() {
             context.register(var.clone(), DomainEvents::BOUNDS, LocalId::from(idx as u32));
         }
@@ -43,12 +56,14 @@ impl<ElementVar: IntegerVariable + 'static, Rhs: IntegerVariable + 'static> Prop
             LocalId::from(self.array.len() as u32),
         );
 
-        self
+        (self, Maximum)
     }
 }
 
-impl<ElementVar: IntegerVariable + 'static, Rhs: IntegerVariable + 'static> Propagator
-    for MaximumPropagator<ElementVar, Rhs>
+impl<ElementVar, Rhs> SIPropagator for MaximumPropagator<ElementVar, Rhs>
+where
+    ElementVar: IntegerVariable + 'static,
+    Rhs: IntegerVariable + 'static,
 {
     fn priority(&self) -> u32 {
         0
@@ -60,8 +75,8 @@ impl<ElementVar: IntegerVariable + 'static, Rhs: IntegerVariable + 'static> Prop
 
     fn debug_propagate_from_scratch(
         &self,
-        mut context: PropagationContextMut,
-    ) -> PropagationStatusCP {
+        mut context: SIPropagationContextMut,
+    ) -> Result<(), SIInconsistency> {
         // This is the constraint that is being propagated:
         // max(a_0, a_1, ..., a_{n-1}) = rhs
 

@@ -127,6 +127,17 @@ impl<'a> PropagationContextMut<'a> {
     pub(crate) fn get_decision_level(&self) -> usize {
         self.assignments.get_decision_level()
     }
+
+    pub(crate) fn reborrow<'b>(&'b mut self) -> PropagationContextMut<'b> {
+        PropagationContextMut {
+            trailed_values: self.trailed_values,
+            assignments: self.assignments,
+            reason_store: self.reason_store,
+            propagator_id: self.propagator_id,
+            semantic_minimiser: self.semantic_minimiser,
+            reification_literal: self.reification_literal,
+        }
+    }
 }
 
 /// A trait which defines common methods for retrieving the [`Assignments`] and

@@ -2,6 +2,8 @@ use std::fmt::Debug;
 
 use super::Constraint;
 use crate::options::CumulativePropagationMethod;
+use crate::proof::ConstraintTag;
+use crate::propagators::single_inference::SingleInferencePropagatorArgs;
 use crate::propagators::ArgTask;
 use crate::propagators::CumulativeOptions;
 use crate::propagators::TimeTableOverIntervalIncrementalPropagator;
@@ -123,6 +125,7 @@ pub fn cumulative<StartTimes, Durations, ResourceRequirements>(
     durations: Durations,
     resource_requirements: ResourceRequirements,
     resource_capacity: i32,
+    constraint_tag: ConstraintTag,
 ) -> impl Constraint
 where
     StartTimes: IntoIterator,
@@ -139,6 +142,7 @@ where
         resource_requirements,
         resource_capacity,
         CumulativeOptions::default(),
+        constraint_tag,
     )
 }
 
@@ -152,6 +156,7 @@ pub fn cumulative_with_options<StartTimes, Durations, ResourceRequirements>(
     resource_requirements: ResourceRequirements,
     resource_capacity: i32,
     options: CumulativeOptions,
+    constraint_tag: ConstraintTag,
 ) -> impl Constraint
 where
     StartTimes: IntoIterator,
@@ -183,6 +188,7 @@ where
             .collect::<Vec<_>>(),
         resource_capacity,
         options,
+        constraint_tag,
     )
 }
 
@@ -190,14 +196,21 @@ struct CumulativeConstraint<Var> {
     tasks: Vec<ArgTask<Var>>,
     resource_capacity: i32,
     options: CumulativeOptions,
+    constraint_tag: ConstraintTag,
 }
 
 impl<Var: IntegerVariable + 'static> CumulativeConstraint<Var> {
-    fn new(tasks: &[ArgTask<Var>], resource_capacity: i32, options: CumulativeOptions) -> Self {
+    fn new(
+        tasks: &[ArgTask<Var>],
+        resource_capacity: i32,
+        options: CumulativeOptions,
+        constraint_tag: ConstraintTag,
+    ) -> Self {
         Self {
             tasks: tasks.into(),
             resource_capacity,
             options,
+            constraint_tag,
         }
     }
 }
@@ -205,51 +218,67 @@ impl<Var: IntegerVariable + 'static> CumulativeConstraint<Var> {
 impl<Var: IntegerVariable + 'static + Debug> Constraint for CumulativeConstraint<Var> {
     fn post(self, solver: &mut Solver) -> Result<(), ConstraintOperationError> {
         match self.options.propagation_method {
-            CumulativePropagationMethod::TimeTablePerPoint => TimeTablePerPointPropagator::new(
-                &self.tasks,
-                self.resource_capacity,
-                self.options.propagator_options,
-            )
+            CumulativePropagationMethod::TimeTablePerPoint => SingleInferencePropagatorArgs {
+                wrapped_args: TimeTablePerPointPropagator::new(
+                    &self.tasks,
+                    self.resource_capacity,
+                    self.options.propagator_options,
+                ),
+                constraint_tag: self.constraint_tag,
+            }
             .post(solver),
 
             CumulativePropagationMethod::TimeTablePerPointIncremental => {
-                TimeTablePerPointIncrementalPropagator::<Var, false>::new(
-                    &self.tasks,
-                    self.resource_capacity,
-                    self.options.propagator_options,
-                )
+                SingleInferencePropagatorArgs {
+                    wrapped_args: TimeTablePerPointIncrementalPropagator::<Var, false>::new(
+                        &self.tasks,
+                        self.resource_capacity,
+                        self.options.propagator_options,
+                    ),
+                    constraint_tag: self.constraint_tag,
+                }
                 .post(solver)
             }
             CumulativePropagationMethod::TimeTablePerPointIncrementalSynchronised => {
-                TimeTablePerPointIncrementalPropagator::<Var, true>::new(
+                SingleInferencePropagatorArgs {
+                    wrapped_args: TimeTablePerPointIncrementalPropagator::<Var, true>::new(
+                        &self.tasks,
+                        self.resource_capacity,
+                        self.options.propagator_options,
+                    ),
+                    constraint_tag: self.constraint_tag,
+                }
+                .post(solver)
+            }
+            CumulativePropagationMethod::TimeTableOverInterval => SingleInferencePropagatorArgs {
+                wrapped_args: TimeTableOverIntervalPropagator::new(
                     &self.tasks,
                     self.resource_capacity,
                     self.options.propagator_options,
-                )
-                .post(solver)
+                ),
+                constraint_tag: self.constraint_tag,
             }
-            CumulativePropagationMethod::TimeTableOverInterval => {
-                TimeTableOverIntervalPropagator::new(
-                    &self.tasks,
-                    self.resource_capacity,
-                    self.options.propagator_options,
-                )
-                .post(solver)
-            }
+            .post(solver),
             CumulativePropagationMethod::TimeTableOverIntervalIncremental => {
-                TimeTableOverIntervalIncrementalPropagator::<Var, false>::new(
-                    &self.tasks,
-                    self.resource_capacity,
-                    self.options.propagator_options,
-                )
+                SingleInferencePropagatorArgs {
+                    wrapped_args: TimeTableOverIntervalIncrementalPropagator::<Var, false>::new(
+                        &self.tasks,
+                        self.resource_capacity,
+                        self.options.propagator_options,
+                    ),
+                    constraint_tag: self.constraint_tag,
+                }
                 .post(solver)
             }
             CumulativePropagationMethod::TimeTableOverIntervalIncrementalSynchronised => {
-                TimeTableOverIntervalIncrementalPropagator::<Var, true>::new(
-                    &self.tasks,
-                    self.resource_capacity,
-                    self.options.propagator_options,
-                )
+                SingleInferencePropagatorArgs {
+                    wrapped_args: TimeTableOverIntervalIncrementalPropagator::<Var, true>::new(
+                        &self.tasks,
+                        self.resource_capacity,
+                        self.options.propagator_options,
+                    ),
+                    constraint_tag: self.constraint_tag,
+                }
                 .post(solver)
             }
         }
@@ -261,50 +290,67 @@ impl<Var: IntegerVariable + 'static + Debug> Constraint for CumulativeConstraint
         reification_literal: Literal,
     ) -> Result<(), ConstraintOperationError> {
         match self.options.propagation_method {
-            CumulativePropagationMethod::TimeTablePerPoint => TimeTablePerPointPropagator::new(
-                &self.tasks,
-                self.resource_capacity,
-                self.options.propagator_options,
-            )
-            .implied_by(solver, reification_literal),
-            CumulativePropagationMethod::TimeTablePerPointIncremental => {
-                TimeTablePerPointIncrementalPropagator::<Var, false>::new(
+            CumulativePropagationMethod::TimeTablePerPoint => SingleInferencePropagatorArgs {
+                wrapped_args: TimeTablePerPointPropagator::new(
                     &self.tasks,
                     self.resource_capacity,
                     self.options.propagator_options,
-                )
+                ),
+                constraint_tag: self.constraint_tag,
+            }
+            .implied_by(solver, reification_literal),
+
+            CumulativePropagationMethod::TimeTablePerPointIncremental => {
+                SingleInferencePropagatorArgs {
+                    wrapped_args: TimeTablePerPointIncrementalPropagator::<Var, false>::new(
+                        &self.tasks,
+                        self.resource_capacity,
+                        self.options.propagator_options,
+                    ),
+                    constraint_tag: self.constraint_tag,
+                }
                 .implied_by(solver, reification_literal)
             }
             CumulativePropagationMethod::TimeTablePerPointIncrementalSynchronised => {
-                TimeTablePerPointIncrementalPropagator::<Var, true>::new(
+                SingleInferencePropagatorArgs {
+                    wrapped_args: TimeTablePerPointIncrementalPropagator::<Var, true>::new(
+                        &self.tasks,
+                        self.resource_capacity,
+                        self.options.propagator_options,
+                    ),
+                    constraint_tag: self.constraint_tag,
+                }
+                .implied_by(solver, reification_literal)
+            }
+            CumulativePropagationMethod::TimeTableOverInterval => SingleInferencePropagatorArgs {
+                wrapped_args: TimeTableOverIntervalPropagator::new(
                     &self.tasks,
                     self.resource_capacity,
                     self.options.propagator_options,
-                )
-                .implied_by(solver, reification_literal)
+                ),
+                constraint_tag: self.constraint_tag,
             }
-            CumulativePropagationMethod::TimeTableOverInterval => {
-                TimeTableOverIntervalPropagator::new(
-                    &self.tasks,
-                    self.resource_capacity,
-                    self.options.propagator_options,
-                )
-                .implied_by(solver, reification_literal)
-            }
+            .implied_by(solver, reification_literal),
             CumulativePropagationMethod::TimeTableOverIntervalIncremental => {
-                TimeTableOverIntervalIncrementalPropagator::<Var, false>::new(
-                    &self.tasks,
-                    self.resource_capacity,
-                    self.options.propagator_options,
-                )
+                SingleInferencePropagatorArgs {
+                    wrapped_args: TimeTableOverIntervalIncrementalPropagator::<Var, false>::new(
+                        &self.tasks,
+                        self.resource_capacity,
+                        self.options.propagator_options,
+                    ),
+                    constraint_tag: self.constraint_tag,
+                }
                 .implied_by(solver, reification_literal)
             }
             CumulativePropagationMethod::TimeTableOverIntervalIncrementalSynchronised => {
-                TimeTableOverIntervalIncrementalPropagator::<Var, true>::new(
-                    &self.tasks,
-                    self.resource_capacity,
-                    self.options.propagator_options,
-                )
+                SingleInferencePropagatorArgs {
+                    wrapped_args: TimeTableOverIntervalIncrementalPropagator::<Var, true>::new(
+                        &self.tasks,
+                        self.resource_capacity,
+                        self.options.propagator_options,
+                    ),
+                    constraint_tag: self.constraint_tag,
+                }
                 .implied_by(solver, reification_literal)
             }
         }

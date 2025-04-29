@@ -25,7 +25,13 @@ use crate::propagators::cumulative::time_table::time_table_util::backtrack_updat
 use crate::propagators::cumulative::time_table::time_table_util::insert_update;
 use crate::propagators::cumulative::time_table::time_table_util::propagate_based_on_timetable;
 use crate::propagators::cumulative::time_table::time_table_util::should_enqueue;
+use crate::propagators::cumulative::TimeTable;
 use crate::propagators::debug_propagate_from_scratch_time_table_point;
+use crate::propagators::single_inference::SIInconsistency;
+use crate::propagators::single_inference::SIPropagationContextMut;
+use crate::propagators::single_inference::SIPropagator;
+use crate::propagators::single_inference::SIPropagatorConstructor;
+use crate::propagators::single_inference::SIPropagatorConstructorContext;
 use crate::propagators::util::check_bounds_equal_at_propagation;
 use crate::propagators::util::create_tasks;
 use crate::propagators::util::register_tasks;
@@ -87,20 +93,25 @@ pub(crate) struct TimeTablePerPointIncrementalPropagator<Var, const SYNCHRONISE:
     is_time_table_outdated: bool,
 }
 
-impl<Var: IntegerVariable + 'static + Debug, const SYNCHRONISE: bool> PropagatorConstructor
+impl<Var: IntegerVariable + 'static + Debug, const SYNCHRONISE: bool> SIPropagatorConstructor
     for TimeTablePerPointIncrementalPropagator<Var, SYNCHRONISE>
 {
     type PropagatorImpl = Self;
 
-    fn create(mut self, context: &mut PropagatorConstructorContext) -> Self::PropagatorImpl {
-        register_tasks(&self.parameters.tasks, context, true);
+    type InferenceLabelImpl = TimeTable;
+
+    fn create(
+        mut self,
+        mut context: SIPropagatorConstructorContext,
+    ) -> (Self::PropagatorImpl, Self::InferenceLabelImpl) {
+        register_tasks(&self.parameters.tasks, &mut context, true);
         self.updatable_structures
             .reset_all_bounds_and_remove_fixed(context.as_readonly(), &self.parameters);
 
         // Then we do normal propagation
         self.is_time_table_outdated = true;
 
-        self
+        (self, TimeTable)
     }
 }
 
@@ -131,7 +142,7 @@ impl<Var: IntegerVariable + 'static + Debug, const SYNCHRONISE: bool>
         context: PropagationContext,
         mandatory_part_adjustments: &MandatoryPartAdjustments,
         task: &Rc<Task<Var>>,
-    ) -> PropagationStatusCP {
+    ) -> Result<(), SIInconsistency> {
         // Go over all of the updated tasks and calculate the added mandatory part (we know
         // that for each of these tasks, a mandatory part exists, otherwise it would not
         // have been added (see [`should_propagate`]))
@@ -217,7 +228,10 @@ impl<Var: IntegerVariable + 'static + Debug, const SYNCHRONISE: bool>
     /// [`DynamicStructures::updated`].
     ///
     /// An error is returned if an overflow of the resource occurs while updating the time-table.
-    fn update_time_table(&mut self, context: &mut PropagationContextMut) -> PropagationStatusCP {
+    fn update_time_table(
+        &mut self,
+        context: &mut SIPropagationContextMut,
+    ) -> Result<(), SIInconsistency> {
         if self.is_time_table_outdated {
             // We create the time-table from scratch (and return an error if it overflows)
             self.time_table =
@@ -357,10 +371,10 @@ impl<Var: IntegerVariable + 'static + Debug, const SYNCHRONISE: bool>
     }
 }
 
-impl<Var: IntegerVariable + 'static + Debug, const SYNCHRONISE: bool> Propagator
+impl<Var: IntegerVariable + 'static + Debug, const SYNCHRONISE: bool> SIPropagator
     for TimeTablePerPointIncrementalPropagator<Var, SYNCHRONISE>
 {
-    fn propagate(&mut self, mut context: PropagationContextMut) -> PropagationStatusCP {
+    fn propagate(&mut self, mut context: SIPropagationContextMut) -> Result<(), SIInconsistency> {
         pumpkin_assert_advanced!(
             check_bounds_equal_at_propagation(
                 context.as_readonly(),
@@ -485,8 +499,8 @@ impl<Var: IntegerVariable + 'static + Debug, const SYNCHRONISE: bool> Propagator
 
     fn debug_propagate_from_scratch(
         &self,
-        mut context: PropagationContextMut,
-    ) -> PropagationStatusCP {
+        mut context: SIPropagationContextMut,
+    ) -> Result<(), SIInconsistency> {
         // Use the same debug propagator from `TimeTablePerPoint`
         debug_propagate_from_scratch_time_table_point(
             &mut context,

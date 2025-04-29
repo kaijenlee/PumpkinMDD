@@ -14,6 +14,7 @@ use std::num::NonZero;
 use std::num::NonZeroU64;
 use std::path::Path;
 use std::path::PathBuf;
+use std::sync::Arc;
 
 use drcp_format::writer::ProofWriter;
 pub use drcp_format::Format;
@@ -22,6 +23,8 @@ pub use inference_code::*;
 
 use self::dimacs::DimacsProof;
 use self::proof_literals::ProofLiterals;
+use crate::containers::KeyedVec;
+use crate::containers::StorageKey;
 use crate::predicates::Predicate;
 use crate::variable_names::VariableNames;
 use crate::variables::Literal;
@@ -60,6 +63,7 @@ impl ProofLog {
                 writer,
                 log_inferences,
                 definitions_path,
+                inference_codes: KeyedVec::default(),
                 propagation_order_hint: if log_hints { Some(vec![]) } else { None },
             }),
         })
@@ -71,6 +75,21 @@ impl ProofLog {
         Ok(ProofLog {
             internal_proof: Some(ProofImpl::DimacsProof(DimacsProof::new(file))),
         })
+    }
+
+    pub fn create_inference_code(
+        &mut self,
+        constraint_tag: ConstraintTag,
+        inference_label: impl InferenceLabel,
+    ) -> InferenceCode {
+        match self.internal_proof.as_mut() {
+            Some(ProofImpl::CpProof {
+                log_inferences: true,
+                inference_codes,
+                ..
+            }) => inference_codes.push((constraint_tag, inference_label.to_str())),
+            _ => InferenceCode::create_from_index(0),
+        }
     }
 
     /// Log an inference to the proof.
@@ -222,6 +241,7 @@ enum ProofImpl {
         writer: ProofWriter<File, ProofLiterals>,
         log_inferences: bool,
         definitions_path: PathBuf,
+        inference_codes: KeyedVec<InferenceCode, (ConstraintTag, Arc<str>)>,
         // If propagation hints are enabled, this is a buffer used to record propagations in the
         // order they can be applied to derive the next nogood.
         propagation_order_hint: Option<Vec<NonZeroU64>>,

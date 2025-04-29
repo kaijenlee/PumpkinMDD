@@ -17,6 +17,12 @@ use crate::engine::variables::IntegerVariable;
 use crate::engine::IntDomainEvent;
 use crate::predicates::PropositionalConjunction;
 use crate::propagators::cumulative::time_table::propagation_handler::create_conflict_explanation;
+use crate::propagators::cumulative::TimeTable;
+use crate::propagators::single_inference::SIInconsistency;
+use crate::propagators::single_inference::SIPropagationContextMut;
+use crate::propagators::single_inference::SIPropagator;
+use crate::propagators::single_inference::SIPropagatorConstructor;
+use crate::propagators::single_inference::SIPropagatorConstructorContext;
 use crate::propagators::util::create_tasks;
 use crate::propagators::util::register_tasks;
 use crate::propagators::util::update_bounds_task;
@@ -88,22 +94,27 @@ impl<Var: IntegerVariable + 'static> TimeTableOverIntervalPropagator<Var> {
     }
 }
 
-impl<Var: IntegerVariable + 'static> PropagatorConstructor
+impl<Var: IntegerVariable + 'static> SIPropagatorConstructor
     for TimeTableOverIntervalPropagator<Var>
 {
     type PropagatorImpl = Self;
 
-    fn create(mut self, context: &mut PropagatorConstructorContext) -> Self::PropagatorImpl {
+    type InferenceLabelImpl = TimeTable;
+
+    fn create(
+        mut self,
+        mut context: SIPropagatorConstructorContext,
+    ) -> (Self::PropagatorImpl, Self::InferenceLabelImpl) {
         self.updatable_structures
             .initialise_bounds_and_remove_fixed(context.as_readonly(), &self.parameters);
-        register_tasks(&self.parameters.tasks, context, false);
+        register_tasks(&self.parameters.tasks, &mut context, false);
 
-        self
+        (self, TimeTable)
     }
 }
 
-impl<Var: IntegerVariable + 'static> Propagator for TimeTableOverIntervalPropagator<Var> {
-    fn propagate(&mut self, mut context: PropagationContextMut) -> PropagationStatusCP {
+impl<Var: IntegerVariable + 'static> SIPropagator for TimeTableOverIntervalPropagator<Var> {
+    fn propagate(&mut self, mut context: SIPropagationContextMut) -> Result<(), SIInconsistency> {
         let time_table =
             create_time_table_over_interval_from_scratch(context.as_readonly(), &self.parameters)?;
         self.is_time_table_empty = time_table.is_empty();
@@ -168,8 +179,8 @@ impl<Var: IntegerVariable + 'static> Propagator for TimeTableOverIntervalPropaga
 
     fn debug_propagate_from_scratch(
         &self,
-        mut context: PropagationContextMut,
-    ) -> PropagationStatusCP {
+        mut context: SIPropagationContextMut,
+    ) -> Result<(), SIInconsistency> {
         debug_propagate_from_scratch_time_table_interval(
             &mut context,
             &self.parameters,
@@ -419,10 +430,10 @@ fn check_starting_new_profile_invariants<Var: IntegerVariable + 'static>(
 }
 
 pub(crate) fn debug_propagate_from_scratch_time_table_interval<Var: IntegerVariable + 'static>(
-    context: &mut PropagationContextMut,
+    context: &mut SIPropagationContextMut,
     parameters: &CumulativeParameters<Var>,
     updatable_structures: &UpdatableStructures<Var>,
-) -> PropagationStatusCP {
+) -> Result<(), SIInconsistency> {
     // We first create a time-table over interval and return an error if there was
     // an overflow of the resource capacity while building the time-table
     let time_table =

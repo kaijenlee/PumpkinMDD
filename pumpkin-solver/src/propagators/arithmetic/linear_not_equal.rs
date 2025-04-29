@@ -4,20 +4,23 @@ use enumset::enum_set;
 
 use crate::basic_types::PropagationStatusCP;
 use crate::basic_types::PropositionalConjunction;
+use crate::declare_inference_label;
 use crate::engine::cp::propagation::ReadDomains;
 use crate::engine::domain_events::DomainEvents;
 use crate::engine::opaque_domain_event::OpaqueDomainEvent;
-use crate::engine::propagation::constructor::PropagatorConstructor;
-use crate::engine::propagation::constructor::PropagatorConstructorContext;
 use crate::engine::propagation::contexts::PropagationContextWithTrailedValues;
 use crate::engine::propagation::EnqueueDecision;
 use crate::engine::propagation::LocalId;
 use crate::engine::propagation::PropagationContext;
 use crate::engine::propagation::PropagationContextMut;
-use crate::engine::propagation::Propagator;
 use crate::engine::variables::IntegerVariable;
 use crate::engine::IntDomainEvent;
 use crate::predicate;
+use crate::propagators::single_inference::SIInconsistency;
+use crate::propagators::single_inference::SIPropagationContextMut;
+use crate::propagators::single_inference::SIPropagator;
+use crate::propagators::single_inference::SIPropagatorConstructor;
+use crate::propagators::single_inference::SIPropagatorConstructorContext;
 use crate::pumpkin_assert_extreme;
 use crate::pumpkin_assert_moderate;
 use crate::pumpkin_assert_simple;
@@ -31,13 +34,20 @@ pub(crate) struct LinearNotEqualPropagatorArgs<Var> {
     pub(crate) rhs: i32,
 }
 
-impl<Var> PropagatorConstructor for LinearNotEqualPropagatorArgs<Var>
+declare_inference_label!(pub LinearNotEqual);
+
+impl<Var> SIPropagatorConstructor for LinearNotEqualPropagatorArgs<Var>
 where
     Var: IntegerVariable + 'static,
 {
     type PropagatorImpl = LinearNotEqualPropagator<Var>;
 
-    fn create(self, context: &mut PropagatorConstructorContext) -> Self::PropagatorImpl {
+    type InferenceLabelImpl = LinearNotEqual;
+
+    fn create(
+        self,
+        mut context: SIPropagatorConstructorContext,
+    ) -> (Self::PropagatorImpl, Self::InferenceLabelImpl) {
         let LinearNotEqualPropagatorArgs { terms, rhs } = self;
 
         for (i, x_i) in terms.iter().enumerate() {
@@ -62,7 +72,7 @@ where
 
         propagator.recalculate_fixed_variables(context.as_readonly());
 
-        propagator
+        (propagator, LinearNotEqual)
     }
 }
 
@@ -88,7 +98,7 @@ pub(crate) struct LinearNotEqualPropagator<Var> {
     should_recalculate_lhs: bool,
 }
 
-impl<Var> Propagator for LinearNotEqualPropagator<Var>
+impl<Var> SIPropagator for LinearNotEqualPropagator<Var>
 where
     Var: IntegerVariable + 'static,
 {
@@ -162,7 +172,7 @@ where
         }
     }
 
-    fn propagate(&mut self, mut context: PropagationContextMut) -> PropagationStatusCP {
+    fn propagate(&mut self, mut context: SIPropagationContextMut) -> Result<(), SIInconsistency> {
         // If the left-hand side is out of date then we simply recalculate from scratch; we only do
         // this when we can propagate or check for a conflict
         if self.should_recalculate_lhs && self.number_of_fixed_terms >= self.terms.len() - 1 {
@@ -213,8 +223,8 @@ where
 
     fn debug_propagate_from_scratch(
         &self,
-        mut context: PropagationContextMut,
-    ) -> PropagationStatusCP {
+        mut context: SIPropagationContextMut,
+    ) -> Result<(), SIInconsistency> {
         let num_fixed = self
             .terms
             .iter()

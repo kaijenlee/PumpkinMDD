@@ -1,14 +1,16 @@
-use crate::basic_types::PropagationStatusCP;
 use crate::conjunction;
+use crate::declare_inference_label;
 use crate::engine::cp::propagation::ReadDomains;
 use crate::engine::domain_events::DomainEvents;
-use crate::engine::propagation::constructor::PropagatorConstructor;
-use crate::engine::propagation::constructor::PropagatorConstructorContext;
 use crate::engine::propagation::LocalId;
 use crate::engine::propagation::PropagationContextMut;
-use crate::engine::propagation::Propagator;
 use crate::engine::variables::IntegerVariable;
 use crate::predicate;
+use crate::propagators::single_inference::SIInconsistency;
+use crate::propagators::single_inference::SIPropagationContextMut;
+use crate::propagators::single_inference::SIPropagator;
+use crate::propagators::single_inference::SIPropagatorConstructor;
+use crate::propagators::single_inference::SIPropagatorConstructorContext;
 use crate::pumpkin_assert_simple;
 
 /// A propagator for maintaining the constraint `a * b = c`. The propagator
@@ -25,6 +27,8 @@ const ID_A: LocalId = LocalId::from(0);
 const ID_B: LocalId = LocalId::from(1);
 const ID_C: LocalId = LocalId::from(2);
 
+declare_inference_label!(pub IntegerMultiplicationLabel);
+
 impl<VA, VB, VC> IntegerMultiplicationPropagator<VA, VB, VC>
 where
     VA: IntegerVariable + 'static,
@@ -36,7 +40,7 @@ where
     }
 }
 
-impl<VA: 'static, VB: 'static, VC: 'static> PropagatorConstructor
+impl<VA: 'static, VB: 'static, VC: 'static> SIPropagatorConstructor
     for IntegerMultiplicationPropagator<VA, VB, VC>
 where
     VA: IntegerVariable,
@@ -45,16 +49,21 @@ where
 {
     type PropagatorImpl = Self;
 
-    fn create(self, context: &mut PropagatorConstructorContext) -> Self::PropagatorImpl {
+    type InferenceLabelImpl = IntegerMultiplicationLabel;
+
+    fn create(
+        self,
+        mut context: SIPropagatorConstructorContext,
+    ) -> (Self::PropagatorImpl, Self::InferenceLabelImpl) {
         context.register(self.a.clone(), DomainEvents::ANY_INT, ID_A);
         context.register(self.b.clone(), DomainEvents::ANY_INT, ID_B);
         context.register(self.c.clone(), DomainEvents::ANY_INT, ID_C);
 
-        self
+        (self, IntegerMultiplicationLabel)
     }
 }
 
-impl<VA: 'static, VB: 'static, VC: 'static> Propagator
+impl<VA: 'static, VB: 'static, VC: 'static> SIPropagator
     for IntegerMultiplicationPropagator<VA, VB, VC>
 where
     VA: IntegerVariable,
@@ -69,17 +78,20 @@ where
         "IntTimes"
     }
 
-    fn debug_propagate_from_scratch(&self, context: PropagationContextMut) -> PropagationStatusCP {
+    fn debug_propagate_from_scratch(
+        &self,
+        context: SIPropagationContextMut,
+    ) -> Result<(), SIInconsistency> {
         perform_propagation(context, &self.a, &self.b, &self.c)
     }
 }
 
 fn perform_propagation<VA: IntegerVariable, VB: IntegerVariable, VC: IntegerVariable>(
-    mut context: PropagationContextMut,
+    mut context: SIPropagationContextMut,
     a: &VA,
     b: &VB,
     c: &VC,
-) -> PropagationStatusCP {
+) -> Result<(), SIInconsistency> {
     // First we propagate the signs
     propagate_signs(&mut context, a, b, c)?;
 
@@ -188,11 +200,11 @@ fn perform_propagation<VA: IntegerVariable, VB: IntegerVariable, VC: IntegerVari
 /// Note that this method does not propagate a value if 0 is in the domain as, for example, 0 * -3 =
 /// 0 and 0 * 3 = 0 are both equally valid.
 fn propagate_signs<VA: IntegerVariable, VB: IntegerVariable, VC: IntegerVariable>(
-    context: &mut PropagationContextMut,
+    context: &mut SIPropagationContextMut,
     a: &VA,
     b: &VB,
     c: &VC,
-) -> PropagationStatusCP {
+) -> Result<(), SIInconsistency> {
     let a_min = context.lower_bound(a);
     let a_max = context.upper_bound(a);
     let b_min = context.lower_bound(b);

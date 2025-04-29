@@ -8,6 +8,7 @@ use crate::engine::propagation::PropagationContext;
 use crate::engine::propagation::ReadDomains;
 use crate::propagators::create_time_table_over_interval_from_scratch;
 use crate::propagators::cumulative::time_table::propagation_handler::create_conflict_explanation;
+use crate::propagators::single_inference::SIInconsistency;
 use crate::propagators::CumulativeParameters;
 use crate::propagators::OverIntervalTimeTableType;
 use crate::propagators::ResourceProfile;
@@ -55,16 +56,16 @@ pub(crate) fn find_synchronised_conflict<Var: IntegerVariable + 'static>(
 pub(crate) fn check_synchronisation_conflict_explanation_over_interval<
     Var: IntegerVariable + 'static,
 >(
-    synchronised_conflict_explanation: &PropagationStatusCP,
+    synchronised_conflict_explanation: &Result<(), SIInconsistency>,
     context: PropagationContext,
     parameters: &CumulativeParameters<Var>,
 ) -> bool {
     let error_from_scratch = create_time_table_over_interval_from_scratch(context, parameters);
     if let Err(explanation_scratch) = error_from_scratch {
-        if let Err(Inconsistency::Conflict(explanation)) = &synchronised_conflict_explanation {
+        if let Err(SIInconsistency::Conflict(explanation)) = &synchronised_conflict_explanation {
             // We check whether both inconsistencies are of the same type and then we check their
             // corresponding explanations
-            explanation.conjunction == explanation_scratch
+            explanation == &explanation_scratch
         } else {
             false
         }
@@ -81,7 +82,7 @@ pub(crate) fn create_synchronised_conflict_explanation<Var: IntegerVariable + 's
     context: PropagationContext,
     conflicting_profile: &mut ResourceProfile<Var>,
     parameters: &CumulativeParameters<Var>,
-) -> PropagationStatusCP {
+) -> Result<(), SIInconsistency> {
     // If we need to synchronise then we need to find the conflict profile which
     // would have been found by the non-incremental propagator; we thus first sort based on
     // upper-bounds of the tasks (i.e. the starts of the mandatory parts) and then tie-break on the

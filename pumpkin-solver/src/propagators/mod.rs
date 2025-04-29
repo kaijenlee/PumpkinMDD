@@ -7,6 +7,8 @@ mod cumulative;
 pub(crate) mod element;
 pub(crate) mod nogoods;
 mod reified_propagator;
+pub(crate) mod single_inference;
+
 pub(crate) use arithmetic::*;
 pub use cumulative::CumulativeExplanationType;
 pub use cumulative::CumulativeOptions;

@@ -39,6 +39,9 @@ pub use cumulative::*;
 pub use element::*;
 
 use crate::engine::propagation::constructor::PropagatorConstructor;
+use crate::propagators::single_inference::SIPropagator;
+use crate::propagators::single_inference::SIPropagatorConstructor;
+use crate::propagators::single_inference::SingleInferencePropagatorArgs;
 use crate::propagators::ReifiedPropagatorArgs;
 use crate::variables::Literal;
 use crate::ConstraintOperationError;
@@ -74,9 +77,10 @@ pub trait Constraint {
     ) -> Result<(), ConstraintOperationError>;
 }
 
-impl<ConcretePropagator> Constraint for ConcretePropagator
+impl<ConcretePropagator> Constraint for SingleInferencePropagatorArgs<ConcretePropagator>
 where
-    ConcretePropagator: PropagatorConstructor + 'static,
+    ConcretePropagator: SIPropagatorConstructor + 'static,
+    ConcretePropagator::PropagatorImpl: SIPropagator,
 {
     fn post(self, solver: &mut Solver) -> Result<(), ConstraintOperationError> {
         solver.add_propagator(self)
@@ -87,9 +91,17 @@ where
         solver: &mut Solver,
         reification_literal: Literal,
     ) -> Result<(), ConstraintOperationError> {
-        solver.add_propagator(ReifiedPropagatorArgs {
-            propagator: self,
-            reification_literal,
+        let SingleInferencePropagatorArgs {
+            wrapped_args,
+            constraint_tag,
+        } = self;
+
+        solver.add_propagator(SingleInferencePropagatorArgs {
+            wrapped_args: ReifiedPropagatorArgs {
+                propagator: wrapped_args,
+                reification_literal,
+            },
+            constraint_tag,
         })
     }
 }

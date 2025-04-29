@@ -1,3 +1,8 @@
+use super::single_inference::SIInconsistency;
+use super::single_inference::SIPropagationContextMut;
+use super::single_inference::SIPropagator;
+use super::single_inference::SIPropagatorConstructor;
+use super::single_inference::SIPropagatorConstructorContext;
 use crate::basic_types::Inconsistency;
 use crate::basic_types::PropagationStatusCP;
 use crate::engine::opaque_domain_event::OpaqueDomainEvent;
@@ -21,20 +26,25 @@ pub(crate) struct ReifiedPropagatorArgs<WrappedArgs> {
     pub(crate) reification_literal: Literal,
 }
 
-impl<WrappedArgs, WrappedPropagator> PropagatorConstructor for ReifiedPropagatorArgs<WrappedArgs>
+impl<WrappedArgs, WrappedPropagator> SIPropagatorConstructor for ReifiedPropagatorArgs<WrappedArgs>
 where
-    WrappedArgs: PropagatorConstructor<PropagatorImpl = WrappedPropagator>,
-    WrappedPropagator: Propagator,
+    WrappedArgs: SIPropagatorConstructor<PropagatorImpl = WrappedPropagator>,
+    WrappedPropagator: SIPropagator,
 {
     type PropagatorImpl = ReifiedPropagator<WrappedPropagator>;
 
-    fn create(self, context: &mut PropagatorConstructorContext) -> Self::PropagatorImpl {
+    type InferenceLabelImpl = WrappedArgs::InferenceLabelImpl;
+
+    fn create(
+        self,
+        mut context: SIPropagatorConstructorContext,
+    ) -> (Self::PropagatorImpl, Self::InferenceLabelImpl) {
         let ReifiedPropagatorArgs {
             propagator,
             reification_literal,
         } = self;
 
-        let propagator = propagator.create(context);
+        let (propagator, inference_code) = propagator.create(context.reborrow());
         let reification_literal_id = context.get_next_local_id();
 
         context.register(
@@ -45,12 +55,14 @@ where
 
         let name = format!("Reified({})", propagator.name());
 
-        ReifiedPropagator {
+        let propagator = ReifiedPropagator {
             propagator,
             reification_literal,
             reification_literal_id,
             name,
-        }
+        };
+
+        (propagator, inference_code)
     }
 }
 
@@ -72,7 +84,7 @@ pub(crate) struct ReifiedPropagator<WrappedPropagator> {
     reification_literal_id: LocalId,
 }
 
-impl<WrappedPropagator: Propagator> Propagator for ReifiedPropagator<WrappedPropagator> {
+impl<WrappedPropagator: SIPropagator> SIPropagator for ReifiedPropagator<WrappedPropagator> {
     fn notify(
         &mut self,
         context: PropagationContextWithTrailedValues,
@@ -116,7 +128,7 @@ impl<WrappedPropagator: Propagator> Propagator for ReifiedPropagator<WrappedProp
         self.propagator.synchronise(context);
     }
 
-    fn propagate(&mut self, mut context: PropagationContextMut) -> PropagationStatusCP {
+    fn propagate(&mut self, mut context: SIPropagationContextMut) -> Result<(), SIInconsistency> {
         self.propagate_reification(&mut context)?;
 
         if context.is_literal_true(&self.reification_literal) {
@@ -136,8 +148,8 @@ impl<WrappedPropagator: Propagator> Propagator for ReifiedPropagator<WrappedProp
 
     fn debug_propagate_from_scratch(
         &self,
-        mut context: PropagationContextMut,
-    ) -> PropagationStatusCP {
+        mut context: SIPropagationContextMut,
+    ) -> Result<(), SIInconsistency> {
         self.propagate_reification(&mut context)?;
 
         if context.is_literal_true(&self.reification_literal) {
@@ -152,20 +164,21 @@ impl<WrappedPropagator: Propagator> Propagator for ReifiedPropagator<WrappedProp
     }
 }
 
-impl<Prop: Propagator> ReifiedPropagator<Prop> {
-    fn map_propagation_status(&self, mut status: PropagationStatusCP) -> PropagationStatusCP {
-        if let Err(Inconsistency::Conflict(ref mut conflict)) = status {
-            conflict
-                .conjunction
-                .add(self.reification_literal.get_true_predicate());
+impl<Prop: SIPropagator> ReifiedPropagator<Prop> {
+    fn map_propagation_status(
+        &self,
+        mut status: Result<(), SIInconsistency>,
+    ) -> Result<(), SIInconsistency> {
+        if let Err(SIInconsistency::Conflict(ref mut conflict)) = status {
+            conflict.add(self.reification_literal.get_true_predicate());
         }
         status
     }
 
-    fn propagate_reification(&self, context: &mut PropagationContextMut<'_>) -> PropagationStatusCP
-    where
-        Prop: Propagator,
-    {
+    fn propagate_reification(
+        &self,
+        context: &mut SIPropagationContextMut<'_>,
+    ) -> Result<(), SIInconsistency> {
         if !context.is_literal_fixed(&self.reification_literal) {
             if let Some(conjunction) = self
                 .propagator
@@ -354,7 +367,7 @@ mod tests {
     {
         type PropagatorImpl = Self;
 
-        fn create(self, context: &mut PropagatorConstructorContext) -> Self::PropagatorImpl {
+        fn create(self, mut context: PropagatorConstructorContext) -> Self::PropagatorImpl {
             for (index, variable) in self.variables_to_register.iter().enumerate() {
                 context.register(
                     *variable,

@@ -1,10 +1,10 @@
 use std::rc::Rc;
 
 use crate::basic_types::Inconsistency;
-use crate::basic_types::PropagationStatusCP;
 use crate::engine::propagation::PropagationContext;
 use crate::propagators::create_time_table_per_point_from_scratch;
 use crate::propagators::cumulative::time_table::propagation_handler::create_conflict_explanation;
+use crate::propagators::single_inference::SIInconsistency;
 use crate::propagators::CumulativeParameters;
 use crate::propagators::PerPointTimeTableType;
 use crate::propagators::ResourceProfile;
@@ -18,16 +18,16 @@ use crate::variables::IntegerVariable;
 pub(crate) fn check_synchronisation_conflict_explanation_per_point<
     Var: IntegerVariable + 'static,
 >(
-    synchronised_conflict_explanation: &PropagationStatusCP,
+    synchronised_conflict_explanation: &Result<(), SIInconsistency>,
     context: PropagationContext,
     parameters: &CumulativeParameters<Var>,
 ) -> bool {
     let error_from_scratch = create_time_table_per_point_from_scratch(context, parameters);
     if let Err(explanation_scratch) = error_from_scratch {
-        if let Err(Inconsistency::Conflict(explanation)) = &synchronised_conflict_explanation {
+        if let Err(SIInconsistency::Conflict(explanation)) = &synchronised_conflict_explanation {
             // We check whether both inconsistencies are of the same type and then we check their
             // corresponding explanations
-            explanation.conjunction == explanation_scratch
+            explanation == &explanation_scratch
         } else {
             false
         }
@@ -110,7 +110,7 @@ pub(crate) fn create_synchronised_conflict_explanation<Var: IntegerVariable + 's
     context: PropagationContext,
     conflicting_profile: &mut ResourceProfile<Var>,
     parameters: &CumulativeParameters<Var>,
-) -> PropagationStatusCP {
+) -> Result<(), SIInconsistency> {
     // Store because we are mutably borrowing the conflicting profile
     let new_profile_start = conflicting_profile.start;
     let new_profile_end = conflicting_profile.end;

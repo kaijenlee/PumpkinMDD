@@ -10,6 +10,7 @@ use crate::predicates::Predicate;
 use crate::predicates::PropositionalConjunction;
 use crate::propagators::cumulative::time_table::explanations::add_propagating_task_predicate_lower_bound;
 use crate::propagators::cumulative::time_table::explanations::add_propagating_task_predicate_upper_bound;
+use crate::propagators::single_inference::SIPropagationContextMut;
 use crate::propagators::ResourceProfile;
 use crate::propagators::Task;
 use crate::pumpkin_assert_extreme;
@@ -17,7 +18,7 @@ use crate::pumpkin_assert_simple;
 use crate::variables::IntegerVariable;
 
 pub(crate) fn propagate_lower_bounds_with_pointwise_explanations<Var: IntegerVariable + 'static>(
-    context: &mut PropagationContextMut,
+    context: &mut SIPropagationContextMut,
     profiles: &[&ResourceProfile<Var>],
     propagating_task: &Rc<Task<Var>>,
 ) -> Result<(), EmptyDomain> {
@@ -124,7 +125,7 @@ pub(crate) fn propagate_lower_bounds_with_pointwise_explanations<Var: IntegerVar
     Ok(())
 }
 pub(crate) fn propagate_upper_bounds_with_pointwise_explanations<Var: IntegerVariable + 'static>(
-    context: &mut PropagationContextMut,
+    context: &mut SIPropagationContextMut,
     profiles: &[&ResourceProfile<Var>],
     propagating_task: &Rc<Task<Var>>,
 ) -> Result<(), EmptyDomain> {

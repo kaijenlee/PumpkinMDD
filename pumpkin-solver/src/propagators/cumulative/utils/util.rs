@@ -12,6 +12,7 @@ use crate::engine::propagation::local_id::LocalId;
 use crate::engine::propagation::PropagationContext;
 use crate::engine::variables::IntegerVariable;
 use crate::engine::IntDomainEvent;
+use crate::propagators::single_inference::SIPropagatorConstructorContext;
 use crate::propagators::ArgTask;
 use crate::propagators::Task;
 
@@ -50,7 +51,7 @@ pub(crate) fn create_tasks<Var: IntegerVariable + 'static>(
 
 pub(crate) fn register_tasks<Var: IntegerVariable + 'static>(
     tasks: &[Rc<Task<Var>>],
-    context: &mut PropagatorConstructorContext<'_>,
+    context: &mut SIPropagatorConstructorContext<'_>,
     register_backtrack: bool,
 ) {
     tasks.iter().for_each(|task| {

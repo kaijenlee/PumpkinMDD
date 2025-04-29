@@ -1,5 +1,6 @@
 use crate::basic_types::PropagationStatusCP;
 use crate::basic_types::PropositionalConjunction;
+use crate::declare_inference_label;
 use crate::engine::cp::propagation::ReadDomains;
 use crate::engine::domain_events::DomainEvents;
 use crate::engine::opaque_domain_event::OpaqueDomainEvent;
@@ -15,6 +16,11 @@ use crate::engine::propagation::Propagator;
 use crate::engine::variables::IntegerVariable;
 use crate::engine::TrailedInteger;
 use crate::predicate;
+use crate::propagators::single_inference::SIInconsistency;
+use crate::propagators::single_inference::SIPropagationContextMut;
+use crate::propagators::single_inference::SIPropagator;
+use crate::propagators::single_inference::SIPropagatorConstructor;
+use crate::propagators::single_inference::SIPropagatorConstructorContext;
 use crate::pumpkin_assert_simple;
 
 /// The [`PropagatorConstructor`] for the [`LinearLessOrEqualPropagator`].
@@ -24,13 +30,20 @@ pub(crate) struct LinearLessOrEqualPropagatorArgs<Var> {
     pub(crate) c: i32,
 }
 
-impl<Var> PropagatorConstructor for LinearLessOrEqualPropagatorArgs<Var>
+declare_inference_label!(pub LinearBounds);
+
+impl<Var> SIPropagatorConstructor for LinearLessOrEqualPropagatorArgs<Var>
 where
     Var: IntegerVariable + 'static,
 {
     type PropagatorImpl = LinearLessOrEqualPropagator<Var>;
 
-    fn create(self, context: &mut PropagatorConstructorContext) -> Self::PropagatorImpl {
+    type InferenceLabelImpl = LinearBounds;
+
+    fn create(
+        self,
+        mut context: SIPropagatorConstructorContext,
+    ) -> (Self::PropagatorImpl, Self::InferenceLabelImpl) {
         let LinearLessOrEqualPropagatorArgs { x, c } = self;
 
         let mut lower_bound_left_hand_side = 0_i64;
@@ -48,12 +61,14 @@ where
 
         let lower_bound_left_hand_side = context.new_trailed_integer(lower_bound_left_hand_side);
 
-        LinearLessOrEqualPropagator {
+        let propagator = LinearLessOrEqualPropagator {
             x,
             c,
             lower_bound_left_hand_side,
             current_bounds: current_bounds.into(),
-        }
+        };
+
+        (propagator, LinearBounds)
     }
 }
 
@@ -81,7 +96,7 @@ where
     }
 }
 
-impl<Var: 'static> Propagator for LinearLessOrEqualPropagator<Var>
+impl<Var: 'static> SIPropagator for LinearLessOrEqualPropagator<Var>
 where
     Var: IntegerVariable,
 {
@@ -127,7 +142,7 @@ where
         "LinearLeq"
     }
 
-    fn propagate(&mut self, mut context: PropagationContextMut) -> PropagationStatusCP {
+    fn propagate(&mut self, mut context: SIPropagationContextMut) -> Result<(), SIInconsistency> {
         if let Some(conjunction) = self.detect_inconsistency(context.as_trailed_readonly()) {
             return Err(conjunction.into());
         }
@@ -180,8 +195,8 @@ where
 
     fn debug_propagate_from_scratch(
         &self,
-        mut context: PropagationContextMut,
-    ) -> PropagationStatusCP {
+        mut context: SIPropagationContextMut,
+    ) -> Result<(), SIInconsistency> {
         let lower_bound_left_hand_side = self
             .x
             .iter()

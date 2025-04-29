@@ -22,6 +22,7 @@ use crate::engine::EmptyDomain;
 use crate::predicate;
 use crate::predicates::PropositionalConjunction;
 use crate::propagators::cumulative::time_table::explanations::pointwise;
+use crate::propagators::single_inference::SIPropagationContextMut;
 use crate::propagators::ResourceProfile;
 use crate::propagators::Task;
 use crate::pumpkin_assert_advanced;
@@ -61,7 +62,7 @@ impl CumulativePropagationHandler {
     /// `profiles` anymore.
     pub(crate) fn propagate_chain_of_lower_bounds_with_explanations<Var>(
         &mut self,
-        context: &mut PropagationContextMut,
+        context: &mut SIPropagationContextMut,
         profiles: &[&ResourceProfile<Var>],
         propagating_task: &Rc<Task<Var>>,
     ) -> Result<(), EmptyDomain>
@@ -124,7 +125,7 @@ impl CumulativePropagationHandler {
     /// `profiles` anymore.
     pub(crate) fn propagate_chain_of_upper_bounds_with_explanations<Var>(
         &mut self,
-        context: &mut PropagationContextMut,
+        context: &mut SIPropagationContextMut,
         profiles: &[&ResourceProfile<Var>],
         propagating_task: &Rc<Task<Var>>,
     ) -> Result<(), EmptyDomain>
@@ -187,7 +188,7 @@ impl CumulativePropagationHandler {
     /// Propagates the lower-bound of the `propagating_task` to not conflict with `profile` anymore.
     pub(crate) fn propagate_lower_bound_with_explanations<Var>(
         &mut self,
-        context: &mut PropagationContextMut,
+        context: &mut SIPropagationContextMut,
         profile: &ResourceProfile<Var>,
         propagating_task: &Rc<Task<Var>>,
     ) -> Result<(), EmptyDomain>
@@ -235,7 +236,7 @@ impl CumulativePropagationHandler {
     /// Propagates the upper-bound of the `propagating_task` to not conflict with `profile` anymore.
     pub(crate) fn propagate_upper_bound_with_explanations<Var>(
         &mut self,
-        context: &mut PropagationContextMut,
+        context: &mut SIPropagationContextMut,
         profile: &ResourceProfile<Var>,
         propagating_task: &Rc<Task<Var>>,
     ) -> Result<(), EmptyDomain>
@@ -288,7 +289,7 @@ impl CumulativePropagationHandler {
     /// bounds of `propagating_task`.
     pub(crate) fn propagate_holes_in_domain<Var>(
         &mut self,
-        context: &mut PropagationContextMut,
+        context: &mut SIPropagationContextMut,
         profile: &ResourceProfile<Var>,
         propagating_task: &Rc<Task<Var>>,
     ) -> Result<(), EmptyDomain>
@@ -383,7 +384,7 @@ impl CumulativePropagationHandler {
     /// Either we get the stored stored profile explanation or we initialize it.
     fn get_stored_profile_explanation_or_init<Var>(
         &mut self,
-        context: &mut PropagationContextMut,
+        context: &mut SIPropagationContextMut,
         profile: &ResourceProfile<Var>,
     ) -> Rc<PropositionalConjunction>
     where

@@ -119,3 +119,7 @@ pub use options::*;
 
 mod utils;
 pub(crate) use utils::*;
+
+use crate::declare_inference_label;
+
+declare_inference_label!(pub TimeTable);

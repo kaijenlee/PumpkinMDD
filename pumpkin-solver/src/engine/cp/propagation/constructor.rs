@@ -1,3 +1,4 @@
+use super::contexts::HasTrailedValues;
 use super::LocalId;
 use super::PropagationContext;
 use super::Propagator;
@@ -8,6 +9,10 @@ use crate::engine::DomainEvents;
 use crate::engine::TrailedValues;
 use crate::engine::WatchListCP;
 use crate::engine::Watchers;
+use crate::proof::ConstraintTag;
+use crate::proof::InferenceCode;
+use crate::proof::InferenceLabel;
+use crate::proof::ProofLog;
 use crate::variables::IntegerVariable;
 
 /// A propagator constructor creates a fully initialized instance of a [`Propagator`].
@@ -20,7 +25,7 @@ pub(crate) trait PropagatorConstructor {
     type PropagatorImpl: Propagator;
 
     /// Create the propagator instance from `Self`.
-    fn create(self, context: &mut PropagatorConstructorContext) -> Self::PropagatorImpl;
+    fn create(self, context: PropagatorConstructorContext) -> Self::PropagatorImpl;
 }
 
 /// [`PropagatorConstructorContext`] is used when [`Propagator`]s are initialised after creation.
@@ -34,6 +39,7 @@ pub(crate) struct PropagatorConstructorContext<'a> {
     trailed_values: &'a mut TrailedValues,
     propagator_id: PropagatorId,
     next_local_id: LocalId,
+    proof_log: &'a mut ProofLog,
 
     pub assignments: &'a mut Assignments,
 }
@@ -43,6 +49,7 @@ impl PropagatorConstructorContext<'_> {
         watch_list: &'a mut WatchListCP,
         trailed_values: &'a mut TrailedValues,
         propagator_id: PropagatorId,
+        proof_log: &'a mut ProofLog,
         assignments: &'a mut Assignments,
     ) -> PropagatorConstructorContext<'a> {
         PropagatorConstructorContext {
@@ -50,6 +57,7 @@ impl PropagatorConstructorContext<'_> {
             trailed_values,
             propagator_id,
             next_local_id: LocalId::from(0),
+            proof_log,
 
             assignments,
         }
@@ -119,6 +127,29 @@ impl PropagatorConstructorContext<'_> {
 
     pub(crate) fn get_next_local_id(&self) -> LocalId {
         self.next_local_id
+    }
+
+    /// Create a new inference code to use whenever the propagator makes a propagation.
+    pub(crate) fn create_inference_code(
+        &mut self,
+        constraint_tag: ConstraintTag,
+        inference_label: impl InferenceLabel,
+    ) -> InferenceCode {
+        self.proof_log
+            .create_inference_code(constraint_tag, inference_label)
+    }
+
+    /// Create a new context that lives shorter than `self`. Used to be be able to call multiple
+    /// functions that take ownership of an instance of [`Self`].
+    pub(crate) fn reborrow<'b>(&'b mut self) -> PropagatorConstructorContext<'b> {
+        PropagatorConstructorContext {
+            watch_list: self.watch_list,
+            trailed_values: self.trailed_values,
+            propagator_id: self.propagator_id,
+            next_local_id: self.next_local_id,
+            proof_log: self.proof_log,
+            assignments: self.assignments,
+        }
     }
 }
 

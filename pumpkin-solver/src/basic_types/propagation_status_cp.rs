@@ -1,5 +1,4 @@
 use crate::basic_types::PropositionalConjunction;
-use crate::containers::StorageKey;
 use crate::engine::EmptyDomain;
 use crate::proof::InferenceCode;
 
@@ -17,16 +16,6 @@ pub(crate) enum Inconsistency {
 impl From<EmptyDomain> for Inconsistency {
     fn from(_: EmptyDomain) -> Self {
         Inconsistency::EmptyDomain
-    }
-}
-
-// TODO: Remove this after finalizing refactoring.
-impl From<PropositionalConjunction> for Inconsistency {
-    fn from(conjunction: PropositionalConjunction) -> Self {
-        Inconsistency::Conflict(PropagatorConflict {
-            conjunction,
-            inference_code: InferenceCode::create_from_index(0),
-        })
     }
 }
 

@@ -1,7 +1,13 @@
 use bitfield_struct::bitfield;
 
+use super::single_inference::SIInconsistency;
+use super::single_inference::SIPropagationContextMut;
+use super::single_inference::SIPropagator;
+use super::single_inference::SIPropagatorConstructor;
+use super::single_inference::SIPropagatorConstructorContext;
 use crate::basic_types::PropagationStatusCP;
 use crate::conjunction;
+use crate::declare_inference_label;
 use crate::engine::domain_events::DomainEvents;
 use crate::engine::propagation::constructor::PropagatorConstructor;
 use crate::engine::propagation::constructor::PropagatorConstructorContext;
@@ -39,7 +45,9 @@ impl<VX, VI, VE> ElementPropagator<VX, VI, VE> {
     }
 }
 
-impl<VX, VI, VE> PropagatorConstructor for ElementPropagator<VX, VI, VE>
+declare_inference_label!(pub Element);
+
+impl<VX, VI, VE> SIPropagatorConstructor for ElementPropagator<VX, VI, VE>
 where
     VX: IntegerVariable + 'static,
     VI: IntegerVariable + 'static,
@@ -47,7 +55,12 @@ where
 {
     type PropagatorImpl = Self;
 
-    fn create(self, context: &mut PropagatorConstructorContext) -> Self::PropagatorImpl {
+    type InferenceLabelImpl = Element;
+
+    fn create(
+        self,
+        mut context: SIPropagatorConstructorContext,
+    ) -> (Self::PropagatorImpl, Self::InferenceLabelImpl) {
         for (i, x_i) in self.array.iter().enumerate() {
             context.register(
                 x_i.clone(),
@@ -59,7 +72,7 @@ where
         context.register(self.index.clone(), DomainEvents::ANY_INT, ID_INDEX);
         context.register(self.rhs.clone(), DomainEvents::ANY_INT, ID_RHS);
 
-        self
+        (self, Element)
     }
 }
 
@@ -69,7 +82,7 @@ const ID_RHS: LocalId = LocalId::from(1);
 // local ids of array vars are shifted by ID_X_OFFSET
 const ID_X_OFFSET: u32 = 2;
 
-impl<VX, VI, VE> Propagator for ElementPropagator<VX, VI, VE>
+impl<VX, VI, VE> SIPropagator for ElementPropagator<VX, VI, VE>
 where
     VX: IntegerVariable + 'static,
     VI: IntegerVariable + 'static,
@@ -85,8 +98,8 @@ where
 
     fn debug_propagate_from_scratch(
         &self,
-        mut context: PropagationContextMut,
-    ) -> PropagationStatusCP {
+        mut context: SIPropagationContextMut,
+    ) -> Result<(), SIInconsistency> {
         self.propagate_index_bounds_within_array(&mut context)?;
 
         self.propagate_rhs_bounds_based_on_array(&mut context)?;
@@ -95,7 +108,7 @@ where
 
         if context.is_fixed(&self.index) {
             let idx = context.lower_bound(&self.index);
-            self.propagate_equality(&mut context, idx)?;
+            self.propagate_equality(context.reborrow(), idx)?;
         }
 
         Ok(())
@@ -130,8 +143,8 @@ where
     /// Propagate the bounds of `self.index` to be in the range `[0, self.array.len())`.
     fn propagate_index_bounds_within_array(
         &self,
-        context: &mut PropagationContextMut<'_>,
-    ) -> PropagationStatusCP {
+        context: &mut SIPropagationContextMut<'_>,
+    ) -> Result<(), SIInconsistency> {
         context.post(predicate![self.index >= 0], conjunction!())?;
         context.post(
             predicate![self.index <= self.array.len() as i32 - 1],
@@ -144,8 +157,8 @@ where
     /// bound (res. maximum upper bound) of the elements.
     fn propagate_rhs_bounds_based_on_array(
         &self,
-        context: &mut PropagationContextMut<'_>,
-    ) -> PropagationStatusCP {
+        context: &mut SIPropagationContextMut<'_>,
+    ) -> Result<(), SIInconsistency> {
         let (rhs_lb, rhs_ub) = self
             .array
             .iter()
@@ -184,8 +197,8 @@ where
     /// right-hand side, remove it from index.
     fn propagate_index_based_on_domain_intersection_with_rhs(
         &self,
-        context: &mut PropagationContextMut<'_>,
-    ) -> PropagationStatusCP {
+        context: &mut SIPropagationContextMut<'_>,
+    ) -> Result<(), SIInconsistency> {
         let rhs_lb = context.lower_bound(&self.rhs);
         let rhs_ub = context.upper_bound(&self.rhs);
         let mut to_remove = vec![];
@@ -217,9 +230,9 @@ where
     /// tightened to the bounds of lhs, through a previous propagation rule.
     fn propagate_equality(
         &self,
-        context: &mut PropagationContextMut<'_>,
+        mut context: SIPropagationContextMut<'_>,
         index: i32,
-    ) -> PropagationStatusCP {
+    ) -> Result<(), SIInconsistency> {
         let rhs_lb = context.lower_bound(&self.rhs);
         let rhs_ub = context.upper_bound(&self.rhs);
         let lhs = &self.array[index as usize];
