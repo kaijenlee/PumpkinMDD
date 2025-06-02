@@ -1,11 +1,16 @@
 use mdd_compile::mdd::MddGraph;
-
+use crate::propagators::mdd::{MddBasePropagator, MddSRVPropagator};
 use super::Constraint;
-use crate::propagators::mdd::MddPropagator;
 use crate::variables::IntegerVariable;
 
-pub fn mdd<Var: std::fmt::Debug + IntegerVariable + std::hash::Hash + Eq + 'static>(
+pub fn base_mdd<Var: std::fmt::Debug + IntegerVariable + std::hash::Hash + Eq + 'static>(
     mdd_graph: MddGraph<Var>,
 ) -> impl Constraint {
-    MddPropagator::new(mdd_graph)
+    MddBasePropagator::new(mdd_graph)
+}
+
+pub fn srv_mdd<Var: std::fmt::Debug + IntegerVariable + std::hash::Hash + Eq + 'static>(
+    mdd_graph: MddGraph<Var>,
+) -> impl Constraint {
+    MddSRVPropagator::new(mdd_graph)
 }

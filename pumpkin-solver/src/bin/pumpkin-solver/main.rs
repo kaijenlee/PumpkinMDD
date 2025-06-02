@@ -355,6 +355,10 @@ struct Args {
     #[arg(long = "dd-enable")]
     decision_diagrams_enable: bool,
 
+    /// Enable extended resolution with state reaching variables in decision diagrams
+    #[arg(long = "dd-srv-enable")]
+    srv_enable: bool,
+
     /// Maximum width of decision diagram relaxations
     // TODO Tune this to your taste
     #[arg(long = "dd-max-width", default_value_t = 128)]
@@ -572,6 +576,7 @@ fn run() -> PumpkinResult<()> {
                 Some(DecisionDiagramOptions::new(
                     args.decision_diagrams_max_width,
                     args.decision_diagrams_intersection,
+                    args.srv_enable,
                 ))
             } else {
                 None

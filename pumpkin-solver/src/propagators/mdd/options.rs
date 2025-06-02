@@ -27,13 +27,16 @@ pub struct DecisionDiagramOptions {
     /// Defines how and if the preprocessor
     /// chooses the constraints to be intersected
     pub intersection_strategy: DecisionDiagramIntersection,
+    /// Whether to use state reaching variables
+    pub srv_enable: bool,
 }
 
 impl DecisionDiagramOptions {
-    pub fn new(max_width: usize, intersection_strategy: DecisionDiagramIntersection) -> Self {
+    pub fn new(max_width: usize, intersection_strategy: DecisionDiagramIntersection, srv_enable: bool) -> Self {
         Self {
             max_width,
             intersection_strategy,
+            srv_enable
         }
     }
 }
