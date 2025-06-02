@@ -2,6 +2,7 @@ use log::warn;
 use pumpkin_solver::constraints::Constraint;
 use pumpkin_solver::constraints::{self};
 use pumpkin_solver::options::DecisionDiagramOptions;
+use pumpkin_solver::statistics::log_statistic;
 use pumpkin_solver::variables::DomainId;
 
 pub(crate) fn run(
@@ -19,6 +20,7 @@ pub(crate) fn run(
         }
     };
     let mut sat = true;
+    let start = std::time::Instant::now();
     for group in constraint_groups {
         match process_group(group.clone(), context, options) {
             Ok(mdd_graph) => {
@@ -31,6 +33,8 @@ pub(crate) fn run(
             }
         }
     }
+    let elapsed = start.elapsed();
+    log_statistic("mdd_compilation_time", elapsed.as_secs_f64());
     Ok(sat)
 }
 
