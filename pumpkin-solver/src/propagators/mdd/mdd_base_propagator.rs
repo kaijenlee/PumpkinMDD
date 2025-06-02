@@ -287,6 +287,7 @@ where
                 &mut killed_above_memo,
             );
             context.remove(&var, val, reason)?;
+            let _ = self.current_domains.get_mut(*self.var_to_index.get(&var).unwrap()).unwrap().remove(&val);
         }
         Ok(())
     }

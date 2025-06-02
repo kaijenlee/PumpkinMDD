@@ -92,6 +92,12 @@
             "false",
         ],
         [
+            "--dd-srv-enable",
+            "\tEnable extended resolution with state reaching variables in decision diagrams",
+            "bool",
+            "false",
+        ],
+        [
             "--dd-max-width",
             "\tMaximum width of decision diagram relaxations",
             "int:2:18446744073709551615",

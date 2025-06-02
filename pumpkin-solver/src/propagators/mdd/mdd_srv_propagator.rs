@@ -8,12 +8,12 @@ use crate::engine::propagation::{
 use crate::engine::{DomainEvents, EmptyDomain};
 use crate::predicate;
 use crate::predicates::{Predicate, PropositionalConjunction};
+use crate::propagators::mdd::common::{EdgeStatus, EdgeWatchFlag, MddComponentType, NodeStatus};
 use crate::variables::IntegerVariable;
 use fnv::{FnvBuildHasher, FnvHashMap, FnvHashSet};
 use mdd_compile::mdd::{MddEdge, MddGraph, MddNode};
 use std::collections::hash_set::Iter;
 use std::collections::VecDeque;
-use crate::propagators::mdd::common::{EdgeStatus, EdgeWatchFlag, MddComponentType, NodeStatus};
 
 /// ['MddSRVPropagator'] is a propagator that uses provided multi-valued decision diagram (MDD) to propagate
 /// the constraint represented by the MDD (see ['mdd_compile::mdd']) and supports extended resolutions with state reaching variables (SRV).
@@ -140,6 +140,7 @@ where
                 let _ = self.node_status.insert(*node, NodeStatus::Above);
                 let _ =
                     pinf_srv.insert((self.mdd.srv_layers[node.layer].clone(), node.index as i32));
+                let _ = self.trail.push(MddComponentType::Node(*node));
                 for edge in self.node_to_out_edges.get(node).unwrap() {
                     if self.edge_status.get(edge).unwrap() != &EdgeStatus::Alive {
                         continue;
@@ -214,6 +215,7 @@ where
                 let _ = self.node_status.insert(*node, NodeStatus::Below);
                 let _ =
                     pinf_srv.insert((self.mdd.srv_layers[node.layer].clone(), node.index as i32));
+                let _ = self.trail.push(MddComponentType::Node(*node));
                 for edge in self.node_to_in_edges.get(node).unwrap() {
                     if self.edge_status.get(edge).unwrap() != &EdgeStatus::Alive {
                         continue;
@@ -313,7 +315,6 @@ where
             }
         }
 
-        //TODO check this, do we need to verify it is already dead
         for (var, val) in pinf_srv {
             let _ = inf_srv.insert((var.clone(), val));
             let _ = self.limit.insert((var.clone(), val), count);
@@ -327,6 +328,19 @@ where
         for (var, val) in inf_srv {
             let reason = self.explain_srv_value_removal(var.clone(), val, context.as_readonly());
             context.remove(&var, val, reason)?;
+        }
+        for (i, x_i) in self.mdd.layers.iter().enumerate() {
+            // Reset the current model domains to the original domains
+            self.current_model_domains[i] = context.iterate_domain(x_i).collect::<HashSet<i32>>();
+        }
+        for y_i in self.mdd.srv_layers.iter() {
+            // Reset the current srv domains to the original domains
+            let _ = self.current_srv_domain.insert(
+                y_i.clone(),
+                context
+                    .iterate_domain(&y_i.clone())
+                    .collect::<HashSet<i32>>(),
+            );
         }
         Ok(())
     }
@@ -343,6 +357,11 @@ where
                 MddComponentType::Node(node) => {
                     // shouldn't have the need to restore edges statuses because they will all be covered by the same limit/trail mechanism. but check this
                     let _ = self.node_status.insert(node, NodeStatus::Alive);
+                    let _ = self
+                        .current_srv_domain
+                        .get_mut(&self.mdd.srv_layers[node.layer])
+                        .unwrap()
+                        .insert(node.index as i32);
                 }
             }
         }
@@ -388,7 +407,7 @@ where
     ///
     /// \[1\] G. Gange, P. J. Stuckey, and R. Szymanek, “Mdd propagators with explanation,” Constraints, vol. 16, pp. 407–429, 4 Oct. 2011, issn: 13837133. Doi: 10.1007/s10601-011-9111-x
     fn explain_model_value_removal(
-        &mut self,
+        &self,
         var: Var,
         val: i32,
         _context: PropagationContext,
@@ -435,7 +454,7 @@ where
     }
 
     /// Produces explanations for edges related to the propagated (var, val) removal that are killed from bellow.
-    fn explain_down(&mut self, kfb: HashSet<MddEdge>) -> Vec<Predicate> {
+    fn explain_down(&self, kfb: HashSet<MddEdge>) -> Vec<Predicate> {
         let mut reason_predicates = Vec::new();
         let mut reason: HashSet<(Var, i32)> = FnvHashSet::with_hasher(FnvBuildHasher::default());
         let mut current_kfb = kfb.clone();
@@ -496,7 +515,7 @@ where
     // }
 
     /// Produces explanations for edges related to the propagated (var, val) removal that are killed from above.
-    fn explain_up(&mut self, kfa: HashSet<MddEdge>) -> Vec<Predicate> {
+    fn explain_up(&self, kfa: HashSet<MddEdge>) -> Vec<Predicate> {
         let mut reason_predicates = Vec::new();
         let mut reason: HashSet<(Var, i32)> = FnvHashSet::with_hasher(FnvBuildHasher::default());
         let mut current_kfa = kfa.clone();
@@ -558,7 +577,7 @@ where
 }
 
 impl<Var: std::fmt::Debug + Clone + std::hash::Hash + Eq + 'static> Propagator
-for MddSRVPropagator<Var>
+    for MddSRVPropagator<Var>
 where
     Var: IntegerVariable,
 {
@@ -644,8 +663,7 @@ where
 
             // Kill the node
             let _ = self.node_status.insert(*node, NodeStatus::Dom);
-            self.trail.push(MddComponentType::Node(*node)); // TODO handle trails for backtracking, do I need a node trail?
-            // TODO: do i need to keep track of node status?
+            self.trail.push(MddComponentType::Node(*node));
             // Kill all incoming edges of the node and queue subsequent nodes to process as they may be killed from below
             for edge in self.node_to_in_edges.get(node).unwrap() {
                 if *self.edge_status.get(edge).unwrap() != EdgeStatus::Alive {
@@ -674,7 +692,8 @@ where
                 }
                 if (*self.watched.get(edge).unwrap()).contains(&EdgeWatchFlag::Value) {
                     //TODO: case from incoming side is correct, but haven't verified this case
-                    let _ = pinf_model.insert((self.mdd.layers[edge.to.layer].clone(), edge.value));
+                    let _ =
+                        pinf_model.insert((self.mdd.layers[edge.from.layer].clone(), edge.value));
                 }
             }
 
@@ -793,7 +812,6 @@ where
             values_returned
                 .into_iter()
                 .for_each(|val| self.restore_to(srv.clone(), *val));
-            let _ = self.current_srv_domain.insert(srv, new_domain_set);
         }
         self.model_domain_changes.clear(); // Reset previously recorded domain changes
         self.srv_domain_changes.clear(); // Reset previously recorded srv domain changes
@@ -861,7 +879,8 @@ where
                 .entry(srv.clone())
                 .or_insert(FnvHashSet::with_hasher(FnvBuildHasher::default()))
                 .extend(_context.iterate_domain(srv));
-            let _ = self.srv_to_mdd_node
+            let _ = self
+                .srv_to_mdd_node
                 .insert(srv.clone(), layer_to_node.get(&i).unwrap().clone());
         });
 
@@ -924,10 +943,10 @@ where
 mod tests {
     use crate::engine::propagation::EnqueueDecision;
     use crate::engine::test_solver::TestSolver;
+    use crate::propagators::mdd::mdd_srv_propagator::MddSRVPropagator;
     use crate::variables::DomainId;
     use crate::{conjunction, predicate};
     use mdd_compile::mdd::{MddEdge, MddGraph, MddNode};
-    use crate::propagators::mdd::mdd_srv_propagator::MddSRVPropagator;
 
     /// Creates a BDD example from \[1\] "for a regular constraint 0\*1100\*110\* over the variables
     /// \[x0, x1, x2, x3, x4, x5, x6\], and the effect of propagating x2 != 1 and x3 != 1",
