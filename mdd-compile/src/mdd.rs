@@ -1,9 +1,9 @@
-use core::slice;
-use std::collections::HashMap;
-use std::hash::Hash;
-
 use crate::constraints::Constraint;
 use crate::ffi;
+use core::slice;
+use log::warn;
+use std::collections::HashMap;
+use std::hash::Hash;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct MddNode {
@@ -27,6 +27,7 @@ pub struct MddEdge {
 #[derive(Debug)]
 pub struct MddGraph<VariableKey: Eq + Hash + Clone> {
     pub layers: Vec<VariableKey>,
+    pub srv_layers: Vec<VariableKey>,
     pub transitions: Vec<MddEdge>,
     pub sink: MddNode,
 }
@@ -35,9 +36,16 @@ impl<VariableKey: Eq + Hash + Clone> Default for MddGraph<VariableKey> {
     fn default() -> Self {
         Self {
             layers: Default::default(),
+            srv_layers: Default::default(),
             transitions: Default::default(),
             sink: MddNode::source(),
         }
+    }
+}
+
+impl<VariableKey: Eq + Hash + Clone> MddGraph<VariableKey> {
+    pub fn set_srv_layer(&mut self, srv_layers: Vec<VariableKey>) {
+        self.srv_layers = srv_layers;
     }
 }
 
@@ -104,12 +112,14 @@ impl<VariableKey: Eq + Hash + Clone> MddBuilder<VariableKey> {
             ),
             Constraint::AllDifferent(vars) => self.add_all_different(vars),
         };
-        res.map_err(|e| MddConstructionError)
+        res.map_err(|_e| MddConstructionError)
     }
 
     pub fn build(self) -> Result<MddGraph<VariableKey>, MddConstructionError> {
         let mut graph = MddGraph::<VariableKey>::default();
+        warn!("Building mdd graph with haddock...");
         let ffi_graph = unsafe { ffi::post_mdd(self.haddock_handle, self.mdd_handle) };
+        warn!("MDD post status from haddock: {}", ffi_graph.success);
         if !ffi_graph.success {
             return Err(MddConstructionError);
         }

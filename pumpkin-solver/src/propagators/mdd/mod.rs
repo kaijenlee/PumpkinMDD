@@ -1,4 +1,6 @@
 mod options;
+mod with_state_reaching_variables;
+
 use crate::basic_types::Inconsistency::Conflict;
 use crate::basic_types::{HashMap, HashSet};
 use crate::engine::opaque_domain_event::OpaqueDomainEvent;
@@ -885,6 +887,7 @@ mod tests {
         ];
         let mdd = MddGraph {
             layers: layers.clone(),
+            srv_layers: Default::default(),
             transitions,
             sink,
         };
