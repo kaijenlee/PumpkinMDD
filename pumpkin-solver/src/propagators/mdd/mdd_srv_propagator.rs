@@ -580,6 +580,8 @@ where
     //     let _ = killed_above_memo.insert(node, true);
     //     true
     // }
+
+    /// Helper function to encourage VSIDS to branch on nodes with the most edges, via SRV
     pub(crate) fn get_node_with_most_active_edges(
         &self,
     ) -> Option<Predicate> {
@@ -600,7 +602,7 @@ where
         });
         match best_node {
             Some(node) => {
-                let var = self.mdd.srv_layers[node.layer].clone();
+                let var = self.mdd.srv_layers[self.layer_index_to_srv_index(node.layer)].clone();
                 let value = node.index as i32;
                 Some(predicate![var == value])
             }
@@ -609,6 +611,7 @@ where
 
     }
 
+    /// Helper function to convert layer index to srv_index as there is no srv for the source node/layer
     fn layer_index_to_srv_index(&self, layer_index: usize) -> usize {
         layer_index - 1
     }

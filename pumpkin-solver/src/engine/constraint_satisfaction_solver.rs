@@ -112,7 +112,7 @@ pub struct ConstraintSatisfactionSolver {
     pub(crate) state: CSPSolverState,
     /// The list of propagators. Propagators live here and are queried when events (domain changes)
     /// happen. The list is only traversed during synchronisation for now.
-    propagators: PropagatorStore,
+    pub(crate) propagators: PropagatorStore,
     /// Tracks information about the restarts. Occassionally the solver will undo all its decisions
     /// and start the search from the root note. Note that learned clauses and other state
     /// information is kept after a restart.
