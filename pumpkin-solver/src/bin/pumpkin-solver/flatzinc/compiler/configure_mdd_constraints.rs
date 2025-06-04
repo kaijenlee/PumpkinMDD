@@ -40,22 +40,27 @@ pub(crate) fn run(
                 let layer_to_indices: HashMap<usize, usize> = mdd_graph.transitions.iter().fold(
                     FnvHashMap::with_hasher(FnvBuildHasher::default()),
                     |mut acc, transition| {
-                        let _ = acc
-                            .entry(transition.from.layer)
-                            .and_modify(|v| *v = (*v).max(transition.from.index))
-                            .or_insert(transition.from.index);
-
-                        let _ = acc
-                            .entry(transition.to.layer)
-                            .and_modify(|v| *v = (*v).max(transition.to.index))
-                            .or_insert(transition.to.index);
+                        // Prevent constructing SRV for the root layer
+                        if !(transition.from.layer == 0 && transition.from.index == 0) {
+                            let _ = acc
+                                .entry(transition.from.layer)
+                                .and_modify(|v| *v = (*v).max(transition.from.index))
+                                .or_insert(transition.from.index);
+                        }
+                        // Prevent constructing SRV for the sink layer
+                        if transition.to != mdd_graph.sink {
+                            let _ = acc
+                                .entry(transition.to.layer)
+                                .and_modify(|v| *v = (*v).max(transition.to.index))
+                                .or_insert(transition.to.index);
+                        }
                         acc
                     },
                 );
                 let mut srv_layers = mdd_graph.layers.clone();
-
+                let _ = srv_layers.pop(); // Remove one element as we dont need the source layer for SRV
                 for (layer, index) in layer_to_indices {
-                    if let Some(srv_layer) = srv_layers.get_mut(layer) {
+                    if let Some(srv_layer) = srv_layers.get_mut(layer - 1) {
                         *srv_layer = context.solver.new_bounded_integer(0, index as i32);
                     }
                 }
