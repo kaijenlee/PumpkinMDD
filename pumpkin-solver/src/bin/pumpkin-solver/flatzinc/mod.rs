@@ -95,14 +95,14 @@ pub(crate) fn solve(
 
     let mut brancher = if fz_options.free_search {
         // The free search flag is active, we just use the default brancher
-        // DynamicBrancher::new(vec![Box::new(AlternatingBrancher::new(
-        //     &solver,
-        //     instance.search.expect("Expected a search to be defined"),
-        //     AlternatingStrategy::SwitchToDefaultAfterFirstSolution,
-        // ))])
+        DynamicBrancher::new(vec![Box::new(AlternatingBrancher::new(
+            &solver,
+            instance.search.expect("Expected a search to be defined"),
+            AlternatingStrategy::SwitchToDefaultAfterFirstSolution,
+        ))])
 
         // Force solver to use our "hacked" VSIDS to initially prioritise certain SRVs
-        DynamicBrancher::new(vec![Box::new(solver.default_brancher())])
+        // DynamicBrancher::new(vec![Box::new(solver.default_brancher())])
     } else {
         instance.search.expect("Expected a search to be defined")
     };

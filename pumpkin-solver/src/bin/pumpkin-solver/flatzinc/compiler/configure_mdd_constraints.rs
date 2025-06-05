@@ -36,37 +36,40 @@ pub(crate) fn run(
                     mdd_graph.layers.len(),
                     mdd_graph.transitions.len()
                 );
-                // TODO use DDOptions to enable/disable state reaching variables
-                let layer_to_indices: HashMap<usize, usize> = mdd_graph.transitions.iter().fold(
-                    FnvHashMap::with_hasher(FnvBuildHasher::default()),
-                    |mut acc, transition| {
-                        // Prevent constructing SRV for the root layer
-                        if !(transition.from.layer == 0 && transition.from.index == 0) {
-                            let _ = acc
-                                .entry(transition.from.layer)
-                                .and_modify(|v| *v = (*v).max(transition.from.index))
-                                .or_insert(transition.from.index);
-                        }
-                        // Prevent constructing SRV for the sink layer
-                        if transition.to != mdd_graph.sink {
-                            let _ = acc
-                                .entry(transition.to.layer)
-                                .and_modify(|v| *v = (*v).max(transition.to.index))
-                                .or_insert(transition.to.index);
-                        }
-                        acc
-                    },
-                );
-                let mut srv_layers = mdd_graph.layers.clone();
-                let _ = srv_layers.pop(); // Remove one element as we dont need the source layer for SRV
-                for (layer, index) in layer_to_indices {
-                    if let Some(srv_layer) = srv_layers.get_mut(layer - 1) {
-                        *srv_layer = context.solver.new_bounded_integer(0, index as i32);
-                    }
-                }
-                mdd_graph.set_srv_layer(srv_layers);
                 let status = match options.srv_enable {
-                    true => constraints::srv_mdd(mdd_graph).post(context.solver, None),
+                    true => {
+                        let layer_to_indices: HashMap<usize, usize> =
+                            mdd_graph.transitions.iter().fold(
+                                FnvHashMap::with_hasher(FnvBuildHasher::default()),
+                                |mut acc, transition| {
+                                    // Prevent constructing SRV for the root layer
+                                    if !(transition.from.layer == 0 && transition.from.index == 0) {
+                                        let _ = acc
+                                            .entry(transition.from.layer)
+                                            .and_modify(|v| *v = (*v).max(transition.from.index))
+                                            .or_insert(transition.from.index);
+                                    }
+                                    // Prevent constructing SRV for the sink layer
+                                    if transition.to != mdd_graph.sink {
+                                        let _ = acc
+                                            .entry(transition.to.layer)
+                                            .and_modify(|v| *v = (*v).max(transition.to.index))
+                                            .or_insert(transition.to.index);
+                                    }
+                                    acc
+                                },
+                            );
+                        let mut srv_layers = mdd_graph.layers.clone();
+                        let _ = srv_layers.pop(); // Remove one element as we dont need the source layer for SRV
+
+                        for (layer, index) in layer_to_indices {
+                            if let Some(srv_layer) = srv_layers.get_mut(layer - 1) {
+                                *srv_layer = context.solver.new_bounded_integer(0, index as i32);
+                            }
+                        }
+                        mdd_graph.set_srv_layer(srv_layers);
+                        constraints::srv_mdd(mdd_graph).post(context.solver, None)
+                    }
                     false => constraints::base_mdd(mdd_graph).post(context.solver, None),
                 };
                 warn!(

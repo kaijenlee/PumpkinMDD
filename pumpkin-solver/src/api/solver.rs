@@ -492,16 +492,18 @@ impl Solver {
 impl Solver {
     /// Creates an instance of the [`DefaultBrancher`].
     pub fn default_brancher(&self) -> DefaultBrancher {
+        #[allow(unused_mut)]
         let mut brancher = DefaultBrancher::default_over_all_variables(&self.satisfaction_solver.assignments);
-        // For MDD SRVs, give priority to certain nodes for the VSIDS
-        self.satisfaction_solver.propagators.iter_propagators().for_each(|propagator| {
-            if let Some(mdd_srv) = propagator.downcast_ref::<MddSRVPropagator<DomainId>>() {
-                let result = mdd_srv.get_node_with_most_active_edges();
-                if let Some(node) = result {
-                    brancher.bump_activity(node);
-                }
-            }
-        });
+        // TODO: Refactor to use options to enable VSIDS configuration for MDD SRVs
+        // // For MDD SRVs, give priority to certain nodes for the VSIDS
+        // self.satisfaction_solver.propagators.iter_propagators().for_each(|propagator| {
+        //     if let Some(mdd_srv) = propagator.downcast_ref::<MddSRVPropagator<DomainId>>() {
+        //         let result = mdd_srv.get_node_with_most_active_edges();
+        //         if let Some(node) = result {
+        //             brancher.bump_activity(node);
+        //         }
+        //     }
+        // });
         brancher
     }
 }
