@@ -22,3 +22,4 @@ for INPUT_FILE in "$INPUT_DIR"/*.mzn; do
 done
 
 echo "All files processed. Outputs saved to $OUTPUT_DIR"
+python3 "experiments/extract_fzn_stats.py" $OUTPUT_DIR "experiments/experiment_1/qcp_disabled.csv"
