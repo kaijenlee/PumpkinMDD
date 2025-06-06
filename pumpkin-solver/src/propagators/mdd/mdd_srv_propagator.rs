@@ -139,8 +139,11 @@ where
                 // TODO check this for handling removal of value from srv domain
                 let _ = self.node_status.insert(*node, NodeStatus::Above);
                 let _ =
-                    pinf_srv.insert((self.mdd.srv_layers[node.layer].clone(), node.index as i32));
+                    pinf_srv.insert((self.mdd.srv_layers[self.layer_index_to_srv_index(node.layer)].clone(), node.index as i32));
                 let _ = self.trail.push(MddComponentType::Node(*node));
+                if self.node_to_out_edges.get(node).is_none() {
+                    continue;
+                }
                 for edge in self.node_to_out_edges.get(node).unwrap() {
                     if self.edge_status.get(edge).unwrap() != &EdgeStatus::Alive {
                         continue;
@@ -214,8 +217,11 @@ where
                 // TODO check this for handling removal of value from srv domain
                 let _ = self.node_status.insert(*node, NodeStatus::Below);
                 let _ =
-                    pinf_srv.insert((self.mdd.srv_layers[node.layer].clone(), node.index as i32));
+                    pinf_srv.insert((self.mdd.srv_layers[self.layer_index_to_srv_index(node.layer)].clone(), node.index as i32));
                 let _ = self.trail.push(MddComponentType::Node(*node));
+                if self.node_to_in_edges.get(node).is_none() {
+                    continue;
+                }
                 for edge in self.node_to_in_edges.get(node).unwrap() {
                     if self.edge_status.get(edge).unwrap() != &EdgeStatus::Alive {
                         continue;
@@ -359,7 +365,7 @@ where
                     let _ = self.node_status.insert(node, NodeStatus::Alive);
                     let _ = self
                         .current_srv_domain
-                        .get_mut(&self.mdd.srv_layers[node.layer])
+                        .get_mut(&self.mdd.srv_layers[self.layer_index_to_srv_index(node.layer)])
                         .unwrap()
                         .insert(node.index as i32);
                 }
@@ -468,7 +474,7 @@ where
                     reason_predicates.push(predicate![model_var != edge.value]);
                     let _ = reason.insert((model_var, edge.value));
                 } else if *self.node_status.get(&edge.to).unwrap() == NodeStatus::Dom {
-                    let srv_var = self.mdd.srv_layers[edge.to.layer].clone();
+                    let srv_var = self.mdd.srv_layers[self.layer_index_to_srv_index(edge.to.layer)].clone();
                     reason_predicates.push(predicate![srv_var != edge.to.index as i32]);
                     let _ = reason.insert((srv_var, edge.to.index as i32));
                 } else {
@@ -529,7 +535,7 @@ where
                     reason_predicates.push(predicate![model_var != edge.value]);
                     let _ = reason.insert((model_var, edge.value));
                 } else if *self.node_status.get(&edge.to).unwrap() == NodeStatus::Dom {
-                    let srv_var = self.mdd.srv_layers[edge.to.layer].clone();
+                    let srv_var = self.mdd.srv_layers[self.layer_index_to_srv_index(edge.to.layer)].clone();
                     reason_predicates.push(predicate![srv_var != edge.to.index as i32]);
                     let _ = reason.insert((srv_var, edge.to.index as i32));
                 } else {
@@ -574,6 +580,42 @@ where
     //     let _ = killed_above_memo.insert(node, true);
     //     true
     // }
+
+    /// Helper function to encourage VSIDS to branch on nodes with the most edges, via SRV
+    pub(crate) fn get_node_with_most_active_edges(
+        &self,
+    ) -> Option<Predicate> {
+
+        let mut max_active_edges = 0;
+        let best_node = self.srv_to_mdd_node.iter().fold(None, |current_best, (_, nodes)| {
+            let mut best_node: Option<MddNode> = current_best;
+            for (_, node) in nodes.iter() {
+                let active_in_edges = self.node_to_in_edges.get(node).unwrap().iter().filter(|e| self.edge_status.get(e).unwrap() == &EdgeStatus::Alive).count();
+                let active_out_edges = self.node_to_out_edges.get(node).unwrap().iter().filter(|e| self.edge_status.get(e).unwrap() == &EdgeStatus::Alive).count();
+                let active_edges = active_in_edges + active_out_edges;
+                if active_edges > max_active_edges {
+                    max_active_edges = active_edges;
+                    best_node = Some(*node);
+                }
+            }
+            best_node
+        });
+        match best_node {
+            Some(node) => {
+                let var = self.mdd.srv_layers[self.layer_index_to_srv_index(node.layer)].clone();
+                let value = node.index as i32;
+                Some(predicate![var == value])
+            }
+            None => None,
+        }
+
+    }
+
+    /// Helper function to convert layer index to srv_index as there is no srv for the source node/layer
+    fn layer_index_to_srv_index(&self, layer_index: usize) -> usize {
+        layer_index - 1
+    }
+
 }
 
 impl<Var: std::fmt::Debug + Clone + std::hash::Hash + Eq + 'static> Propagator
@@ -879,9 +921,10 @@ where
                 .entry(srv.clone())
                 .or_insert(FnvHashSet::with_hasher(FnvBuildHasher::default()))
                 .extend(_context.iterate_domain(srv));
+            // Note: conversion from layer index to srv index is done by adding 1 to the layer index
             let _ = self
                 .srv_to_mdd_node
-                .insert(srv.clone(), layer_to_node.get(&i).unwrap().clone());
+                .insert(srv.clone(), layer_to_node.get(&(i + 1)).unwrap().clone());
         });
 
         self.node_to_in_edges.keys().for_each(|node| {
@@ -1076,7 +1119,6 @@ mod tests {
                 value: 1,
             },
         ];
-        let y0 = solver.new_variable(0, 0);
         let y1 = solver.new_variable(0, 1);
         let y2 = solver.new_variable(0, 2);
         let y3 = solver.new_variable(0, 2);
@@ -1085,7 +1127,7 @@ mod tests {
         let y6 = solver.new_variable(0, 1);
         let mdd = MddGraph {
             layers: layers.clone(),
-            srv_layers: vec![y0, y1, y2, y3, y4, y5, y6],
+            srv_layers: vec![y1, y2, y3, y4, y5, y6],
             transitions,
             sink,
         };
@@ -1137,34 +1179,34 @@ mod tests {
             assert_eq!(solver.lower_bound(x), 0);
             assert_eq!(solver.upper_bound(x), 1);
         }
+        assert_eq!(solver.lower_bound(srv_layers[0]), 0);
+        assert_eq!(solver.upper_bound(srv_layers[0]), 0);
+        let reason_y1 = solver.get_reason_int(predicate!(srv_layers[0] != 1));
+        assert_eq!(conjunction!([layers[2] != 1]), reason_y1);
         assert_eq!(solver.lower_bound(srv_layers[1]), 0);
         assert_eq!(solver.upper_bound(srv_layers[1]), 0);
-        let reason_y1 = solver.get_reason_int(predicate!(srv_layers[1] != 1));
-        assert_eq!(conjunction!([layers[2] != 1]), reason_y1);
+        let reason_y2_1 = solver.get_reason_int(predicate!(srv_layers[1] != 1));
+        assert_eq!(conjunction!([layers[2] != 1]), reason_y2_1);
+        let reason_y2_2 = solver.get_reason_int(predicate!(srv_layers[1] != 2));
+        assert_eq!(conjunction!([layers[3] != 1]), reason_y2_2); //TODO check this
         assert_eq!(solver.lower_bound(srv_layers[2]), 0);
         assert_eq!(solver.upper_bound(srv_layers[2]), 0);
-        let reason_y2_1 = solver.get_reason_int(predicate!(srv_layers[2] != 1));
-        assert_eq!(conjunction!([layers[2] != 1]), reason_y2_1);
-        let reason_y2_2 = solver.get_reason_int(predicate!(srv_layers[2] != 2));
-        assert_eq!(conjunction!([layers[3] != 1]), reason_y2_2); //TODO check this
-        assert_eq!(solver.lower_bound(srv_layers[3]), 0);
-        assert_eq!(solver.upper_bound(srv_layers[3]), 0);
         let reason_y3_1 = solver.get_reason_int(predicate!(srv_layers[2] != 1));
         assert_eq!(conjunction!([layers[2] != 1]), reason_y3_1);
-        let reason_y3_2 = solver.get_reason_int(predicate!(srv_layers[3] != 2));
+        let reason_y3_2 = solver.get_reason_int(predicate!(srv_layers[2] != 2));
         assert_eq!(conjunction!([layers[3] != 1]), reason_y3_2);
-        assert_eq!(solver.lower_bound(srv_layers[4]), 1);
-        assert_eq!(solver.upper_bound(srv_layers[4]), 1);
-        let reason_y4_0 = solver.get_reason_int(predicate!(srv_layers[4] != 0));
+        assert_eq!(solver.lower_bound(srv_layers[3]), 1);
+        assert_eq!(solver.upper_bound(srv_layers[3]), 1);
+        let reason_y4_0 = solver.get_reason_int(predicate!(srv_layers[3] != 0));
         assert_eq!(conjunction!([layers[3] != 1]), reason_y4_0);
-        let reason_y4_1 = solver.get_reason_int(predicate!(srv_layers[4] != 2));
+        let reason_y4_1 = solver.get_reason_int(predicate!(srv_layers[3] != 2));
         assert_eq!(conjunction!([layers[3] != 1]), reason_y4_1);
-        assert_eq!(solver.lower_bound(srv_layers[5]), 1);
-        assert_eq!(solver.upper_bound(srv_layers[5]), 2);
-        let reason_y5_0 = solver.get_reason_int(predicate!(srv_layers[5] != 0));
+        assert_eq!(solver.lower_bound(srv_layers[4]), 1);
+        assert_eq!(solver.upper_bound(srv_layers[4]), 2);
+        let reason_y5_0 = solver.get_reason_int(predicate!(srv_layers[4] != 0));
         assert_eq!(conjunction!([layers[3] != 1]), reason_y5_0);
-        assert_eq!(solver.lower_bound(srv_layers[6]), 0);
-        assert_eq!(solver.upper_bound(srv_layers[6]), 1);
+        assert_eq!(solver.lower_bound(srv_layers[5]), 0);
+        assert_eq!(solver.upper_bound(srv_layers[5]), 1);
     }
 
     #[test]
@@ -1180,8 +1222,8 @@ mod tests {
             .expect("No Conflict");
         let notification_status_1 = solver.increase_lower_bound_and_notify(
             mdd_propagator,
-            (layers.len() + 3) as u32,
-            srv_layers[3],
+            (layers.len() + 2) as u32,
+            srv_layers[2],
             1,
         );
         assert!(match notification_status_1 {
@@ -1194,33 +1236,33 @@ mod tests {
         assert_eq!(solver.lower_bound(layers[0]), 0);
         assert_eq!(solver.upper_bound(layers[0]), 0);
         let reason_x0_1 = solver.get_reason_int(predicate!(layers[0] != 1));
-        assert_eq!(conjunction!([srv_layers[3] != 0]), reason_x0_1);
+        assert_eq!(conjunction!([srv_layers[2] != 0]), reason_x0_1);
         assert_eq!(solver.lower_bound(layers[2]), 1);
         assert_eq!(solver.upper_bound(layers[2]), 1);
         let reason_x2_0 = solver.get_reason_int(predicate!(layers[2] != 0));
-        assert_eq!(conjunction!([srv_layers[3] != 0]), reason_x2_0);
+        assert_eq!(conjunction!([srv_layers[2] != 0]), reason_x2_0);
         assert_eq!(solver.lower_bound(layers[5]), 1);
         assert_eq!(solver.upper_bound(layers[5]), 1);
         let reason_x5_0 = solver.get_reason_int(predicate!(layers[5] != 0));
-        assert_eq!(conjunction!([srv_layers[3] != 0]), reason_x5_0);
+        assert_eq!(conjunction!([srv_layers[2] != 0]), reason_x5_0);
+        assert_eq!(solver.lower_bound(srv_layers[0]), 1);
+        assert_eq!(solver.upper_bound(srv_layers[0]), 1);
+        let reason_y1_0 = solver.get_reason_int(predicate!(srv_layers[0] != 0));
+        assert_eq!(conjunction!([srv_layers[2] != 0]), reason_y1_0);
         assert_eq!(solver.lower_bound(srv_layers[1]), 1);
-        assert_eq!(solver.upper_bound(srv_layers[1]), 1);
-        let reason_y1_0 = solver.get_reason_int(predicate!(srv_layers[1] != 0));
-        assert_eq!(conjunction!([srv_layers[3] != 0]), reason_y1_0);
+        assert_eq!(solver.upper_bound(srv_layers[1]), 2);
+        let reason_y2_0 = solver.get_reason_int(predicate!(srv_layers[1] != 0));
+        assert_eq!(conjunction!([srv_layers[2] != 0]), reason_y2_0);
         assert_eq!(solver.lower_bound(srv_layers[2]), 1);
         assert_eq!(solver.upper_bound(srv_layers[2]), 2);
-        let reason_y2_0 = solver.get_reason_int(predicate!(srv_layers[2] != 0));
-        assert_eq!(conjunction!([srv_layers[3] != 0]), reason_y2_0);
         assert_eq!(solver.lower_bound(srv_layers[3]), 1);
         assert_eq!(solver.upper_bound(srv_layers[3]), 2);
+        let reason_y4_0 = solver.get_reason_int(predicate!(srv_layers[3] != 0));
+        assert_eq!(conjunction!([srv_layers[2] != 0]), reason_y4_0);
         assert_eq!(solver.lower_bound(srv_layers[4]), 1);
         assert_eq!(solver.upper_bound(srv_layers[4]), 2);
-        let reason_y4_0 = solver.get_reason_int(predicate!(srv_layers[4] != 0));
-        assert_eq!(conjunction!([srv_layers[3] != 0]), reason_y4_0);
-        assert_eq!(solver.lower_bound(srv_layers[5]), 1);
-        assert_eq!(solver.upper_bound(srv_layers[5]), 2);
-        let reason_y5_0 = solver.get_reason_int(predicate!(srv_layers[5] != 0));
-        assert_eq!(conjunction!([srv_layers[3] != 0]), reason_y5_0);
+        let reason_y5_0 = solver.get_reason_int(predicate!(srv_layers[4] != 0));
+        assert_eq!(conjunction!([srv_layers[2] != 0]), reason_y5_0);
 
         //remaining unchanged
         assert_eq!(solver.lower_bound(layers[1]), 0);
@@ -1231,7 +1273,7 @@ mod tests {
         assert_eq!(solver.upper_bound(layers[4]), 1);
         assert_eq!(solver.lower_bound(layers[6]), 0);
         assert_eq!(solver.upper_bound(layers[6]), 1);
-        assert_eq!(solver.lower_bound(srv_layers[6]), 0);
-        assert_eq!(solver.upper_bound(srv_layers[6]), 1);
+        assert_eq!(solver.lower_bound(srv_layers[5]), 0);
+        assert_eq!(solver.upper_bound(srv_layers[5]), 1);
     }
 }

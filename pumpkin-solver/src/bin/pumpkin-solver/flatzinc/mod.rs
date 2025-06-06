@@ -100,6 +100,9 @@ pub(crate) fn solve(
             instance.search.expect("Expected a search to be defined"),
             AlternatingStrategy::SwitchToDefaultAfterFirstSolution,
         ))])
+
+        // Force solver to use our "hacked" VSIDS to initially prioritise certain SRVs
+        // DynamicBrancher::new(vec![Box::new(solver.default_brancher())])
     } else {
         instance.search.expect("Expected a search to be defined")
     };

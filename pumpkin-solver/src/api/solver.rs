@@ -1,5 +1,8 @@
+use std::any::Any;
+use std::any::TypeId;
+use std::hash::Hash;
 use std::num::NonZero;
-
+use log::warn;
 use super::outputs::SolutionReference;
 use super::results::OptimisationResult;
 use super::results::SatisfactionResult;
@@ -34,6 +37,7 @@ use crate::optimisation::OptimisationProcedure;
 use crate::options::SolverOptions;
 #[cfg(doc)]
 use crate::predicates;
+use crate::propagators::mdd::MddSRVPropagator;
 use crate::results::solution_iterator::SolutionIterator;
 use crate::results::unsatisfiable::UnsatisfiableUnderAssumptions;
 use crate::statistics::log_statistic;
@@ -488,7 +492,19 @@ impl Solver {
 impl Solver {
     /// Creates an instance of the [`DefaultBrancher`].
     pub fn default_brancher(&self) -> DefaultBrancher {
-        DefaultBrancher::default_over_all_variables(&self.satisfaction_solver.assignments)
+        #[allow(unused_mut)]
+        let mut brancher = DefaultBrancher::default_over_all_variables(&self.satisfaction_solver.assignments);
+        // TODO: Refactor to use options to enable VSIDS configuration for MDD SRVs
+        // // For MDD SRVs, give priority to certain nodes for the VSIDS
+        // self.satisfaction_solver.propagators.iter_propagators().for_each(|propagator| {
+        //     if let Some(mdd_srv) = propagator.downcast_ref::<MddSRVPropagator<DomainId>>() {
+        //         let result = mdd_srv.get_node_with_most_active_edges();
+        //         if let Some(node) = result {
+        //             brancher.bump_activity(node);
+        //         }
+        //     }
+        // });
+        brancher
     }
 }
 
@@ -529,3 +545,4 @@ impl Solver {
 /// proceedings of the Principles and Practice of Constraint Programming (CP 2018).
 pub type DefaultBrancher =
     AutonomousSearch<IndependentVariableValueBrancher<DomainId, RandomSelector, RandomSplitter>>;
+

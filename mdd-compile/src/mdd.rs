@@ -27,6 +27,7 @@ pub struct MddEdge {
 #[derive(Debug)]
 pub struct MddGraph<VariableKey: Eq + Hash + Clone> {
     pub layers: Vec<VariableKey>,
+    /// Note there is no source layer in the `srv_layers` vector, hence 1 element less than layers
     pub srv_layers: Vec<VariableKey>,
     pub transitions: Vec<MddEdge>,
     pub sink: MddNode,
