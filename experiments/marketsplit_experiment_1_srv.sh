@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Define variables
-INPUT_DIR="benchmark_suite/marketsplit"   # Replace with your directory path
-OUTPUT_DIR="experiments/experiment_1/marketsplit" # Replace with your desired output file
-MODEL="$INPUT_DIR/marketsplit.mzn"
+INPUT_DIR="benchmark_suite/market_split"   # Replace with your directory path
+OUTPUT_DIR="experiments/experiment_1/market_split_SRV" # Replace with your desired output file
+MODEL="$INPUT_DIR/market_split.mzn"
 # Create the output directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"
 # Loop through all files in the input directory
