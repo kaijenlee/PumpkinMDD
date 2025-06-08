@@ -1,4 +1,4 @@
-marketsplit_experiment_1.sh#!/bin/bash
+#!/bin/bash
 
 # Define variables
 INPUT_DIR="benchmark_suite/market_split"   # Replace with your directory path

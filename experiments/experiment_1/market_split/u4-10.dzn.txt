@@ -1,0 +1,18 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=30
+%%%mzn-stat: flatIntConstraints=4
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.0300229
+%%%mzn-stat-end
+
+% Processing MDD constraints group 1 of 4
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% Compiled MDD with 29 layers and 4235 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 42), (x2, 68), (x3, 33), (x4, 20), (x5, 44), (x6, 30), (x7, 7), (x8, 4), (x9, 17), (x10, 69), (x11, 64), (x12, 3), (x13, 28), (x14, 67), (x15, 79), (x16, 70), (x17, 55), (x18, 60), (x19, 38), (x20, 25), (x21, 94), (x22, 44), (x23, 64), (x24, 21), (x25, 96), (x26, 77), (x27, 65), (x28, 3), (x30, 59)], lower_bound: Some(673), upper_bound: Some(673) }] solver post status: Ok(())
+% Processing MDD constraints group 2 of 4
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% Compiled MDD with 30 layers and 4457 transitions
+=====ERROR=====
