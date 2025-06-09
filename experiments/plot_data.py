@@ -1,10 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-file_1 = 'marketsplit_dd_disabled.csv'
-file_2  = 'marketsplit_dd_enabled.csv'
+file_1 = 'experiment_1/marketsplit_dd_disabled.csv'
+file_2  = 'experiment_1/marketsplit_dd_enabled.csv'
 problem = 'Market'
-filename_1 = 'withhout MDD'
+filename_1 = 'without MDD'
 filename_2 = 'with MDD'
 # Read CSVs
 df_1 = pd.read_csv(file_1)
@@ -41,9 +41,23 @@ print(df_wrong_negative['Filename'])
 plt.figure(figsize=(8, 6))
 plt.scatter(df_conflicts_sat['Conflicts_no_mdd'], df_conflicts_sat['Conflicts_mdd'], alpha=0.7,label="satisfiable")
 plt.scatter(df_conflicts_unsat['Conflicts_no_mdd'], df_conflicts_unsat['Conflicts_mdd'], alpha=0.7, label="unsatisfiable",color='red')
+plt.xscale('log')
+plt.yscale('log')
+
 min_val = min(df_conflicts_sat['Conflicts_no_mdd'].min(), df_conflicts_sat['Conflicts_mdd'].min(),df_conflicts_unsat['Conflicts_no_mdd'].min(), df_conflicts_unsat['Conflicts_mdd'].min())
 max_val = max(df_conflicts_sat['Conflicts_no_mdd'].max(), df_conflicts_sat['Conflicts_mdd'].max(),df_conflicts_unsat['Conflicts_no_mdd'].max(), df_conflicts_unsat['Conflicts_mdd'].max())
 max_val = max_val + (max_val - min_val) * 0.1
+
+
+plt.xticks([25, 100, 1000, 5000, 10000, 30000])
+plt.yticks([25, 100, 1000, 5000, 10000, 30000])
+
+def format_func(value, tick_position):
+    return f'{int(value)}'
+
+plt.gca().xaxis.set_major_formatter(plt.FuncFormatter(format_func))
+plt.gca().yaxis.set_major_formatter(plt.FuncFormatter(format_func))
+
 plt.xlim(min_val, max_val)
 plt.ylim(min_val, max_val)
 plt.legend(loc='upper left')
@@ -56,6 +70,8 @@ plt.grid(True)
 plt.tight_layout()
 plt.savefig(f'{problem}_conflicts_scatter_{filename_1}_vs_{filename_2}.png')
 plt.show()
+
+
 
 # NUMBER OF UNIT NOGOODS
 
