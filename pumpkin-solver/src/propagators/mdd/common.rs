@@ -27,6 +27,7 @@ pub(crate) enum NodeStatus {
 }
 
 /// Enum to represent the different types of components in the MDD
+#[derive(Debug)]
 pub(crate) enum MddComponentType {
     Edge(MddEdge),
     Node(MddNode),

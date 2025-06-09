@@ -21,6 +21,7 @@ use std::collections::VecDeque;
 /// The propagator uses incremental propagation and explanations algorithms extended from \[1\] to support extended resolutions with state reaching variables.
 ///
 /// \[1\] G. Gange, P. J. Stuckey, and R. Szymanek, “Mdd propagators with explanation,” Constraints, vol. 16, pp. 407–429, 4 Oct. 2011, issn: 13837133. Doi: 10.1007/s10601-011-9111-x
+#[derive(Debug)]
 pub struct MddSRVPropagator<Var: std::fmt::Debug + Clone + std::hash::Hash + Eq + 'static> {
     mdd: MddGraph<Var>,
 

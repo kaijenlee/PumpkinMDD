@@ -93,10 +93,13 @@ fn process_group(
     context: &mut super::context::CompilationContext<'_>,
     options: DecisionDiagramOptions,
 ) -> Result<mdd_compile::mdd::MddGraph<DomainId>, mdd_compile::mdd::MddConstructionError> {
-    let var_ids = constraints
+    // Preserve the order of variables as they appear in the constraints
+    let mut seen = std::collections::HashSet::new();
+    let var_ids: Vec<_> = constraints
         .iter()
         .flat_map(|cons| cons.variables())
-        .collect::<std::collections::HashSet<_>>();
+        .filter(|&id| seen.insert(id))
+        .collect();
     let mut mdd_builder = mdd_compile::mdd::MddBuilder::<DomainId>::new(options.max_width);
     for &var_id in var_ids {
         let lb = context.solver.lower_bound(&var_id);

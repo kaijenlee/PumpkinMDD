@@ -21,6 +21,7 @@ use crate::propagators::mdd::common::{EdgeStatus, EdgeWatchFlag};
 /// The propagator uses incremental propagation and explanations algorithms from \[1\].
 ///
 /// \[1\] G. Gange, P. J. Stuckey, and R. Szymanek, “Mdd propagators with explanation,” Constraints, vol. 16, pp. 407–429, 4 Oct. 2011, issn: 13837133. Doi: 10.1007/s10601-011-9111-x
+#[derive(Debug)]
 pub struct MddBasePropagator<Var: std::fmt::Debug + Clone + std::hash::Hash + Eq + 'static> {
     mdd: MddGraph<Var>,
 
@@ -145,6 +146,8 @@ where
                     }
                 }
             }
+            
+            //handl
         }
         pinf
     }
@@ -559,6 +562,7 @@ where
             .unwrap()
             != EdgeStatus::Alive
         {
+            // warn!("Status of sinks's incoming edge : {:?}", self.node_to_in_edges.get(&self.mdd.sink).unwrap().iter().filter(|e| *self.edge_status.get(e).unwrap() == EdgeStatus::Alive).collect::<Vec<&MddEdge>>());
             // If the sink is dead, it is due to watched incoming edge being killed
             let edge_involved = self.node_to_watched_in_edge.get(&self.mdd.sink).unwrap();
             let var_val = (
@@ -714,6 +718,7 @@ where
         });
 
         self.check_path_from_source_to_sink(_context)?;
+        // warn!("MDD prop : {:?}", self.mdd);
         Ok(())
     }
 }
