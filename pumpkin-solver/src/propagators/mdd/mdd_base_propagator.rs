@@ -363,6 +363,8 @@ where
         let mut predicates = Vec::new();
         predicates.extend(self.explain_down(kfb, killed_above_memo));
         predicates.extend(self.explain_up(kfa, killed_below_memo));
+        let mut seen = HashSet::new();
+        predicates.retain(|item| seen.insert(item.clone()));
         PropositionalConjunction::new(predicates)
     }
 
