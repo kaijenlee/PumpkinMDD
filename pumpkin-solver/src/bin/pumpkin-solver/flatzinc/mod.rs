@@ -8,10 +8,13 @@ use std::fs::File;
 use std::io::Read;
 use std::path::Path;
 use std::time::Duration;
-
+use log::warn;
 use pumpkin_solver::branching::branchers::alternating_brancher::AlternatingBrancher;
 use pumpkin_solver::branching::branchers::alternating_brancher::AlternatingStrategy;
 use pumpkin_solver::branching::branchers::dynamic_brancher::DynamicBrancher;
+use pumpkin_solver::branching::branchers::independent_variable_value_brancher::IndependentVariableValueBrancher;
+use pumpkin_solver::branching::value_selection::InDomainMin;
+use pumpkin_solver::branching::variable_selection::FirstFail;
 use pumpkin_solver::branching::Brancher;
 #[cfg(doc)]
 use pumpkin_solver::constraints::cumulative;
@@ -21,6 +24,7 @@ use pumpkin_solver::optimisation::OptimisationDirection;
 use pumpkin_solver::optimisation::OptimisationStrategy;
 use pumpkin_solver::options::CumulativeOptions;
 use pumpkin_solver::options::DecisionDiagramOptions;
+use pumpkin_solver::propagators::mdd::mdd_srv_propagator::MddSRVPropagator;
 use pumpkin_solver::results::solution_iterator::IteratedSolution;
 use pumpkin_solver::results::OptimisationResult;
 use pumpkin_solver::results::ProblemSolution;
@@ -104,7 +108,28 @@ pub(crate) fn solve(
         // Force solver to use our "hacked" VSIDS to initially prioritise certain SRVs
         // DynamicBrancher::new(vec![Box::new(solver.default_brancher())])
     } else {
-        instance.search.expect("Expected a search to be defined")
+        let dynamic_brancher = instance.search.expect("Expected a search to be defined");
+        if dd_options.is_some() && dd_options.unwrap().branch_srv_first && dd_options.unwrap().srv_enable {
+            warn!("Configuring to branch on SRVs first");
+            let srv_vars = solver
+                .satisfaction_solver
+                .propagators
+                .iter_propagators()
+                .fold(Vec::new(), |mut acc, propagator| {
+                    if let Some(mdd_srv) = propagator.downcast_ref::<MddSRVPropagator<DomainId>>() {
+                        acc.extend(mdd_srv.get_all_srv());
+                    }
+                    acc
+                });
+
+            let srv_brancher = IndependentVariableValueBrancher::new(
+                FirstFail::new(srv_vars.as_ref()),
+                InDomainMin,
+            );
+            DynamicBrancher::new(vec![Box::new(srv_brancher), Box::new(dynamic_brancher)])
+        } else {
+            dynamic_brancher
+        }
     };
 
     let (direction, objective): (OptimisationDirection, DomainId) =

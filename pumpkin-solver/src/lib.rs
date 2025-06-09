@@ -295,7 +295,7 @@ pub(crate) mod basic_types;
 pub mod containers;
 pub(crate) mod engine;
 pub(crate) mod math;
-pub(crate) mod propagators;
+pub mod propagators;
 pub(crate) mod pumpkin_asserts;
 
 #[cfg(doc)]

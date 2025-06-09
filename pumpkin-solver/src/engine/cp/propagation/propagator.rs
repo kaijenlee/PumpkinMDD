@@ -36,7 +36,7 @@ impl_downcast!(Propagator);
 /// enough, but a more mature implementation considers all functions in most cases.
 ///
 /// See the [`crate::engine::cp::propagation`] documentation for more details.
-pub(crate) trait Propagator: Downcast {
+pub trait Propagator: Downcast {
     /// Return the name of the propagator, this is a convenience method that is used for printing.
     fn name(&self) -> &str;
 

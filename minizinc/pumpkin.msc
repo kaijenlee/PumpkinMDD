@@ -98,6 +98,12 @@
             "false",
         ],
         [
+            "--branch-srv-first",
+            "\tTrue if the brancher should branch on state reaching variables first",
+            "bool",
+            "false",
+        ],
+        [
             "--dd-max-width",
             "\tMaximum width of decision diagram relaxations",
             "int:2:18446744073709551615",

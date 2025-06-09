@@ -21,7 +21,7 @@ use crate::propagators::mdd::common::{EdgeStatus, EdgeWatchFlag};
 /// The propagator uses incremental propagation and explanations algorithms from \[1\].
 ///
 /// \[1\] G. Gange, P. J. Stuckey, and R. Szymanek, “Mdd propagators with explanation,” Constraints, vol. 16, pp. 407–429, 4 Oct. 2011, issn: 13837133. Doi: 10.1007/s10601-011-9111-x
-pub(crate) struct MddBasePropagator<Var: std::fmt::Debug + Clone + std::hash::Hash + Eq + 'static> {
+pub struct MddBasePropagator<Var: std::fmt::Debug + Clone + std::hash::Hash + Eq + 'static> {
     mdd: MddGraph<Var>,
 
     /// The current state of the MDD, represented by domains of the variables that it involves

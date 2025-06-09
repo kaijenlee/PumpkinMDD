@@ -29,14 +29,17 @@ pub struct DecisionDiagramOptions {
     pub intersection_strategy: DecisionDiagramIntersection,
     /// Whether to use state reaching variables
     pub srv_enable: bool,
+    /// Whether to branch on state reaching variables first
+    pub branch_srv_first: bool,
 }
 
 impl DecisionDiagramOptions {
-    pub fn new(max_width: usize, intersection_strategy: DecisionDiagramIntersection, srv_enable: bool) -> Self {
+    pub fn new(max_width: usize, intersection_strategy: DecisionDiagramIntersection, srv_enable: bool, branch_srv_first:bool) -> Self {
         Self {
             max_width,
             intersection_strategy,
-            srv_enable
+            srv_enable,
+            branch_srv_first
         }
     }
 }

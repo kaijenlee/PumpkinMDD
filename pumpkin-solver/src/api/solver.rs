@@ -1,8 +1,4 @@
-use std::any::Any;
-use std::any::TypeId;
-use std::hash::Hash;
 use std::num::NonZero;
-use log::warn;
 use super::outputs::SolutionReference;
 use super::results::OptimisationResult;
 use super::results::SatisfactionResult;
@@ -37,6 +33,7 @@ use crate::optimisation::OptimisationProcedure;
 use crate::options::SolverOptions;
 #[cfg(doc)]
 use crate::predicates;
+#[cfg(doc)]
 use crate::propagators::mdd::MddSRVPropagator;
 use crate::results::solution_iterator::SolutionIterator;
 use crate::results::unsatisfiable::UnsatisfiableUnderAssumptions;
@@ -95,7 +92,7 @@ use crate::statistics::log_statistic_postfix;
 #[derive(Debug)]
 pub struct Solver {
     /// The internal [`ConstraintSatisfactionSolver`] which is used to solve the problems.
-    pub(crate) satisfaction_solver: ConstraintSatisfactionSolver,
+    pub satisfaction_solver: ConstraintSatisfactionSolver,
     true_literal: Literal,
 }
 

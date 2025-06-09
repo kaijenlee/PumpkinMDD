@@ -21,7 +21,7 @@ use std::collections::VecDeque;
 /// The propagator uses incremental propagation and explanations algorithms extended from \[1\] to support extended resolutions with state reaching variables.
 ///
 /// \[1\] G. Gange, P. J. Stuckey, and R. Szymanek, “Mdd propagators with explanation,” Constraints, vol. 16, pp. 407–429, 4 Oct. 2011, issn: 13837133. Doi: 10.1007/s10601-011-9111-x
-pub(crate) struct MddSRVPropagator<Var: std::fmt::Debug + Clone + std::hash::Hash + Eq + 'static> {
+pub struct MddSRVPropagator<Var: std::fmt::Debug + Clone + std::hash::Hash + Eq + 'static> {
     mdd: MddGraph<Var>,
 
     /// The current state of the MDD, represented by domains of the variables that it involves
@@ -92,6 +92,10 @@ where
             node_status: FnvHashMap::with_hasher(FnvBuildHasher::default()),
             srv_to_mdd_node: FnvHashMap::with_hasher(FnvBuildHasher::default()),
         }
+    }
+    
+    pub fn get_all_srv(&self) -> HashSet<Var> {
+        self.mdd.srv_layers.iter().cloned().collect()
     }
 
     /// The downward pass of the MDD incremental propagation algorithm extended from \[1\].

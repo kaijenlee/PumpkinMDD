@@ -358,6 +358,10 @@ struct Args {
     /// Enable extended resolution with state reaching variables in decision diagrams
     #[arg(long = "dd-srv-enable")]
     srv_enable: bool,
+    
+    /// True if the brancher should branch on state reaching variables first
+    #[arg(long = "branch-srv-first")]
+    branch_srv_first: bool,
 
     /// Maximum width of decision diagram relaxations
     // TODO Tune this to your taste
@@ -577,6 +581,7 @@ fn run() -> PumpkinResult<()> {
                     args.decision_diagrams_max_width,
                     args.decision_diagrams_intersection,
                     args.srv_enable,
+                    args.branch_srv_first
                 ))
             } else {
                 None
