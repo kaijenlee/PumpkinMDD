@@ -67,7 +67,7 @@ def main():
         full_path = os.path.join(directory, filename)
         if os.path.isfile(full_path):  # optionally filter by extension
             stats = extract_stats(full_path)
-            file_name_short = filename[:-12]
+            file_name_short = filename[:-8]
             file_stats[file_name_short] = stats
             all_keys.update(stats.keys())
 
