@@ -3,7 +3,7 @@
 %%%mzn-stat: flatIntVars=20
 %%%mzn-stat: flatIntConstraints=3
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.021105
+%%%mzn-stat: flatTime=0.0168686
 %%%mzn-stat-end
 
 % Processing MDD constraints group 1 of 3
@@ -19,20 +19,20 @@
 % Processing MDD constraints group 3 of 3
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
-% Compiled MDD with 20 layers and 2451 transitions
+% Compiled MDD with 20 layers and 2756 transitions
 % MDD constraints group [LinearInequality { linear_expr: [(x1, 98), (x2, 75), (x3, 14), (x4, 2), (x5, 46), (x6, 62), (x7, 71), (x8, 79), (x9, 68), (x10, 20), (x11, 54), (x12, 18), (x13, 15), (x14, 73), (x15, 59), (x16, 14), (x17, 88), (x18, 6), (x19, 34), (x20, 90)], lower_bound: Some(493), upper_bound: Some(493) }] solver post status: Ok(())
-%%%mzn-stat: mddCompilationTime=0.343747608
+%%%mzn-stat: mddCompilationTime=0.224654434
 =====UNSATISFIABLE=====
-%%%mzn-stat: engineStatisticsNumDecisions=7592
-%%%mzn-stat: engineStatisticsNumConflicts=7593
+%%%mzn-stat: engineStatisticsNumDecisions=1166
+%%%mzn-stat: engineStatisticsNumConflicts=1154
 %%%mzn-stat: engineStatisticsNumRestarts=0
-%%%mzn-stat: engineStatisticsNumPropagations=33920
-%%%mzn-stat: engineStatisticsTimeSpentInSolver=542
-%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=9.76685985247629
-%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=5.479583772391992
+%%%mzn-stat: engineStatisticsNumPropagations=8276
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=1450
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=9.725065047701648
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=3.9939288811795315
 %%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0
 %%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=7
-%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=6.88395679662803
-%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1
-%%%mzn-stat: learnedClauseStatisticsAverageLbd=5.8893869479235335
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=5.524718126626192
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1.0112749349522983
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=4.341186736474695
 %%%mzn-stat-end

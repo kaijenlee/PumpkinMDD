@@ -3,7 +3,7 @@
 %%%mzn-stat: flatIntVars=120
 %%%mzn-stat: flatIntConstraints=30
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.0475006
+%%%mzn-stat: flatTime=0.0649266
 %%%mzn-stat-end
 
 =====UNSATISFIABLE=====
@@ -11,7 +11,7 @@
 %%%mzn-stat: engineStatisticsNumConflicts=100
 %%%mzn-stat: engineStatisticsNumRestarts=0
 %%%mzn-stat: engineStatisticsNumPropagations=6196
-%%%mzn-stat: engineStatisticsTimeSpentInSolver=7
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=8
 %%%mzn-stat: learnedClauseStatisticsAverageConflictSize=2.595959595959596
 %%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=0.6868686868686869
 %%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0.494949494949495

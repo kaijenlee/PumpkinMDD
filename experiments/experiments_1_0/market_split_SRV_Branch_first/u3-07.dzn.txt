@@ -1,0 +1,29 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=20
+%%%mzn-stat: flatIntConstraints=3
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.0184983
+%%%mzn-stat-end
+
+% Processing MDD constraints group 1 of 1
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% Compiled MDD with 20 layers and 40 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 53), (x2, 41), (x3, 62), (x4, 28), (x5, 58), (x6, 23), (x7, 82), (x8, 70), (x9, 25), (x10, 75), (x11, 82), (x12, 50), (x13, 24), (x14, 23), (x15, 43), (x16, 17), (x17, 58), (x18, 86), (x19, 46), (x20, 43)], lower_bound: Some(494), upper_bound: Some(494) }, LinearInequality { linear_expr: [(x1, 68), (x2, 65), (x3, 74), (x4, 18), (x5, 43), (x6, 96), (x7, 99), (x8, 76), (x9, 24), (x10, 2), (x11, 11), (x12, 30), (x13, 95), (x14, 73), (x15, 58), (x16, 53), (x17, 96), (x18, 93), (x19, 75), (x20, 73)], lower_bound: Some(611), upper_bound: Some(611) }, LinearInequality { linear_expr: [(x1, 68), (x2, 57), (x3, 75), (x4, 44), (x5, 81), (x6, 19), (x7, 62), (x8, 91), (x9, 5), (x10, 60), (x11, 86), (x12, 74), (x13, 25), (x14, 60), (x15, 44), (x16, 68), (x17, 57), (x18, 43), (x19, 96), (x20, 33)], lower_bound: Some(574), upper_bound: Some(574) }] solver post status: Ok(())
+%%%mzn-stat: mddCompilationTime=0.111549398
+% Configuring to branch on SRVs first
+=====UNSATISFIABLE=====
+%%%mzn-stat: engineStatisticsNumDecisions=30365
+%%%mzn-stat: engineStatisticsNumConflicts=30366
+%%%mzn-stat: engineStatisticsNumRestarts=0
+%%%mzn-stat: engineStatisticsNumPropagations=111029
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=1009
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=10.13403589659147
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=6.1924584225259345
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0
+%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=9
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=7.7860036225917995
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=6.7880155488206615
+%%%mzn-stat-end

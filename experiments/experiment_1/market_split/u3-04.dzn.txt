@@ -3,7 +3,7 @@
 %%%mzn-stat: flatIntVars=20
 %%%mzn-stat: flatIntConstraints=3
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.022115
+%%%mzn-stat: flatTime=0.0175014
 %%%mzn-stat-end
 
 % Processing MDD constraints group 1 of 3
@@ -19,20 +19,20 @@
 % Processing MDD constraints group 3 of 3
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
-% Compiled MDD with 20 layers and 1981 transitions
+% Compiled MDD with 20 layers and 2551 transitions
 % MDD constraints group [LinearInequality { linear_expr: [(x1, 5), (x2, 84), (x3, 50), (x4, 99), (x5, 63), (x6, 67), (x7, 21), (x8, 70), (x9, 35), (x10, 18), (x11, 88), (x12, 43), (x13, 29), (x14, 27), (x15, 24), (x16, 97), (x17, 43), (x18, 93), (x19, 73), (x20, 30)], lower_bound: Some(529), upper_bound: Some(529) }] solver post status: Ok(())
-%%%mzn-stat: mddCompilationTime=0.372393291
+%%%mzn-stat: mddCompilationTime=0.233339816
 =====UNSATISFIABLE=====
-%%%mzn-stat: engineStatisticsNumDecisions=16451
-%%%mzn-stat: engineStatisticsNumConflicts=16452
+%%%mzn-stat: engineStatisticsNumDecisions=1381
+%%%mzn-stat: engineStatisticsNumConflicts=1357
 %%%mzn-stat: engineStatisticsNumRestarts=0
-%%%mzn-stat: engineStatisticsNumPropagations=67234
-%%%mzn-stat: engineStatisticsTimeSpentInSolver=1360
-%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=9.765303021092942
-%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=5.6258586104188195
+%%%mzn-stat: engineStatisticsNumPropagations=9690
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=2075
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=9.605457227138643
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=3.7227138643067845
 %%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0
 %%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=8
-%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=7.270925779587867
-%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1
-%%%mzn-stat: learnedClauseStatisticsAverageLbd=6.273976768229642
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=5.62905604719764
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1.0184365781710913
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=4.373887240356083
 %%%mzn-stat-end

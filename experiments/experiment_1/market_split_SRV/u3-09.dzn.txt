@@ -3,7 +3,7 @@
 %%%mzn-stat: flatIntVars=20
 %%%mzn-stat: flatIntConstraints=3
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.0167141
+%%%mzn-stat: flatTime=0.0175608
 %%%mzn-stat-end
 
 % Processing MDD constraints group 1 of 3
@@ -14,25 +14,25 @@
 % Processing MDD constraints group 2 of 3
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
-% Compiled MDD with 20 layers and 1768 transitions
+% Compiled MDD with 20 layers and 2255 transitions
 % MDD constraints group [LinearInequality { linear_expr: [(x1, 63), (x2, 43), (x3, 76), (x4, 95), (x5, 63), (x6, 69), (x7, 66), (x8, 77), (x9, 50), (x10, 79), (x11, 22), (x12, 34), (x13, 90), (x14, 56), (x15, 54), (x16, 97), (x17, 99), (x18, 52), (x19, 20), (x20, 50)], lower_bound: Some(627), upper_bound: Some(627) }] solver post status: Ok(())
 % Processing MDD constraints group 3 of 3
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
-% Compiled MDD with 20 layers and 2285 transitions
+% Compiled MDD with 20 layers and 2832 transitions
 % MDD constraints group [LinearInequality { linear_expr: [(x1, 91), (x2, 65), (x3, 23), (x4, 22), (x5, 5), (x6, 25), (x7, 77), (x8, 63), (x9, 82), (x10, 61), (x11, 34), (x12, 45), (x13, 57), (x14, 10), (x15, 93), (x16, 20), (x17, 79), (x18, 11), (x19, 97), (x20, 82)], lower_bound: Some(521), upper_bound: Some(521) }] solver post status: Ok(())
-%%%mzn-stat: mddCompilationTime=0.347609789
+%%%mzn-stat: mddCompilationTime=0.144735494
 =====UNSATISFIABLE=====
-%%%mzn-stat: engineStatisticsNumDecisions=9262
-%%%mzn-stat: engineStatisticsNumConflicts=9263
+%%%mzn-stat: engineStatisticsNumDecisions=583
+%%%mzn-stat: engineStatisticsNumConflicts=581
 %%%mzn-stat: engineStatisticsNumRestarts=0
-%%%mzn-stat: engineStatisticsNumPropagations=525847
-%%%mzn-stat: engineStatisticsTimeSpentInSolver=3357
-%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=10.1431656229756
-%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=5.378427985316346
+%%%mzn-stat: engineStatisticsNumPropagations=118558
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=5471
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=9.424137931034483
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=2.9689655172413794
 %%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0
-%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=8
-%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=6.94839127618225
-%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1
-%%%mzn-stat: learnedClauseStatisticsAverageLbd=5.9535336070888265
+%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=7
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=4.8293103448275865
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1.0051724137931035
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=3.8464223385689356
 %%%mzn-stat-end

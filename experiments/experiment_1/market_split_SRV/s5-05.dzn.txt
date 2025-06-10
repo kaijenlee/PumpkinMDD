@@ -3,11 +3,11 @@
 %%%mzn-stat: flatIntVars=40
 %%%mzn-stat: flatIntConstraints=5
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.0342641
+%%%mzn-stat: flatTime=0.0287735
 %%%mzn-stat-end
 
 % Processing MDD constraints group 1 of 5
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
-% Compiled MDD with 40 layers and 7021 transitions
+% Compiled MDD with 40 layers and 28193 transitions
 =====ERROR=====

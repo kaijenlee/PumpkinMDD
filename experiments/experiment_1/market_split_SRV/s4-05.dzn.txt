@@ -3,48 +3,26 @@
 %%%mzn-stat: flatIntVars=30
 %%%mzn-stat: flatIntConstraints=4
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.0333963
+%%%mzn-stat: flatTime=0.0408879
 %%%mzn-stat-end
 
 % Processing MDD constraints group 1 of 4
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
-% Compiled MDD with 29 layers and 4428 transitions
+% Compiled MDD with 29 layers and 11354 transitions
 % MDD constraints group [LinearInequality { linear_expr: [(x1, 82), (x2, 75), (x3, 30), (x4, 63), (x5, 87), (x6, 66), (x8, 30), (x9, 87), (x10, 34), (x11, 36), (x12, 36), (x13, 66), (x14, 10), (x15, 78), (x16, 93), (x17, 18), (x18, 78), (x19, 87), (x20, 10), (x21, 89), (x22, 43), (x23, 93), (x24, 94), (x25, 18), (x26, 74), (x27, 15), (x28, 29), (x29, 88), (x30, 13)], lower_bound: Some(811), upper_bound: Some(811) }] solver post status: Ok(())
 % Processing MDD constraints group 2 of 4
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
-% Compiled MDD with 30 layers and 4382 transitions
+% Compiled MDD with 30 layers and 11829 transitions
 % MDD constraints group [LinearInequality { linear_expr: [(x1, 82), (x2, 22), (x3, 89), (x4, 65), (x5, 86), (x6, 28), (x7, 31), (x8, 38), (x9, 58), (x10, 18), (x11, 24), (x12, 47), (x13, 7), (x14, 43), (x15, 57), (x16, 85), (x17, 36), (x18, 27), (x19, 15), (x20, 76), (x21, 37), (x22, 57), (x23, 71), (x24, 31), (x25, 51), (x26, 90), (x27, 5), (x28, 19), (x29, 71), (x30, 45)], lower_bound: Some(705), upper_bound: Some(705) }] solver post status: Ok(())
 % Processing MDD constraints group 3 of 4
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
-% Compiled MDD with 29 layers and 4343 transitions
+% Compiled MDD with 29 layers and 58 transitions
 % MDD constraints group [LinearInequality { linear_expr: [(x1, 32), (x2, 5), (x3, 68), (x4, 21), (x5, 70), (x6, 6), (x7, 2), (x8, 2), (x9, 44), (x10, 60), (x11, 72), (x12, 21), (x13, 7), (x14, 79), (x15, 64), (x16, 64), (x17, 17), (x18, 52), (x19, 91), (x20, 32), (x21, 28), (x22, 81), (x23, 89), (x25, 12), (x26, 93), (x27, 42), (x28, 69), (x29, 12), (x30, 65)], lower_bound: Some(650), upper_bound: Some(650) }] solver post status: Ok(())
 % Processing MDD constraints group 4 of 4
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
-% Compiled MDD with 30 layers and 4904 transitions
-% MDD constraints group [LinearInequality { linear_expr: [(x1, 15), (x2, 44), (x3, 70), (x4, 35), (x5, 18), (x6, 41), (x7, 41), (x8, 20), (x9, 43), (x10, 37), (x11, 80), (x12, 15), (x13, 58), (x14, 40), (x15, 47), (x16, 74), (x17, 56), (x18, 64), (x19, 27), (x20, 48), (x21, 48), (x22, 55), (x23, 81), (x24, 90), (x25, 7), (x26, 93), (x27, 35), (x28, 49), (x29, 14), (x30, 47)], lower_bound: Some(696), upper_bound: Some(696) }] solver post status: Ok(())
-%%%mzn-stat: mddCompilationTime=420.50700192
-%%%mzn-stat: 1AutonomousSearchNumBackupCalled=0
-%%%mzn-stat: 1AutonomousSearchNumPredicatesRemoved=0
-%%%mzn-stat: 1AutonomousSearchNumCalls=1
-%%%mzn-stat: 1AutonomousSearchNumPredicatesAdded=65
-%%%mzn-stat: 1AutonomousSearchAverageSizeOfHeap=65
-%%%mzn-stat: 1AutonomousSearchNumAssignedPredicatesEncountered=65
-%%%mzn-stat: engineStatisticsNumDecisions=210710
-%%%mzn-stat: engineStatisticsNumConflicts=210697
-%%%mzn-stat: engineStatisticsNumRestarts=0
-%%%mzn-stat: engineStatisticsNumPropagations=16420654
-%%%mzn-stat: engineStatisticsTimeSpentInSolver=164671
-%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=14.997413347128814
-%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=8.969890411348999
-%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0
-%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=0
-%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=12.872276301988164
-%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1
-%%%mzn-stat: learnedClauseStatisticsAverageLbd=11.227672914184824
-%%%mzn-stat-end
-[0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0]
-----------
+% Compiled MDD with 30 layers and 60 transitions
+=====ERROR=====
