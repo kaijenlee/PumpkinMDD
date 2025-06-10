@@ -61,6 +61,7 @@ pub(crate) fn run(
                             );
                         let mut srv_layers = mdd_graph.layers.clone();
                         let _ = srv_layers.pop(); // Remove one element as we dont need the source layer for SRV
+                        assert_eq!(srv_layers.len(), layer_to_indices.len());
 
                         for (layer, index) in layer_to_indices {
                             if let Some(srv_layer) = srv_layers.get_mut(layer - 1) {

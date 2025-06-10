@@ -94,7 +94,7 @@ where
             srv_to_mdd_node: FnvHashMap::with_hasher(FnvBuildHasher::default()),
         }
     }
-    
+
     pub fn get_all_srv(&self) -> HashSet<Var> {
         self.mdd.srv_layers.iter().cloned().collect()
     }
@@ -143,8 +143,10 @@ where
             {
                 // TODO check this for handling removal of value from srv domain
                 let _ = self.node_status.insert(*node, NodeStatus::Above);
-                let _ =
-                    pinf_srv.insert((self.mdd.srv_layers[self.layer_index_to_srv_index(node.layer)].clone(), node.index as i32));
+                let _ = pinf_srv.insert((
+                    self.mdd.srv_layers[self.layer_index_to_srv_index(node.layer)].clone(),
+                    node.index as i32,
+                ));
                 let _ = self.trail.push(MddComponentType::Node(*node));
                 if self.node_to_out_edges.get(node).is_none() {
                     continue;
@@ -221,8 +223,10 @@ where
             {
                 // TODO check this for handling removal of value from srv domain
                 let _ = self.node_status.insert(*node, NodeStatus::Below);
-                let _ =
-                    pinf_srv.insert((self.mdd.srv_layers[self.layer_index_to_srv_index(node.layer)].clone(), node.index as i32));
+                let _ = pinf_srv.insert((
+                    self.mdd.srv_layers[self.layer_index_to_srv_index(node.layer)].clone(),
+                    node.index as i32,
+                ));
                 let _ = self.trail.push(MddComponentType::Node(*node));
                 if self.node_to_in_edges.get(node).is_none() {
                     continue;
@@ -284,7 +288,7 @@ where
         pinf_model: HashSet<(Var, i32)>,
         pinf_srv: HashSet<(Var, i32)>,
         count: i32,
-        mut context: PropagationContextMut,
+        context: &mut PropagationContextMut,
     ) -> Result<(), EmptyDomain> {
         let mut inf_model: HashSet<(Var, i32)> = FnvHashSet::with_hasher(FnvBuildHasher::default());
         let mut inf_srv: HashSet<(Var, i32)> = FnvHashSet::with_hasher(FnvBuildHasher::default());
@@ -472,31 +476,52 @@ where
         let mut reason: HashSet<(Var, i32)> = FnvHashSet::with_hasher(FnvBuildHasher::default());
         let mut current_kfb = kfb.clone();
         while !current_kfb.is_empty() {
-            let mut pending: HashSet<MddEdge> = FnvHashSet::with_hasher(FnvBuildHasher::default());
+            let mut pending_edge: HashSet<MddEdge> =
+                FnvHashSet::with_hasher(FnvBuildHasher::default());
+            let mut pending_node: HashSet<MddNode> =
+                FnvHashSet::with_hasher(FnvBuildHasher::default());
             for edge in current_kfb.iter() {
                 if *self.edge_status.get(edge).unwrap() == EdgeStatus::Dom
-                    && *self.node_status.get(&edge.to).unwrap() != NodeStatus::Below
+                    && (*self.node_status.get(&edge.to).unwrap() == NodeStatus::Above
+                        || *self.node_status.get(&edge.to).unwrap() == NodeStatus::Alive)
                 {
                     let model_var = self.mdd.layers[edge.from.layer].clone();
                     reason_predicates.push(predicate![model_var != edge.value]);
                     let _ = reason.insert((model_var, edge.value));
                 } else if *self.node_status.get(&edge.to).unwrap() == NodeStatus::Dom {
-                    let srv_var = self.mdd.srv_layers[self.layer_index_to_srv_index(edge.to.layer)].clone();
+                    let srv_var =
+                        self.mdd.srv_layers[self.layer_index_to_srv_index(edge.to.layer)].clone();
+                    if !reason.insert((srv_var.clone(), edge.to.index as i32)) {
+                        continue;
+                    }
                     reason_predicates.push(predicate![srv_var != edge.to.index as i32]);
-                    let _ = reason.insert((srv_var, edge.to.index as i32));
+                    let _ = pending_node.insert(edge.to);
                 } else {
-                    let _ = pending.insert(*edge);
+                    let _ = pending_edge.insert(*edge);
                 }
             }
 
             let mut next_kfb = FnvHashSet::with_hasher(FnvBuildHasher::default());
-            for edge in pending.iter() {
+            for edge in pending_edge.iter() {
                 if !reason.contains(&(self.mdd.layers[edge.from.layer].clone(), edge.value)) {
                     if let Some(out_edges) = self.node_to_out_edges.get(&edge.to) {
                         next_kfb.extend(out_edges);
                     }
                 }
             }
+            for node in pending_node.iter() {
+                if node == &self.mdd.sink {
+                    continue;
+                }
+                for edge in self.node_to_out_edges.get(&node).unwrap() {
+                    if !reason.contains(&(self.mdd.layers[edge.from.layer].clone(), edge.value))
+                        && *self.edge_status.get(edge).unwrap() == EdgeStatus::Dom
+                    {
+                        let _ = next_kfb.insert(*edge);
+                    }
+                }
+            }
+
             current_kfb = next_kfb;
         }
         reason_predicates
@@ -533,28 +558,49 @@ where
         let mut reason: HashSet<(Var, i32)> = FnvHashSet::with_hasher(FnvBuildHasher::default());
         let mut current_kfa = kfa.clone();
         while !current_kfa.is_empty() {
-            let mut pending: HashSet<MddEdge> = FnvHashSet::with_hasher(FnvBuildHasher::default());
+            let mut pending_edge: HashSet<MddEdge> =
+                FnvHashSet::with_hasher(FnvBuildHasher::default());
+            let mut pending_node: HashSet<MddNode> =
+                FnvHashSet::with_hasher(FnvBuildHasher::default());
             for edge in current_kfa.iter() {
                 if *self.edge_status.get(edge).unwrap() == EdgeStatus::Dom
-                    && *self.node_status.get(&edge.from).unwrap() != NodeStatus::Above
+                    && (*self.node_status.get(&edge.from).unwrap() == NodeStatus::Below
+                        || *self.node_status.get(&edge.from).unwrap() == NodeStatus::Alive)
                 {
                     let model_var = self.mdd.layers[edge.from.layer].clone();
                     reason_predicates.push(predicate![model_var != edge.value]);
                     let _ = reason.insert((model_var, edge.value));
-                } else if *self.node_status.get(&edge.to).unwrap() == NodeStatus::Dom {
-                    let srv_var = self.mdd.srv_layers[self.layer_index_to_srv_index(edge.to.layer)].clone();
-                    reason_predicates.push(predicate![srv_var != edge.to.index as i32]);
-                    let _ = reason.insert((srv_var, edge.to.index as i32));
+                } else if *self.node_status.get(&edge.from).unwrap() == NodeStatus::Dom {
+                    let srv_var =
+                        self.mdd.srv_layers[self.layer_index_to_srv_index(edge.from.layer)].clone();
+                    if !reason.insert((srv_var.clone(), edge.from.index as i32)) {
+                        continue;
+                    }
+                    reason_predicates.push(predicate![srv_var != edge.from.index as i32]);
+                    let _ = pending_node.insert(edge.from);
                 } else {
-                    let _ = pending.insert(*edge);
+                    let _ = pending_edge.insert(*edge);
                 }
             }
 
             let mut next_kfa = FnvHashSet::with_hasher(FnvBuildHasher::default());
-            for edge in pending.iter() {
+            for edge in pending_edge.iter() {
                 if !reason.contains(&(self.mdd.layers[edge.from.layer].clone(), edge.value)) {
                     if let Some(in_edges) = self.node_to_in_edges.get(&edge.from) {
                         next_kfa.extend(in_edges);
+                    }
+                }
+            }
+            for node in pending_node.iter() {
+                if node.layer == 0 {
+                    continue;
+                }
+
+                for edge in self.node_to_in_edges.get(&node).unwrap() {
+                    if !reason.contains(&(self.mdd.layers[edge.from.layer].clone(), edge.value))
+                        && *self.edge_status.get(edge).unwrap() == EdgeStatus::Dom
+                    {
+                        let _ = next_kfa.insert(*edge);
                     }
                 }
             }
@@ -589,24 +635,36 @@ where
     // }
 
     /// Helper function to encourage VSIDS to branch on nodes with the most edges, via SRV
-    pub(crate) fn get_node_with_most_active_edges(
-        &self,
-    ) -> Option<Predicate> {
-
+    pub(crate) fn get_node_with_most_active_edges(&self) -> Option<Predicate> {
         let mut max_active_edges = 0;
-        let best_node = self.srv_to_mdd_node.iter().fold(None, |current_best, (_, nodes)| {
-            let mut best_node: Option<MddNode> = current_best;
-            for (_, node) in nodes.iter() {
-                let active_in_edges = self.node_to_in_edges.get(node).unwrap().iter().filter(|e| self.edge_status.get(e).unwrap() == &EdgeStatus::Alive).count();
-                let active_out_edges = self.node_to_out_edges.get(node).unwrap().iter().filter(|e| self.edge_status.get(e).unwrap() == &EdgeStatus::Alive).count();
-                let active_edges = active_in_edges + active_out_edges;
-                if active_edges > max_active_edges {
-                    max_active_edges = active_edges;
-                    best_node = Some(*node);
+        let best_node = self
+            .srv_to_mdd_node
+            .iter()
+            .fold(None, |current_best, (_, nodes)| {
+                let mut best_node: Option<MddNode> = current_best;
+                for (_, node) in nodes.iter() {
+                    let active_in_edges = self
+                        .node_to_in_edges
+                        .get(node)
+                        .unwrap()
+                        .iter()
+                        .filter(|e| self.edge_status.get(e).unwrap() == &EdgeStatus::Alive)
+                        .count();
+                    let active_out_edges = self
+                        .node_to_out_edges
+                        .get(node)
+                        .unwrap()
+                        .iter()
+                        .filter(|e| self.edge_status.get(e).unwrap() == &EdgeStatus::Alive)
+                        .count();
+                    let active_edges = active_in_edges + active_out_edges;
+                    if active_edges > max_active_edges {
+                        max_active_edges = active_edges;
+                        best_node = Some(*node);
+                    }
                 }
-            }
-            best_node
-        });
+                best_node
+            });
         match best_node {
             Some(node) => {
                 let var = self.mdd.srv_layers[self.layer_index_to_srv_index(node.layer)].clone();
@@ -615,14 +673,12 @@ where
             }
             None => None,
         }
-
     }
 
     /// Helper function to convert layer index to srv_index as there is no srv for the source node/layer
     fn layer_index_to_srv_index(&self, layer_index: usize) -> usize {
         layer_index - 1
     }
-
 }
 
 impl<Var: std::fmt::Debug + Clone + std::hash::Hash + Eq + 'static> Propagator
@@ -754,6 +810,7 @@ where
 
         let _ = pinf_model.extend(d_pinf_model);
         let _ = pinf_srv.extend(d_pinf_srv);
+        self.collect_and_propagate(pinf_model, pinf_srv, count, &mut _context)?;
 
         if *self
             .edge_status
@@ -761,22 +818,14 @@ where
             .unwrap()
             != EdgeStatus::Alive
         {
-            // If the sink is dead, it is due to watched incoming edge being killed
-            let edge_involved = self.node_to_watched_in_edge.get(&self.mdd.sink).unwrap();
-            let var_val = (
-                self.mdd.layers[edge_involved.from.layer].clone(),
-                edge_involved.value,
-            );
-            return Err(Conflict(self.explain_model_value_removal(
-                var_val.0.clone(),
-                var_val.1,
-                _context.as_readonly(),
-            )));
+            // If the sink is dead, it is due all its incoming edges being killed
+
+            return Err(Conflict(PropositionalConjunction::new(self.explain_up(
+                self.node_to_in_edges.get(&self.mdd.sink).unwrap().clone(),
+            ))));
         }
         let (u_pinf_model, u_pinf_srv) = self.upward_pass(kfb_nodes);
-        let _ = pinf_model.extend(u_pinf_model);
-        let _ = pinf_srv.extend(u_pinf_srv);
-        self.collect_and_propagate(pinf_model, pinf_srv, count, _context)?;
+        self.collect_and_propagate(u_pinf_model, u_pinf_srv, count, &mut _context)?;
         // Reset the following at the end of the propagation
         self.model_domain_changes.clear();
         self.srv_domain_changes.clear();
@@ -1147,6 +1196,7 @@ mod tests {
         let mdd = create_bdd_regular_gange(&mut solver);
         let layers = mdd.layers.clone();
         let srv_layers = mdd.srv_layers.clone();
+        println!("{:?}", mdd);
 
         let mdd_propagator = solver
             .new_propagator(MddSRVPropagator::new(mdd))
@@ -1201,13 +1251,13 @@ mod tests {
         let reason_y3_1 = solver.get_reason_int(predicate!(srv_layers[2] != 1));
         assert_eq!(conjunction!([layers[2] != 1]), reason_y3_1);
         let reason_y3_2 = solver.get_reason_int(predicate!(srv_layers[2] != 2));
-        assert_eq!(conjunction!([layers[3] != 1]), reason_y3_2);
+        assert_eq!(conjunction!([layers[2] != 1]), reason_y3_2);
         assert_eq!(solver.lower_bound(srv_layers[3]), 1);
         assert_eq!(solver.upper_bound(srv_layers[3]), 1);
         let reason_y4_0 = solver.get_reason_int(predicate!(srv_layers[3] != 0));
         assert_eq!(conjunction!([layers[3] != 1]), reason_y4_0);
         let reason_y4_1 = solver.get_reason_int(predicate!(srv_layers[3] != 2));
-        assert_eq!(conjunction!([layers[3] != 1]), reason_y4_1);
+        assert_eq!(conjunction!([layers[2] != 1]), reason_y4_1);
         assert_eq!(solver.lower_bound(srv_layers[4]), 1);
         assert_eq!(solver.upper_bound(srv_layers[4]), 2);
         let reason_y5_0 = solver.get_reason_int(predicate!(srv_layers[4] != 0));

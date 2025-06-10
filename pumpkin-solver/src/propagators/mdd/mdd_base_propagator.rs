@@ -146,8 +146,6 @@ where
                     }
                 }
             }
-            
-            //handl
         }
         pinf
     }
@@ -239,7 +237,7 @@ where
         &mut self,
         pinf: HashSet<(Var, i32)>,
         count: i32,
-        mut context: PropagationContextMut,
+        context: &mut PropagationContextMut,
     ) -> Result<(), EmptyDomain> {
         let mut inf: HashSet<(Var, i32)> = FnvHashSet::with_hasher(FnvBuildHasher::default());
         // TODO optimize further memoization so that it is memoized for the entirety of the solver and capable of restoring upon backtrack
@@ -290,7 +288,11 @@ where
                 &mut killed_above_memo,
             );
             context.remove(&var, val, reason)?;
-            let _ = self.current_domains.get_mut(*self.var_to_index.get(&var).unwrap()).unwrap().remove(&val);
+            let _ = self
+                .current_domains
+                .get_mut(*self.var_to_index.get(&var).unwrap())
+                .unwrap()
+                .remove(&val);
         }
         Ok(())
     }
@@ -494,7 +496,7 @@ where
 }
 
 impl<Var: std::fmt::Debug + Clone + std::hash::Hash + Eq + 'static> Propagator
-for MddBasePropagator<Var>
+    for MddBasePropagator<Var>
 where
     Var: IntegerVariable,
 {
@@ -557,6 +559,7 @@ where
                 .remove(value);
         }
         let _ = pinf.extend(self.downward_pass(kfa));
+        self.collect_and_propagate(pinf, count, &mut _context)?;
 
         if *self
             .edge_status
@@ -565,23 +568,14 @@ where
             != EdgeStatus::Alive
         {
             // warn!("Status of sinks's incoming edge : {:?}", self.node_to_in_edges.get(&self.mdd.sink).unwrap().iter().filter(|e| *self.edge_status.get(e).unwrap() == EdgeStatus::Alive).collect::<Vec<&MddEdge>>());
-            // If the sink is dead, it is due to watched incoming edge being killed
-            let edge_involved = self.node_to_watched_in_edge.get(&self.mdd.sink).unwrap();
-            let var_val = (
-                self.mdd.layers[edge_involved.from.layer].clone(),
-                edge_involved.value,
-            );
-            return Err(Conflict(self.explain(
-                var_val.0.clone(),
-                var_val.1,
-                _context.as_readonly(),
+            // If the sink is dead, it is due to its incoming edges all being killed
+            return Err(Conflict(PropositionalConjunction::new(self.explain_up(
+                self.node_to_in_edges.get(&self.mdd.sink).unwrap().clone(),
                 &mut FnvHashMap::with_hasher(FnvBuildHasher::default()),
-                &mut FnvHashMap::with_hasher(FnvBuildHasher::default()),
-            )));
+            ))));
         }
-
-        let _ = pinf.extend(self.upward_pass(kfb));
-        self.collect_and_propagate(pinf, count, _context)?;
+        let u_pinf = self.upward_pass(kfb);
+        self.collect_and_propagate(u_pinf, count, &mut _context)?;
         // Reset the following at the end of the propagation
         self.domain_changes.clear();
         Ok(())
@@ -729,9 +723,9 @@ where
 mod tests {
     use crate::engine::propagation::EnqueueDecision;
     use crate::engine::test_solver::TestSolver;
+    use crate::propagators::mdd::mdd_base_propagator::MddBasePropagator;
     use crate::{conjunction, predicate};
     use mdd_compile::mdd::{MddEdge, MddGraph, MddNode};
-    use crate::propagators::mdd::mdd_base_propagator::MddBasePropagator;
 
     #[test]
     /// Test the MDD propagator with BDD example from \[1\] "for a regular constraint 0\*1100\*110\* over the variables

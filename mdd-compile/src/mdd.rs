@@ -76,7 +76,7 @@ impl std::fmt::Display for MddConstructionError {
 
 impl std::error::Error for MddConstructionError {}
 
-impl<VariableKey: Eq + Hash + Clone> MddBuilder<VariableKey> {
+impl<VariableKey: Eq + Hash + Clone + std::fmt::Debug> MddBuilder<VariableKey> {
     pub fn new(width: usize) -> Self {
         let haddock_handle = unsafe { ffi::init_haddock() };
         let mdd_handle = unsafe { ffi::init_mdd(haddock_handle, width) };
@@ -133,6 +133,7 @@ impl<VariableKey: Eq + Hash + Clone> MddBuilder<VariableKey> {
                 return Err(MddConstructionError);
             }
         }
+        warn!("MDD graph layers: {:?}", graph.layers);
         let ffi_transitions =
             unsafe { slice::from_raw_parts(ffi_graph.edges, ffi_graph.n_edges as usize) };
         for ffi_trans in ffi_transitions {
@@ -148,6 +149,7 @@ impl<VariableKey: Eq + Hash + Clone> MddBuilder<VariableKey> {
                 value: ffi_trans.value,
             });
         }
+        
         graph.sink = MddNode {
             layer: ffi_graph.sink.layer as usize,
             index: ffi_graph.sink.node_index as usize,
