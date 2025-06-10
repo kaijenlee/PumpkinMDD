@@ -3,7 +3,7 @@
 %%%mzn-stat: flatIntVars=120
 %%%mzn-stat: flatIntConstraints=30
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.0707847
+%%%mzn-stat: flatTime=0.0577018
 %%%mzn-stat-end
 
 % Processing MDD constraints group 1 of 30
@@ -156,5 +156,19 @@
 % MDD post status from haddock: true
 % Compiled MDD with 15 layers and 264 transitions
 % MDD constraints group [AllDifferent([x8, x16, x121, x32, x132, x48, x127, x122, x72, x130, x128, x96, x104, x112, x135])] solver post status: Ok(())
-%%%mzn-stat: mddCompilationTime=7.42316132
+%%%mzn-stat: mddCompilationTime=6.45922598
 % Configuring to branch on SRVs first
+=====UNSATISFIABLE=====
+%%%mzn-stat: engineStatisticsNumDecisions=2719
+%%%mzn-stat: engineStatisticsNumConflicts=697
+%%%mzn-stat: engineStatisticsNumRestarts=0
+%%%mzn-stat: engineStatisticsNumPropagations=152085
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=1390
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=3.3117816091954024
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=0.9698275862068966
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0.4396551724137931
+%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=3
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=17.208333333333332
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=3.906609195402299
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=6.138528138528138
+%%%mzn-stat-end

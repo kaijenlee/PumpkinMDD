@@ -3,7 +3,7 @@
 %%%mzn-stat: flatIntVars=67
 %%%mzn-stat: flatIntConstraints=20
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.0739778
+%%%mzn-stat: flatTime=0.0489055
 %%%mzn-stat-end
 
 % Processing MDD constraints group 1 of 20
@@ -105,14 +105,14 @@
 % Building mdd graph with haddock...
 % MDD post status from haddock: false
 % Failed to compile an MDD from a constraint group [AllDifferent([x71, x73, x19, x25, x32, x76, x46, x53, x60, x77])]
-%%%mzn-stat: mddCompilationTime=0.179738503
+%%%mzn-stat: mddCompilationTime=0.16752583
 % Configuring to branch on SRVs first
 =====UNSATISFIABLE=====
 %%%mzn-stat: engineStatisticsNumDecisions=391
 %%%mzn-stat: engineStatisticsNumConflicts=136
 %%%mzn-stat: engineStatisticsNumRestarts=0
 %%%mzn-stat: engineStatisticsNumPropagations=17753
-%%%mzn-stat: engineStatisticsTimeSpentInSolver=138
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=122
 %%%mzn-stat: learnedClauseStatisticsAverageConflictSize=2.8814814814814813
 %%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=0.6592592592592592
 %%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0.23703703703703705

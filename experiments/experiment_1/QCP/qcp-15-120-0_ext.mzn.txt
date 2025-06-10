@@ -3,23 +3,23 @@
 %%%mzn-stat: flatIntVars=120
 %%%mzn-stat: flatIntConstraints=30
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.0628505
+%%%mzn-stat: flatTime=0.0529541
 %%%mzn-stat-end
 
 % Processing MDD constraints group 1 of 30
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
-% Compiled MDD with 15 layers and 63 transitions
+% Compiled MDD with 15 layers and 996 transitions
 % MDD constraints group [AllDifferent([x1, x2, x3, x4, x5, x121, x122, x123, x124, x6, x7, x8, x125, x126, x127])] solver post status: Ok(())
 % Processing MDD constraints group 2 of 30
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
-% Compiled MDD with 15 layers and 604 transitions
+% Compiled MDD with 15 layers and 60 transitions
 % MDD constraints group [AllDifferent([x9, x122, x10, x11, x12, x13, x14, x128, x121, x127, x15, x129, x126, x130, x16])] solver post status: Ok(())
 % Processing MDD constraints group 3 of 30
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
-% Compiled MDD with 15 layers and 48 transitions
+% Compiled MDD with 15 layers and 132 transitions
 % MDD constraints group [AllDifferent([x17, x125, x130, x131, x18, x19, x132, x129, x20, x133, x21, x124, x22, x23, x126])] solver post status: Ok(())
 % Processing MDD constraints group 4 of 30
 % Building mdd graph with haddock...
@@ -156,7 +156,7 @@
 % MDD post status from haddock: true
 % Compiled MDD with 15 layers and 408 transitions
 % MDD constraints group [AllDifferent([x127, x16, x126, x131, x121, x124, x55, x128, x72, x80, x88, x96, x104, x125, x120])] solver post status: Ok(())
-%%%mzn-stat: mddCompilationTime=9.599069303
+%%%mzn-stat: mddCompilationTime=7.384618355
 %%%mzn-stat: 1AutonomousSearchNumBackupCalled=0
 %%%mzn-stat: 1AutonomousSearchNumPredicatesRemoved=0
 %%%mzn-stat: 1AutonomousSearchNumCalls=1
@@ -167,7 +167,7 @@
 %%%mzn-stat: engineStatisticsNumConflicts=59
 %%%mzn-stat: engineStatisticsNumRestarts=0
 %%%mzn-stat: engineStatisticsNumPropagations=4691
-%%%mzn-stat: engineStatisticsTimeSpentInSolver=78
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=72
 %%%mzn-stat: learnedClauseStatisticsAverageConflictSize=2.2033898305084745
 %%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=0.4576271186440678
 %%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0.4745762711864407

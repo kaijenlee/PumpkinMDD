@@ -3,7 +3,7 @@
 %%%mzn-stat: flatIntVars=67
 %%%mzn-stat: flatIntConstraints=20
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.0688715
+%%%mzn-stat: flatTime=0.0530202
 %%%mzn-stat-end
 
 % Processing MDD constraints group 1 of 20
@@ -106,7 +106,7 @@
 % MDD post status from haddock: true
 % Compiled MDD with 10 layers and 316 transitions
 % MDD constraints group [AllDifferent([x7, x13, x20, x26, x76, x72, x47, x77, x60, x67])] solver post status: Ok(())
-%%%mzn-stat: mddCompilationTime=0.15827147
+%%%mzn-stat: mddCompilationTime=0.142684474
 %%%mzn-stat: 1AutonomousSearchNumBackupCalled=0
 %%%mzn-stat: 1AutonomousSearchNumPredicatesRemoved=0
 %%%mzn-stat: 1AutonomousSearchNumCalls=1
@@ -117,7 +117,7 @@
 %%%mzn-stat: engineStatisticsNumConflicts=75
 %%%mzn-stat: engineStatisticsNumRestarts=0
 %%%mzn-stat: engineStatisticsNumPropagations=2764
-%%%mzn-stat: engineStatisticsTimeSpentInSolver=37
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=39
 %%%mzn-stat: learnedClauseStatisticsAverageConflictSize=2.8666666666666667
 %%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=0.4
 %%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0.32
