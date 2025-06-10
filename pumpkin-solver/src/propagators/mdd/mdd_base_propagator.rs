@@ -8,12 +8,12 @@ use crate::engine::propagation::{
 use crate::engine::{DomainEvents, EmptyDomain};
 use crate::predicate;
 use crate::predicates::{Predicate, PropositionalConjunction};
+use crate::propagators::mdd::common::{EdgeStatus, EdgeWatchFlag};
 use crate::variables::IntegerVariable;
 use fnv::{FnvBuildHasher, FnvHashMap, FnvHashSet};
 use mdd_compile::mdd::{MddEdge, MddGraph, MddNode};
 use std::collections::hash_set::Iter;
 use std::collections::VecDeque;
-use crate::propagators::mdd::common::{EdgeStatus, EdgeWatchFlag};
 
 /// ['MddPropagator'] is a propagator that uses provided multi-valued decision diagram (MDD) to propagate
 /// the constraint represented by the MDD (see ['mdd_compile::mdd']).
@@ -237,7 +237,7 @@ where
         &mut self,
         pinf: HashSet<(Var, i32)>,
         count: i32,
-        context: &mut PropagationContextMut,
+        mut context: PropagationContextMut,
     ) -> Result<(), EmptyDomain> {
         let mut inf: HashSet<(Var, i32)> = FnvHashSet::with_hasher(FnvBuildHasher::default());
         // TODO optimize further memoization so that it is memoized for the entirety of the solver and capable of restoring upon backtrack
@@ -559,7 +559,6 @@ where
                 .remove(value);
         }
         let _ = pinf.extend(self.downward_pass(kfa));
-        self.collect_and_propagate(pinf, count, &mut _context)?;
 
         if *self
             .edge_status
@@ -574,8 +573,8 @@ where
                 &mut FnvHashMap::with_hasher(FnvBuildHasher::default()),
             ))));
         }
-        let u_pinf = self.upward_pass(kfb);
-        self.collect_and_propagate(u_pinf, count, &mut _context)?;
+        let _ = pinf.extend(self.upward_pass(kfb));
+        self.collect_and_propagate(pinf, count, _context)?;
         // Reset the following at the end of the propagation
         self.domain_changes.clear();
         Ok(())

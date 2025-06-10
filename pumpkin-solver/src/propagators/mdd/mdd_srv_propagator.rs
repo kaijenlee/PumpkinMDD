@@ -288,7 +288,7 @@ where
         pinf_model: HashSet<(Var, i32)>,
         pinf_srv: HashSet<(Var, i32)>,
         count: i32,
-        context: &mut PropagationContextMut,
+        mut context: PropagationContextMut,
     ) -> Result<(), EmptyDomain> {
         let mut inf_model: HashSet<(Var, i32)> = FnvHashSet::with_hasher(FnvBuildHasher::default());
         let mut inf_srv: HashSet<(Var, i32)> = FnvHashSet::with_hasher(FnvBuildHasher::default());
@@ -810,7 +810,6 @@ where
 
         let _ = pinf_model.extend(d_pinf_model);
         let _ = pinf_srv.extend(d_pinf_srv);
-        self.collect_and_propagate(pinf_model, pinf_srv, count, &mut _context)?;
 
         if *self
             .edge_status
@@ -825,7 +824,10 @@ where
             ))));
         }
         let (u_pinf_model, u_pinf_srv) = self.upward_pass(kfb_nodes);
-        self.collect_and_propagate(u_pinf_model, u_pinf_srv, count, &mut _context)?;
+        let _ = pinf_model.extend(u_pinf_model);
+        let _ = pinf_srv.extend(u_pinf_srv);
+        self.collect_and_propagate(pinf_model, pinf_srv, count, _context)?;
+
         // Reset the following at the end of the propagation
         self.model_domain_changes.clear();
         self.srv_domain_changes.clear();
