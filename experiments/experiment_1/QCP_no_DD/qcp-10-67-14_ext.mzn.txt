@@ -3,7 +3,7 @@
 %%%mzn-stat: flatIntVars=67
 %%%mzn-stat: flatIntConstraints=20
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.0567738
+%%%mzn-stat: flatTime=0.0816091
 %%%mzn-stat-end
 
 =====UNSATISFIABLE=====

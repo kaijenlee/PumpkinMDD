@@ -3,16 +3,18 @@
 %%%mzn-stat: flatIntVars=187
 %%%mzn-stat: flatIntConstraints=40
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.169059
+%%%mzn-stat: flatTime=0.153101
 %%%mzn-stat-end
 
 % Processing MDD constraints group 1 of 40
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
+% MDD graph layers: [x188, x189, x1, x190, x191, x192, x2, x193, x194, x3, x195, x4, x5, x6, x196, x197, x7, x198, x8, x9]
 % Compiled MDD with 20 layers and 185 transitions
 % MDD constraints group [AllDifferent([x188, x189, x1, x190, x191, x192, x2, x193, x194, x3, x195, x4, x5, x6, x196, x197, x7, x198, x8, x9])] solver post status: Ok(())
 % Processing MDD constraints group 2 of 40
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
+% MDD graph layers: [x10, x11, x12, x199, x13, x191, x200, x14, x193, x201, x192, x15, x202, x16, x17, x189, x196, x18, x19, x203]
 % Compiled MDD with 20 layers and 792 transitions
 =====ERROR=====

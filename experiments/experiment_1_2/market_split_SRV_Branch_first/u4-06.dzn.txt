@@ -1,0 +1,13 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=30
+%%%mzn-stat: flatIntConstraints=4
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.0304592
+%%%mzn-stat-end
+
+% Processing MDD constraints group 1 of 1
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% Compiled MDD with 30 layers and 48375 transitions
+=====ERROR=====

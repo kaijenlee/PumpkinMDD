@@ -3,22 +3,23 @@
 %%%mzn-stat: flatIntVars=20
 %%%mzn-stat: flatIntConstraints=3
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.0156605
+%%%mzn-stat: flatTime=0.023505
 %%%mzn-stat-end
 
 % Processing MDD constraints group 1 of 1
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20]
 % Compiled MDD with 20 layers and 40 transitions
 % MDD constraints group [LinearInequality { linear_expr: [(x1, 70), (x2, 70), (x3, 68), (x4, 68), (x5, 73), (x6, 10), (x7, 68), (x8, 42), (x9, 73), (x10, 38), (x11, 15), (x12, 33), (x13, 4), (x14, 19), (x15, 48), (x16, 17), (x17, 80), (x18, 5), (x19, 48), (x20, 23)], lower_bound: Some(436), upper_bound: Some(436) }, LinearInequality { linear_expr: [(x1, 98), (x2, 43), (x3, 19), (x4, 41), (x5, 99), (x6, 63), (x7, 47), (x8, 67), (x9, 2), (x10, 18), (x11, 25), (x12, 72), (x13, 88), (x14, 46), (x15, 40), (x16, 13), (x17, 56), (x18, 60), (x19, 7), (x20, 81)], lower_bound: Some(492), upper_bound: Some(492) }, LinearInequality { linear_expr: [(x1, 98), (x2, 75), (x3, 14), (x4, 2), (x5, 46), (x6, 62), (x7, 71), (x8, 79), (x9, 68), (x10, 20), (x11, 54), (x12, 18), (x13, 15), (x14, 73), (x15, 59), (x16, 14), (x17, 88), (x18, 6), (x19, 34), (x20, 90)], lower_bound: Some(493), upper_bound: Some(493) }] solver post status: Ok(())
-%%%mzn-stat: mddCompilationTime=0.091415735
+%%%mzn-stat: mddCompilationTime=0.109678828
 % Configuring to branch on SRVs first
 =====UNSATISFIABLE=====
 %%%mzn-stat: engineStatisticsNumDecisions=7912
 %%%mzn-stat: engineStatisticsNumConflicts=7913
 %%%mzn-stat: engineStatisticsNumRestarts=0
 %%%mzn-stat: engineStatisticsNumPropagations=34948
-%%%mzn-stat: engineStatisticsTimeSpentInSolver=218
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=226
 %%%mzn-stat: learnedClauseStatisticsAverageConflictSize=9.75947927199191
 %%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=5.512639029322548
 %%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0

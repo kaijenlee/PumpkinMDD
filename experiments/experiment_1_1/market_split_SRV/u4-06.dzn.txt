@@ -1,0 +1,30 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=30
+%%%mzn-stat: flatIntConstraints=4
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.0183601
+%%%mzn-stat-end
+
+% Processing MDD constraints group 1 of 4
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% Compiled MDD with 30 layers and 11806 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 50), (x2, 66), (x3, 17), (x4, 13), (x5, 56), (x6, 96), (x7, 22), (x8, 2), (x9, 41), (x10, 45), (x11, 73), (x12, 72), (x13, 7), (x14, 44), (x15, 76), (x16, 37), (x17, 61), (x18, 30), (x19, 22), (x20, 61), (x21, 75), (x22, 22), (x23, 85), (x24, 96), (x25, 95), (x26, 14), (x27, 32), (x28, 27), (x29, 6), (x30, 27)], lower_bound: Some(685), upper_bound: Some(685) }] solver post status: Ok(())
+% Processing MDD constraints group 2 of 4
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% Compiled MDD with 30 layers and 12168 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 88), (x2, 56), (x3, 45), (x4, 57), (x5, 21), (x6, 2), (x7, 54), (x8, 95), (x9, 4), (x10, 47), (x11, 40), (x12, 29), (x13, 19), (x14, 48), (x15, 73), (x16, 96), (x17, 37), (x18, 86), (x19, 78), (x20, 60), (x21, 48), (x22, 5), (x23, 82), (x24, 33), (x25, 2), (x26, 29), (x27, 99), (x28, 86), (x29, 8), (x30, 5)], lower_bound: Some(716), upper_bound: Some(716) }] solver post status: Ok(())
+% Processing MDD constraints group 3 of 4
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% Compiled MDD with 30 layers and 12252 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 13), (x2, 49), (x3, 14), (x4, 58), (x5, 6), (x6, 87), (x7, 12), (x8, 12), (x9, 83), (x10, 16), (x11, 60), (x12, 23), (x13, 97), (x14, 79), (x15, 23), (x16, 71), (x17, 27), (x18, 61), (x19, 57), (x20, 57), (x21, 73), (x22, 57), (x23, 63), (x24, 7), (x25, 90), (x26, 17), (x27, 88), (x28, 42), (x29, 3), (x30, 97)], lower_bound: Some(721), upper_bound: Some(721) }] solver post status: Ok(())
+% Processing MDD constraints group 4 of 4
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% Compiled MDD with 30 layers and 60 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 47), (x2, 68), (x3, 98), (x4, 13), (x5, 78), (x6, 4), (x7, 1), (x8, 91), (x9, 17), (x10, 36), (x11, 59), (x12, 29), (x13, 59), (x14, 57), (x15, 60), (x16, 35), (x17, 80), (x18, 88), (x19, 48), (x20, 89), (x21, 97), (x22, 21), (x23, 47), (x24, 12), (x25, 80), (x26, 89), (x27, 81), (x28, 68), (x29, 31), (x30, 36)], lower_bound: Some(809), upper_bound: Some(809) }] solver post status: Ok(())
+%%%mzn-stat: mddCompilationTime=152.361712399
+=====ERROR=====

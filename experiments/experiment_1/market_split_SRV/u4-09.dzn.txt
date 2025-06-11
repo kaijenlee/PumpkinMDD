@@ -3,28 +3,45 @@
 %%%mzn-stat: flatIntVars=30
 %%%mzn-stat: flatIntConstraints=4
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.0184489
+%%%mzn-stat: flatTime=0.0187373
 %%%mzn-stat-end
 
 % Processing MDD constraints group 1 of 4
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30]
 % Compiled MDD with 30 layers and 11686 transitions
 % MDD constraints group [LinearInequality { linear_expr: [(x1, 81), (x2, 24), (x3, 55), (x4, 36), (x5, 26), (x6, 88), (x7, 23), (x8, 34), (x9, 49), (x10, 19), (x11, 10), (x12, 80), (x13, 87), (x14, 60), (x15, 23), (x16, 4), (x17, 9), (x18, 4), (x19, 22), (x20, 80), (x21, 86), (x22, 3), (x23, 81), (x24, 15), (x25, 41), (x26, 79), (x27, 70), (x28, 40), (x29, 5), (x30, 26)], lower_bound: Some(630), upper_bound: Some(630) }] solver post status: Ok(())
 % Processing MDD constraints group 2 of 4
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30]
 % Compiled MDD with 30 layers and 10734 transitions
 % MDD constraints group [LinearInequality { linear_expr: [(x1, 10), (x2, 86), (x3, 3), (x4, 17), (x5, 74), (x6, 81), (x7, 5), (x8, 49), (x9, 15), (x10, 6), (x11, 20), (x12, 77), (x13, 39), (x14, 7), (x15, 38), (x16, 62), (x17, 11), (x18, 99), (x19, 18), (x20, 85), (x21, 79), (x22, 5), (x23, 89), (x24, 12), (x25, 20), (x26, 82), (x27, 43), (x28, 43), (x29, 23), (x30, 48)], lower_bound: Some(623), upper_bound: Some(623) }] solver post status: Ok(())
 % Processing MDD constraints group 3 of 4
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
-% Compiled MDD with 30 layers and 11366 transitions
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30]
+% Compiled MDD with 30 layers and 60 transitions
 % MDD constraints group [LinearInequality { linear_expr: [(x1, 21), (x2, 33), (x3, 87), (x4, 24), (x5, 2), (x6, 61), (x7, 5), (x8, 7), (x9, 11), (x10, 73), (x11, 13), (x12, 83), (x13, 50), (x14, 52), (x15, 91), (x16, 40), (x17, 66), (x18, 54), (x19, 39), (x20, 85), (x21, 40), (x22, 70), (x23, 42), (x24, 81), (x25, 82), (x26, 14), (x27, 63), (x28, 26), (x29, 57), (x30, 38)], lower_bound: Some(705), upper_bound: Some(705) }] solver post status: Ok(())
 % Processing MDD constraints group 4 of 4
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30]
 % Compiled MDD with 30 layers and 12314 transitions
 % MDD constraints group [LinearInequality { linear_expr: [(x1, 74), (x2, 79), (x3, 23), (x4, 61), (x5, 3), (x6, 25), (x7, 75), (x8, 9), (x9, 32), (x10, 38), (x11, 34), (x12, 98), (x13, 21), (x14, 84), (x15, 2), (x16, 64), (x17, 25), (x18, 69), (x19, 19), (x20, 16), (x21, 6), (x22, 11), (x23, 87), (x24, 48), (x25, 92), (x26, 69), (x27, 62), (x28, 7), (x29, 47), (x30, 72)], lower_bound: Some(676), upper_bound: Some(676) }] solver post status: Ok(())
-%%%mzn-stat: mddCompilationTime=8.140509875
-=====ERROR=====
+%%%mzn-stat: mddCompilationTime=157.720163261
+=====UNKNOWN=====
+%%%mzn-stat: engineStatisticsNumDecisions=4199
+%%%mzn-stat: engineStatisticsNumConflicts=4186
+%%%mzn-stat: engineStatisticsNumRestarts=0
+%%%mzn-stat: engineStatisticsNumPropagations=1451435
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=1042202
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=15.819397993311037
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=6.8084089823220255
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0
+%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=0
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=11.148351648351648
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1.0004777830864788
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=10.142618251313904
+%%%mzn-stat-end

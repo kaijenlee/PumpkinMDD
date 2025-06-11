@@ -3,11 +3,24 @@
 %%%mzn-stat: flatIntVars=264
 %%%mzn-stat: flatIntConstraints=50
 %%%mzn-stat: method="satisfy"
-%%%mzn-stat: flatTime=0.167136
+%%%mzn-stat: flatTime=0.150555
 %%%mzn-stat-end
 
 % Processing MDD constraints group 1 of 50
 % Building mdd graph with haddock...
 % MDD post status from haddock: true
+% MDD graph layers: [x1, x265, x2, x266, x3, x267, x268, x4, x269, x270, x271, x5, x6, x7, x272, x273, x274, x8, x275, x276, x9, x277, x278, x10, x279]
 % Compiled MDD with 25 layers and 642 transitions
+% MDD constraints group [AllDifferent([x1, x265, x2, x266, x3, x267, x268, x4, x269, x270, x271, x5, x6, x7, x272, x273, x274, x8, x275, x276, x9, x277, x278, x10, x279])] solver post status: Ok(())
+% Processing MDD constraints group 2 of 50
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x11, x280, x12, x271, x277, x281, x270, x275, x13, x14, x15, x16, x279, x265, x17, x282, x272, x18, x283, x284, x19, x20, x273, x285, x286]
+% Compiled MDD with 25 layers and 1311 transitions
+% MDD constraints group [AllDifferent([x11, x280, x12, x271, x277, x281, x270, x275, x13, x14, x15, x16, x279, x265, x17, x282, x272, x18, x283, x284, x19, x20, x273, x285, x286])] solver post status: Ok(())
+% Processing MDD constraints group 3 of 50
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x21, x285, x22, x23, x276, x24, x283, x25, x265, x281, x26, x282, x269, x27, x28, x280, x270, x29, x266, x279, x271, x274, x30, x31, x275]
+% Compiled MDD with 25 layers and 119 transitions
 =====ERROR=====
