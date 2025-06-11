@@ -3,13 +3,17 @@ import matplotlib.pyplot as plt
 
 file_1 = 'experiment_1/marketsplit_dd_disabled.csv'
 file_2  = 'experiment_1/marketsplit_dd_enabled.csv'
-problem = 'Market'
+problem = 'market'
 filename_1 = 'without MDD'
 filename_2 = 'with MDD'
 # Read CSVs
 df_1 = pd.read_csv(file_1)
 df_2   = pd.read_csv(file_2)
-
+#filter out unkowns and errors for plotting
+df_1 = df_1[df_1['ERROR']==0]
+df_1 = df_1[df_1['UNKNOWN']==0]
+df_2 = df_2[df_2['ERROR']==0]
+df_2 = df_2[df_2['UNKNOWN']==0]
 # NUMBER OF CONFLICTS
 df_1_sat = df_1[df_1['UNSATISFIABLE'] == 0]
 df_2_sat = df_2[df_2['UNSATISFIABLE'] == 0]
