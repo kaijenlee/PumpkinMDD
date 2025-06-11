@@ -107,7 +107,7 @@
             "--dd-max-width",
             "\tMaximum width of decision diagram relaxations",
             "int:2:18446744073709551615",
-            "2048",
+            "128",
         ],
         [
             "--dd-intersect",

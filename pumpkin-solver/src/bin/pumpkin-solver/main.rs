@@ -365,7 +365,7 @@ struct Args {
 
     /// Maximum width of decision diagram relaxations
     // TODO Tune this to your taste
-    #[arg(long = "dd-max-width", default_value_t = 2048)]
+    #[arg(long = "dd-max-width", default_value_t = 128)]
     decision_diagrams_max_width: usize,
 
     /// Determines which constraints are grouped together in the DD construction
