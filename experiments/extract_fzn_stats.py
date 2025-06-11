@@ -32,10 +32,19 @@ def extract_stats(file_path):
 
                 if "UNSATISFIABLE" in line:
                     stats['UNSATISFIABLE'] = 1
+                else:
+                    stats['UNSATISFIABLE'] = 0
+
                 if "ERROR" in line:
                     stats['ERROR'] = 1
+                else:
+                    stats['ERROR'] = 0
+
                 if "UNKNOWN" in line:
                     stats['UNKNOWN'] = 1
+                else :
+                    stats['UNKNOWN'] = 0
+
                 m = re.match(r'%%%mzn-stat:\s*([^=]+)=(.*)', line)
                 if m:
                     key = m.group(1).strip()
