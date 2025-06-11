@@ -1,0 +1,30 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=20
+%%%mzn-stat: flatIntConstraints=3
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.0157316
+%%%mzn-stat-end
+
+% Processing MDD constraints group 1 of 1
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20]
+% Compiled MDD with 20 layers and 40 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 44), (x2, 73), (x3, 24), (x4, 45), (x5, 99), (x6, 14), (x7, 67), (x8, 83), (x9, 48), (x10, 9), (x11, 81), (x12, 1), (x13, 42), (x14, 79), (x15, 65), (x16, 22), (x17, 6), (x18, 68), (x19, 97), (x20, 18)], lower_bound: Some(492), upper_bound: Some(492) }, LinearInequality { linear_expr: [(x1, 7), (x2, 58), (x3, 87), (x4, 29), (x5, 16), (x6, 64), (x7, 69), (x8, 75), (x9, 86), (x10, 96), (x11, 59), (x12, 30), (x13, 69), (x14, 83), (x15, 76), (x16, 68), (x17, 49), (x18, 95), (x19, 51), (x20, 97)], lower_bound: Some(632), upper_bound: Some(632) }, LinearInequality { linear_expr: [(x1, 5), (x2, 84), (x3, 50), (x4, 99), (x5, 63), (x6, 67), (x7, 21), (x8, 70), (x9, 35), (x10, 18), (x11, 88), (x12, 43), (x13, 29), (x14, 27), (x15, 24), (x16, 97), (x17, 43), (x18, 93), (x19, 73), (x20, 30)], lower_bound: Some(529), upper_bound: Some(529) }] solver post status: Ok(())
+%%%mzn-stat: mddCompilationTime=0.10255231
+% Configuring to branch on SRVs first
+=====UNSATISFIABLE=====
+%%%mzn-stat: engineStatisticsNumDecisions=16501
+%%%mzn-stat: engineStatisticsNumConflicts=16502
+%%%mzn-stat: engineStatisticsNumRestarts=0
+%%%mzn-stat: engineStatisticsNumPropagations=67368
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=510
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=9.75977213502212
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=5.630264832434398
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0
+%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=8
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=7.273316768680686
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=6.276359667737828
+%%%mzn-stat-end
