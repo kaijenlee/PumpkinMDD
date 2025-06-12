@@ -19,6 +19,10 @@ df_1_sat = df_1[df_1['UNSATISFIABLE'] == 0]
 df_2_sat = df_2[df_2['UNSATISFIABLE'] == 0]
 df_1_unsat = df_1[df_1['UNSATISFIABLE'] == 1]
 df_2_unsat = df_2[df_2['UNSATISFIABLE'] == 1]
+print(df_1_unsat.to_string())
+print(df_2_unsat.to_string())
+print(df_1_sat.to_string())
+print(df_2_sat.to_string())
 conflicts_nomdd_sat = df_1_sat[['Filename', 'engineStatisticsNumConflicts']].rename(
     columns={'engineStatisticsNumConflicts': 'Conflicts_no_mdd'}
 )

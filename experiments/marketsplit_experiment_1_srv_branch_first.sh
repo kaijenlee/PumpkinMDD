@@ -15,7 +15,7 @@ for INPUT_FILE in "$INPUT_DIR"/*.dzn; do
     echo "Processing $INPUT_FILE -> $OUTPUT_FILE"
 
     # Perform your operation (Y) here. Replace 'cat' with your actual command.
-    minizinc --time-limit 1200000 --solver "minizinc/pumpkin.msc" $MODEL $INPUT_FILE -s --dd-enable --dd-srv-enable --branch-srv-first --dd-intersect all> $OUTPUT_FILE
+    minizinc --time-limit 1200000 --solver "minizinc/pumpkin.msc" $MODEL $INPUT_FILE -s --dd-enable --dd-srv-enable --branch-srv-first> $OUTPUT_FILE
 
   fi
 done

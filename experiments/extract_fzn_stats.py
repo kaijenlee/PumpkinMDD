@@ -26,24 +26,24 @@ def extract_stats(file_path):
     }
 
     try:
+        stats['UNSATISFIABLE'] = 0
+        stats['ERROR'] = 0
+        stats['UNKNOWN'] = 0
         with open(file_path, 'r') as f:
             for line in f:
                 line = line.strip()
 
                 if "UNSATISFIABLE" in line:
                     stats['UNSATISFIABLE'] = 1
-                else:
-                    stats['UNSATISFIABLE'] = 0
+
 
                 if "ERROR" in line:
                     stats['ERROR'] = 1
-                else:
-                    stats['ERROR'] = 0
+
 
                 if "UNKNOWN" in line:
                     stats['UNKNOWN'] = 1
-                else :
-                    stats['UNKNOWN'] = 0
+
 
                 m = re.match(r'%%%mzn-stat:\s*([^=]+)=(.*)', line)
                 if m:
