@@ -1,5 +1,8 @@
 #!/bin/bash
-
+DD_WIDTH=128
+if [ -n "$1" ]; then
+    DD_WIDTH=$1
+fi
 # Define variables
 INPUT_DIR="benchmark_suite/QCP"   # Replace with your directory path
 OUTPUT_DIR="experiments/experiment_1/QCP" # Replace with your desired output file
@@ -15,7 +18,7 @@ for INPUT_FILE in "$INPUT_DIR"/*.mzn; do
     echo "Processing $INPUT_FILE -> $OUTPUT_FILE"
 
     # Perform your operation (Y) here. Replace 'cat' with your actual command.
-    minizinc --time-limit 1200000 --solver "minizinc/pumpkin.msc" $INPUT_FILE -s --dd-enable > $OUTPUT_FILE
+    minizinc --time-limit 3600000 --solver "minizinc/pumpkin.msc" $INPUT_FILE -s --dd-enable --dd-max-width $DD_WIDTH > $OUTPUT_FILE
 
   fi
 done

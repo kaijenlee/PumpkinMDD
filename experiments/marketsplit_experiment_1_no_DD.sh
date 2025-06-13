@@ -15,7 +15,7 @@ for INPUT_FILE in "$INPUT_DIR"/*.dzn; do
     echo "Processing $INPUT_FILE -> $OUTPUT_FILE"
 
     # Perform your operation (Y) here. Replace 'cat' with your actual command.
-    minizinc --time-limit 3000000 --solver "minizinc/pumpkin.msc" $MODEL $INPUT_FILE -s  > $OUTPUT_FILE
+    minizinc --time-limit 3600000 --solver "minizinc/pumpkin.msc" $MODEL $INPUT_FILE -s  > $OUTPUT_FILE
 
   fi
 done
