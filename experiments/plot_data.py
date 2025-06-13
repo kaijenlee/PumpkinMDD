@@ -1,8 +1,8 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-file_1 = 'experiment_1/marketsplit_dd_disabled.csv'
-file_2  = 'experiment_1/marketsplit_dd_enabled.csv'
+file_1 = 'experiment_srv_branch_first_w128/marketsplit_dd_disabled.csv'
+file_2  = 'experiment_srv_branch_first_w128/marketsplit_dd_enabled.csv'
 problem = 'market'
 filename_1 = 'without MDD'
 filename_2 = 'with MDD'
@@ -23,6 +23,10 @@ print(df_1_unsat.to_string())
 print(df_2_unsat.to_string())
 print(df_1_sat.to_string())
 print(df_2_sat.to_string())
+print("Errors")
+print(df_1[df_1['ERROR']==1]['Filename'])
+print(df_2[df_2['ERROR']==1]['Filename'])
+
 conflicts_nomdd_sat = df_1_sat[['Filename', 'engineStatisticsNumConflicts']].rename(
     columns={'engineStatisticsNumConflicts': 'Conflicts_no_mdd'}
 )

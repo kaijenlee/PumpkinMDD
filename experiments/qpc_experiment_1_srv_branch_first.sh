@@ -15,7 +15,7 @@ for INPUT_FILE in "$INPUT_DIR"/*.mzn; do
     echo "Processing $INPUT_FILE -> $OUTPUT_FILE"
 
     # Perform your operation (Y) here. Replace 'cat' with your actual command.
-    minizinc --time-limit 1200000 --solver "minizinc/pumpkin.msc" $INPUT_FILE -s --dd-enable --dd-srv-enable --branch-srv-first> $OUTPUT_FILE
+    minizinc --time-limit 1200000 --solver "minizinc/pumpkin.msc" $INPUT_FILE -s --dd-enable --dd-srv-enable --branch-srv-first --dd-max-width 2048> $OUTPUT_FILE
 
   fi
 done
