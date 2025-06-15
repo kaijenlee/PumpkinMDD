@@ -1,0 +1,48 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=20
+%%%mzn-stat: flatIntConstraints=3
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.0189876
+%%%mzn-stat-end
+
+% Processing MDD constraints group 1 of 3
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20]
+% Compiled MDD with 20 layers and 40 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 40), (x2, 15), (x3, 71), (x4, 78), (x5, 59), (x6, 83), (x7, 44), (x8, 25), (x9, 98), (x10, 12), (x11, 77), (x12, 13), (x13, 34), (x14, 18), (x15, 16), (x16, 27), (x17, 93), (x18, 26), (x19, 79), (x20, 34)], lower_bound: Some(471), upper_bound: Some(471) }] solver post status: Ok(())
+% Processing MDD constraints group 2 of 3
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20]
+% Compiled MDD with 20 layers and 2483 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 71), (x2, 10), (x3, 22), (x4, 74), (x5, 18), (x6, 20), (x7, 72), (x8, 97), (x9, 36), (x10, 50), (x11, 78), (x12, 77), (x13, 17), (x14, 49), (x15, 7), (x16, 29), (x17, 84), (x18, 4), (x19, 6), (x20, 82)], lower_bound: Some(451), upper_bound: Some(451) }] solver post status: Ok(())
+% Processing MDD constraints group 3 of 3
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20]
+% Compiled MDD with 20 layers and 2461 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 68), (x2, 83), (x3, 47), (x4, 2), (x5, 53), (x6, 64), (x7, 82), (x8, 46), (x9, 90), (x10, 61), (x11, 32), (x12, 13), (x13, 24), (x14, 6), (x15, 39), (x16, 42), (x17, 26), (x18, 11), (x19, 91), (x20, 15)], lower_bound: Some(447), upper_bound: Some(447) }] solver post status: Ok(())
+%%%mzn-stat: mddCompilationTime=0.360557416
+%%%mzn-stat: 1AutonomousSearchNumBackupCalled=0
+%%%mzn-stat: 1AutonomousSearchNumPredicatesRemoved=0
+%%%mzn-stat: 1AutonomousSearchNumCalls=1
+%%%mzn-stat: 1AutonomousSearchNumPredicatesAdded=74
+%%%mzn-stat: 1AutonomousSearchAverageSizeOfHeap=74
+%%%mzn-stat: 1AutonomousSearchNumAssignedPredicatesEncountered=74
+%%%mzn-stat: engineStatisticsNumDecisions=3004
+%%%mzn-stat: engineStatisticsNumConflicts=2998
+%%%mzn-stat: engineStatisticsNumRestarts=0
+%%%mzn-stat: engineStatisticsNumPropagations=276459
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=11222
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=9.836224149432955
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=5.145096731154103
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0
+%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=5
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=6.329553035356905
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1.0006671114076051
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=5.33645172068159
+%%%mzn-stat-end
+[1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1]
+----------
