@@ -515,7 +515,7 @@ where
                 }
                 for edge in self.node_to_out_edges.get(&node).unwrap() {
                     if !reason.contains(&(self.mdd.layers[edge.from.layer].clone(), edge.value))
-                        && *self.edge_status.get(edge).unwrap() == EdgeStatus::Dom
+                        && (*self.edge_status.get(edge).unwrap() == EdgeStatus::Dom || *self.edge_status.get(edge).unwrap() == EdgeStatus::Below)
                     {
                         let _ = next_kfb.insert(*edge);
                     }
@@ -598,7 +598,7 @@ where
 
                 for edge in self.node_to_in_edges.get(&node).unwrap() {
                     if !reason.contains(&(self.mdd.layers[edge.from.layer].clone(), edge.value))
-                        && *self.edge_status.get(edge).unwrap() == EdgeStatus::Dom
+                        && (*self.edge_status.get(edge).unwrap() == EdgeStatus::Dom || *self.edge_status.get(edge).unwrap() == EdgeStatus::Above)
                     {
                         let _ = next_kfa.insert(*edge);
                     }

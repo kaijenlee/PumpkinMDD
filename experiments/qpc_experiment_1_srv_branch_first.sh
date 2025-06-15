@@ -5,7 +5,11 @@ if [ -n "$1" ]; then
 fi
 # Define variables
 INPUT_DIR="benchmark_suite/QCP"   # Replace with your directory path
-OUTPUT_DIR="experiments/experiment_1/QCP_SRV_Branch_first" # Replace with your desired output file
+OUTPUT_FOLDER="experiment_1"
+if [ -n "$2" ]; then
+    OUTPUT_FOLDER=$2
+fi
+OUTPUT_DIR="experiments/${OUTPUT_FOLDER}/QCP_SRV_Branch_first" # Replace with your desired output file
 
 # Create the output directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"
