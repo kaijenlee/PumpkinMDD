@@ -1,0 +1,20 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=264
+%%%mzn-stat: flatIntConstraints=50
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.18557
+%%%mzn-stat-end
+
+% Processing MDD constraints group 1 of 50
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x265, x266, x1, x267, x2, x268, x269, x270, x3, x271, x272, x273, x274, x275, x276, x4, x277, x5, x6, x7, x8, x278, x9, x279, x10]
+% Compiled MDD with 25 layers and 746 transitions
+% MDD constraints group [AllDifferent([x265, x266, x1, x267, x2, x268, x269, x270, x3, x271, x272, x273, x274, x275, x276, x4, x277, x5, x6, x7, x8, x278, x9, x279, x10])] solver post status: Ok(())
+% Processing MDD constraints group 2 of 50
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x280, x11, x276, x281, x282, x283, x272, x12, x277, x284, x13, x285, x14, x15, x16, x17, x265, x18, x286, x269, x19, x275, x20, x271, x21]
+% Compiled MDD with 25 layers and 1513 transitions
+=====ERROR=====

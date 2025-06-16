@@ -1,0 +1,434 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=120
+%%%mzn-stat: flatIntConstraints=30
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.070795
+%%%mzn-stat-end
+
+% Processing MDD constraints group 1 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x121, x1, x122, x123, x2, x3, x4, x5, x6, x124, x125, x7, x126, x127, x8]
+% Compiled MDD with 15 layers and 65 transitions
+% MDD constraints group [AllDifferent([x121, x1, x122, x123, x2, x3, x4, x5, x6, x124, x125, x7, x126, x127, x8])] solver post status: Ok(())
+% Processing MDD constraints group 2 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x128, x123, x9, x129, x125, x10, x130, x131, x11, x12, x13, x14, x15, x124, x16]
+% Compiled MDD with 15 layers and 566 transitions
+% MDD constraints group [AllDifferent([x128, x123, x9, x129, x125, x10, x130, x131, x11, x12, x13, x14, x15, x124, x16])] solver post status: Ok(())
+% Processing MDD constraints group 3 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x17, x128, x124, x18, x126, x19, x132, x20, x21, x22, x23, x24, x125, x121, x131]
+% Compiled MDD with 15 layers and 56 transitions
+% MDD constraints group [AllDifferent([x17, x128, x124, x18, x126, x19, x132, x20, x21, x22, x23, x24, x125, x121, x131])] solver post status: Ok(())
+% Processing MDD constraints group 4 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x25, x26, x27, x28, x130, x126, x29, x30, x133, x31, x134, x135, x123, x32, x125]
+% Compiled MDD with 15 layers and 606 transitions
+% MDD constraints group [AllDifferent([x25, x26, x27, x28, x130, x126, x29, x30, x133, x31, x134, x135, x123, x32, x125])] solver post status: Ok(())
+% Processing MDD constraints group 5 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x33, x34, x131, x35, x36, x135, x124, x37, x126, x133, x38, x132, x128, x39, x40]
+% Compiled MDD with 15 layers and 217 transitions
+% MDD constraints group [AllDifferent([x33, x34, x131, x35, x36, x135, x124, x37, x126, x133, x38, x132, x128, x39, x40])] solver post status: Ok(())
+% Processing MDD constraints group 6 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x134, x131, x126, x41, x121, x132, x123, x42, x43, x44, x45, x125, x46, x47, x48]
+% Compiled MDD with 15 layers and 441 transitions
+% MDD constraints group [AllDifferent([x134, x131, x126, x41, x121, x132, x123, x42, x43, x44, x45, x125, x46, x47, x48])] solver post status: Ok(())
+% Processing MDD constraints group 7 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x49, x130, x121, x127, x133, x134, x50, x51, x52, x53, x135, x124, x54, x131, x55]
+% Compiled MDD with 15 layers and 251 transitions
+% MDD constraints group [AllDifferent([x49, x130, x121, x127, x133, x134, x50, x51, x52, x53, x135, x124, x54, x131, x55])] solver post status: Ok(())
+% Processing MDD constraints group 8 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x132, x56, x57, x58, x59, x125, x122, x123, x127, x60, x61, x134, x124, x62, x63]
+% Compiled MDD with 15 layers and 491 transitions
+% MDD constraints group [AllDifferent([x132, x56, x57, x58, x59, x125, x122, x123, x127, x60, x61, x134, x124, x62, x63])] solver post status: Ok(())
+% Processing MDD constraints group 9 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x64, x65, x123, x133, x66, x124, x121, x67, x134, x122, x68, x69, x70, x129, x71]
+% Compiled MDD with 15 layers and 285 transitions
+% MDD constraints group [AllDifferent([x64, x65, x123, x133, x66, x124, x121, x67, x134, x122, x68, x69, x70, x129, x71])] solver post status: Ok(())
+% Processing MDD constraints group 10 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x72, x129, x73, x74, x75, x76, x77, x128, x123, x135, x78, x79, x80, x126, x127]
+% Compiled MDD with 15 layers and 1441 transitions
+% MDD constraints group [AllDifferent([x72, x129, x73, x74, x75, x76, x77, x128, x123, x135, x78, x79, x80, x126, x127])] solver post status: Ok(())
+% Processing MDD constraints group 11 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x122, x81, x82, x134, x83, x84, x85, x121, x130, x126, x86, x87, x88, x133, x123]
+% Compiled MDD with 15 layers and 386 transitions
+% MDD constraints group [AllDifferent([x122, x81, x82, x134, x83, x84, x85, x121, x130, x126, x86, x87, x88, x133, x123])] solver post status: Ok(())
+% Processing MDD constraints group 12 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x89, x132, x90, x91, x92, x131, x93, x126, x94, x129, x124, x95, x134, x96, x135]
+% Compiled MDD with 15 layers and 318 transitions
+% MDD constraints group [AllDifferent([x89, x132, x90, x91, x92, x131, x93, x126, x94, x129, x124, x95, x134, x96, x135])] solver post status: Ok(())
+% Processing MDD constraints group 13 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x125, x97, x98, x126, x129, x99, x100, x101, x102, x127, x122, x128, x131, x103, x104]
+% Compiled MDD with 15 layers and 549 transitions
+% MDD constraints group [AllDifferent([x125, x97, x98, x126, x129, x99, x100, x101, x102, x127, x122, x128, x131, x103, x104])] solver post status: Ok(())
+% Processing MDD constraints group 14 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x133, x105, x106, x121, x107, x108, x128, x130, x122, x109, x129, x110, x111, x112, x134]
+% Compiled MDD with 15 layers and 216 transitions
+% MDD constraints group [AllDifferent([x133, x105, x106, x121, x107, x108, x128, x130, x122, x109, x129, x110, x111, x112, x134])] solver post status: Ok(())
+% Processing MDD constraints group 15 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x113, x125, x135, x114, x134, x115, x116, x132, x117, x118, x127, x133, x119, x120, x130]
+% Compiled MDD with 15 layers and 220 transitions
+% MDD constraints group [AllDifferent([x113, x125, x135, x114, x134, x115, x116, x132, x117, x118, x127, x133, x119, x120, x130])] solver post status: Ok(())
+% Processing MDD constraints group 16 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x121, x128, x17, x25, x33, x134, x49, x132, x64, x72, x122, x89, x125, x133, x113]
+% Compiled MDD with 15 layers and 272 transitions
+% MDD constraints group [AllDifferent([x121, x128, x17, x25, x33, x134, x49, x132, x64, x72, x122, x89, x125, x133, x113])] solver post status: Ok(())
+% Processing MDD constraints group 17 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x123, x128, x26, x34, x131, x130, x56, x65, x129, x81, x132, x97, x105, x125]
+% Compiled MDD with 15 layers and 149 transitions
+% MDD constraints group [AllDifferent([x1, x123, x128, x26, x34, x131, x130, x56, x65, x129, x81, x132, x97, x105, x125])] solver post status: Ok(())
+% Processing MDD constraints group 18 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x122, x9, x124, x27, x131, x126, x121, x57, x123, x73, x82, x90, x98, x106, x135]
+% Compiled MDD with 15 layers and 665 transitions
+% MDD constraints group [AllDifferent([x122, x9, x124, x27, x131, x126, x121, x57, x123, x73, x82, x90, x98, x106, x135])] solver post status: Ok(())
+% Processing MDD constraints group 19 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x123, x129, x18, x28, x35, x41, x127, x58, x133, x74, x134, x91, x126, x121, x114]
+% Compiled MDD with 15 layers and 399 transitions
+% MDD constraints group [AllDifferent([x123, x129, x18, x28, x35, x41, x127, x58, x133, x74, x134, x91, x126, x121, x114])] solver post status: Ok(())
+% Processing MDD constraints group 20 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x2, x125, x126, x130, x36, x121, x133, x59, x66, x75, x83, x92, x129, x107, x134]
+% Compiled MDD with 15 layers and 667 transitions
+% MDD constraints group [AllDifferent([x2, x125, x126, x130, x36, x121, x133, x59, x66, x75, x83, x92, x129, x107, x134])] solver post status: Ok(())
+% Processing MDD constraints group 21 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x3, x10, x19, x126, x135, x132, x134, x125, x124, x76, x84, x131, x99, x108, x115]
+% Compiled MDD with 15 layers and 448 transitions
+% MDD constraints group [AllDifferent([x3, x10, x19, x126, x135, x132, x134, x125, x124, x76, x84, x131, x99, x108, x115])] solver post status: Ok(())
+% Processing MDD constraints group 22 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x4, x130, x132, x29, x124, x123, x50, x122, x121, x77, x85, x93, x100, x128, x116]
+% Compiled MDD with 15 layers and 472 transitions
+% MDD constraints group [AllDifferent([x4, x130, x132, x29, x124, x123, x50, x122, x121, x77, x85, x93, x100, x128, x116])] solver post status: Ok(())
+% Processing MDD constraints group 23 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x5, x131, x20, x30, x37, x42, x51, x123, x67, x128, x121, x126, x101, x130, x132]
+% Compiled MDD with 15 layers and 684 transitions
+% MDD constraints group [AllDifferent([x5, x131, x20, x30, x37, x42, x51, x123, x67, x128, x121, x126, x101, x130, x132])] solver post status: Ok(())
+% Processing MDD constraints group 24 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x6, x11, x21, x133, x126, x43, x52, x127, x134, x123, x130, x94, x102, x122, x117]
+% Compiled MDD with 15 layers and 241 transitions
+% MDD constraints group [AllDifferent([x6, x11, x21, x133, x126, x43, x52, x127, x134, x123, x130, x94, x102, x122, x117])] solver post status: Ok(())
+% Processing MDD constraints group 25 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x124, x12, x22, x31, x133, x44, x53, x60, x122, x135, x126, x129, x127, x109, x118]
+% Compiled MDD with 15 layers and 352 transitions
+% MDD constraints group [AllDifferent([x124, x12, x22, x31, x133, x44, x53, x60, x122, x135, x126, x129, x127, x109, x118])] solver post status: Ok(())
+% Processing MDD constraints group 26 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x125, x13, x23, x134, x38, x45, x135, x61, x68, x78, x86, x124, x122, x129, x127]
+% Compiled MDD with 15 layers and 497 transitions
+% MDD constraints group [AllDifferent([x125, x13, x23, x134, x38, x45, x135, x61, x68, x78, x86, x124, x122, x129, x127])] solver post status: Ok(())
+% Processing MDD constraints group 27 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x7, x14, x24, x135, x132, x125, x124, x134, x69, x79, x87, x95, x128, x110, x133]
+% Compiled MDD with 15 layers and 800 transitions
+% MDD constraints group [AllDifferent([x7, x14, x24, x135, x132, x125, x124, x134, x69, x79, x87, x95, x128, x110, x133])] solver post status: Ok(())
+% Processing MDD constraints group 28 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x126, x15, x125, x123, x128, x46, x54, x124, x70, x80, x88, x134, x131, x111, x119]
+% Compiled MDD with 15 layers and 360 transitions
+% MDD constraints group [AllDifferent([x126, x15, x125, x123, x128, x46, x54, x124, x70, x80, x88, x134, x131, x111, x119])] solver post status: Ok(())
+% Processing MDD constraints group 29 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x127, x124, x121, x32, x39, x47, x131, x62, x129, x126, x133, x96, x103, x112, x120]
+% Compiled MDD with 15 layers and 548 transitions
+% MDD constraints group [AllDifferent([x127, x124, x121, x32, x39, x47, x131, x62, x129, x126, x133, x96, x103, x112, x120])] solver post status: Ok(())
+% Processing MDD constraints group 30 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x8, x16, x131, x125, x40, x48, x55, x63, x71, x127, x123, x135, x104, x134, x130]
+% Compiled MDD with 15 layers and 676 transitions
+% MDD constraints group [AllDifferent([x8, x16, x131, x125, x40, x48, x55, x63, x71, x127, x123, x135, x104, x134, x130])] solver post status: Ok(())
+%%%mzn-stat: mddCompilationTime=6.54015692
+%%%mzn-stat: 1AutonomousSearchNumBackupCalled=307
+%%%mzn-stat: 1AutonomousSearchNumPredicatesRemoved=0
+%%%mzn-stat: 1AutonomousSearchNumCalls=1070
+%%%mzn-stat: 1AutonomousSearchNumPredicatesAdded=5799
+%%%mzn-stat: 1AutonomousSearchAverageSizeOfHeap=616.2158878504673
+%%%mzn-stat: 1AutonomousSearchNumAssignedPredicatesEncountered=149248
+%%%mzn-stat: engineStatisticsNumDecisions=5711
+%%%mzn-stat: engineStatisticsNumConflicts=3011
+%%%mzn-stat: engineStatisticsNumRestarts=0
+%%%mzn-stat: engineStatisticsNumPropagations=741556
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=7384
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=4.807705081368316
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=1.3055463301228827
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0.5370308867485885
+%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=1
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=18.42842909332448
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1.8900697442710064
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=5.043853820598007
+%%%mzn-stat-end
+v_0 = 6;
+v_1 = 8;
+v_2 = 1;
+v_3 = 7;
+v_4 = 13;
+v_5 = 3;
+v_6 = 10;
+v_7 = 5;
+v_8 = 0;
+v_9 = 14;
+v_10 = 12;
+v_11 = 9;
+v_12 = 4;
+v_13 = 11;
+v_14 = 2;
+v_15 = 3;
+v_16 = 7;
+v_17 = 8;
+v_18 = 10;
+v_19 = 12;
+v_20 = 6;
+v_21 = 9;
+v_22 = 0;
+v_23 = 5;
+v_24 = 13;
+v_25 = 2;
+v_26 = 1;
+v_27 = 11;
+v_28 = 14;
+v_29 = 4;
+v_30 = 5;
+v_31 = 3;
+v_32 = 14;
+v_33 = 9;
+v_34 = 4;
+v_35 = 1;
+v_36 = 13;
+v_37 = 2;
+v_38 = 10;
+v_39 = 8;
+v_40 = 7;
+v_41 = 11;
+v_42 = 12;
+v_43 = 6;
+v_44 = 0;
+v_45 = 10;
+v_46 = 1;
+v_47 = 13;
+v_48 = 0;
+v_49 = 9;
+v_50 = 4;
+v_51 = 11;
+v_52 = 14;
+v_53 = 2;
+v_54 = 6;
+v_55 = 8;
+v_56 = 5;
+v_57 = 7;
+v_58 = 3;
+v_59 = 12;
+v_60 = 9;
+v_61 = 11;
+v_62 = 0;
+v_63 = 12;
+v_64 = 7;
+v_65 = 5;
+v_66 = 14;
+v_67 = 10;
+v_68 = 4;
+v_69 = 2;
+v_70 = 6;
+v_71 = 13;
+v_72 = 3;
+v_73 = 8;
+v_74 = 1;
+v_75 = 8;
+v_76 = 0;
+v_77 = 4;
+v_78 = 1;
+v_79 = 6;
+v_80 = 13;
+v_81 = 7;
+v_82 = 11;
+v_83 = 14;
+v_84 = 9;
+v_85 = 3;
+v_86 = 12;
+v_87 = 2;
+v_88 = 5;
+v_89 = 10;
+v_90 = 7;
+v_91 = 9;
+v_92 = 6;
+v_93 = 11;
+v_94 = 2;
+v_95 = 8;
+v_96 = 4;
+v_97 = 1;
+v_98 = 12;
+v_99 = 3;
+v_100 = 5;
+v_101 = 14;
+v_102 = 10;
+v_103 = 0;
+v_104 = 13;
+v_105 = 13;
+v_106 = 2;
+v_107 = 10;
+v_108 = 5;
+v_109 = 3;
+v_110 = 12;
+v_111 = 1;
+v_112 = 7;
+v_113 = 11;
+v_114 = 0;
+v_115 = 4;
+v_116 = 8;
+v_117 = 14;
+v_118 = 9;
+v_119 = 6;
+v_120 = 0;
+v_121 = 5;
+v_122 = 7;
+v_123 = 2;
+v_124 = 11;
+v_125 = 14;
+v_126 = 6;
+v_127 = 12;
+v_128 = 8;
+v_129 = 1;
+v_130 = 13;
+v_131 = 4;
+v_132 = 9;
+v_133 = 10;
+v_134 = 3;
+v_135 = 14;
+v_136 = 10;
+v_137 = 12;
+v_138 = 13;
+v_139 = 0;
+v_140 = 2;
+v_141 = 8;
+v_142 = 3;
+v_143 = 7;
+v_144 = 5;
+v_145 = 9;
+v_146 = 6;
+v_147 = 1;
+v_148 = 4;
+v_149 = 11;
+v_150 = 1;
+v_151 = 14;
+v_152 = 3;
+v_153 = 8;
+v_154 = 5;
+v_155 = 11;
+v_156 = 12;
+v_157 = 6;
+v_158 = 9;
+v_159 = 4;
+v_160 = 0;
+v_161 = 10;
+v_162 = 13;
+v_163 = 2;
+v_164 = 7;
+v_165 = 11;
+v_166 = 13;
+v_167 = 9;
+v_168 = 3;
+v_169 = 1;
+v_170 = 0;
+v_171 = 2;
+v_172 = 4;
+v_173 = 6;
+v_174 = 10;
+v_175 = 14;
+v_176 = 7;
+v_177 = 8;
+v_178 = 12;
+v_179 = 5;
+v_180 = 12;
+v_181 = 6;
+v_182 = 2;
+v_183 = 4;
+v_184 = 10;
+v_185 = 9;
+v_186 = 5;
+v_187 = 8;
+v_188 = 13;
+v_189 = 11;
+v_190 = 1;
+v_191 = 3;
+v_192 = 0;
+v_193 = 7;
+v_194 = 14;
+v_195 = 2;
+v_196 = 4;
+v_197 = 11;
+v_198 = 6;
+v_199 = 14;
+v_200 = 7;
+v_201 = 3;
+v_202 = 9;
+v_203 = 1;
+v_204 = 12;
+v_205 = 10;
+v_206 = 0;
+v_207 = 5;
+v_208 = 13;
+v_209 = 8;
+v_210 = 4;
+v_211 = 12;
+v_212 = 5;
+v_213 = 14;
+v_214 = 8;
+v_215 = 10;
+v_216 = 0;
+v_217 = 13;
+v_218 = 3;
+v_219 = 7;
+v_220 = 11;
+v_221 = 2;
+v_222 = 6;
+v_223 = 1;
+v_224 = 9;
+----------
