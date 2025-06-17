@@ -2,7 +2,11 @@
 
 # Define variables
 INPUT_DIR="benchmark_suite/market_split"   # Replace with your directory path
-OUTPUT_DIR="experiments/experiment_1/market_split_no_DD" # Replace with your desired output file
+OUTPUT_FOLDER="experiment_1"
+if [ -n "$2" ]; then
+    OUTPUT_FOLDER=$2
+fi
+OUTPUT_DIR="experiments/${OUTPUT_FOLDER}/market_split_no_DD" # Replace with your desired output file
 MODEL="$INPUT_DIR/market_split.mzn"
 # Create the output directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"
@@ -21,4 +25,4 @@ for INPUT_FILE in "$INPUT_DIR"/*.dzn; do
 done
 
 echo "All files processed. Outputs saved to $OUTPUT_DIR"
-python3 "experiments/extract_fzn_stats.py" $OUTPUT_DIR "experiments/experiment_1/marketsplit_dd_disabled.csv"
+python3 "experiments/extract_fzn_stats.py" $OUTPUT_DIR "experiments/${OUTPUT_FOLDER}/marketsplit_dd_disabled.csv"

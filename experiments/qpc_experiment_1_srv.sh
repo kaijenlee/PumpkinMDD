@@ -28,4 +28,4 @@ for INPUT_FILE in "$INPUT_DIR"/*.mzn; do
 done
 
 echo "All files processed. Outputs saved to $OUTPUT_DIR"
-python3 "experiments/extract_fzn_stats.py" $OUTPUT_DIR "experiments/experiment_1/qcp_srv.csv"
+python3 "experiments/extract_fzn_stats.py" $OUTPUT_DIR "experiments/${OUTPUT_FOLDER}/qcp_srv.csv"

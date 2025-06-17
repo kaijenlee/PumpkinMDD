@@ -2,7 +2,11 @@
 
 # Define variables
 INPUT_DIR="benchmark_suite/QCP"   # Replace with your directory path
-OUTPUT_DIR="experiments/experiment_1/QCP_no_DD" # Replace with your desired output file
+OUTPUT_FOLDER="experiment_1"
+if [ -n "$2" ]; then
+    OUTPUT_FOLDER=$2
+fi
+OUTPUT_DIR="experiments/${OUTPUT_FOLDER}/QCP_no_DD" # Replace with your desired output file
 
 # Create the output directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"
@@ -22,4 +26,4 @@ for INPUT_FILE in "$INPUT_DIR"/*.mzn; do
 done
 
 echo "All files processed. Outputs saved to $OUTPUT_DIR"
-python3 "experiments/extract_fzn_stats.py" $OUTPUT_DIR "experiments/experiment_1/qcp_disabled.csv"
+python3 "experiments/extract_fzn_stats.py" $OUTPUT_DIR "experiments/${OUTPUT_FOLDER}/qcp_disabled.csv"

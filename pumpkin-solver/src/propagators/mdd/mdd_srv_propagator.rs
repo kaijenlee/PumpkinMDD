@@ -513,13 +513,13 @@ where
                 if node == &self.mdd.sink {
                     continue;
                 }
-                for edge in self.node_to_out_edges.get(&node).unwrap() {
-                    if !reason.contains(&(self.mdd.layers[edge.from.layer].clone(), edge.value))
-                        && (*self.edge_status.get(edge).unwrap() == EdgeStatus::Dom || *self.edge_status.get(edge).unwrap() == EdgeStatus::Below)
-                    {
-                        let _ = next_kfb.insert(*edge);
-                    }
-                }
+                // for edge in self.node_to_out_edges.get(&node).unwrap() {
+                //     if !reason.contains(&(self.mdd.layers[edge.from.layer].clone(), edge.value))
+                //         && (*self.edge_status.get(edge).unwrap() == EdgeStatus::Dom)
+                //     {
+                //         let _ = next_kfb.insert(*edge);
+                //     }
+                // }
             }
 
             current_kfb = next_kfb;
@@ -596,13 +596,13 @@ where
                     continue;
                 }
 
-                for edge in self.node_to_in_edges.get(&node).unwrap() {
-                    if !reason.contains(&(self.mdd.layers[edge.from.layer].clone(), edge.value))
-                        && (*self.edge_status.get(edge).unwrap() == EdgeStatus::Dom || *self.edge_status.get(edge).unwrap() == EdgeStatus::Above)
-                    {
-                        let _ = next_kfa.insert(*edge);
-                    }
-                }
+                // for edge in self.node_to_in_edges.get(&node).unwrap() {
+                //     if !reason.contains(&(self.mdd.layers[edge.from.layer].clone(), edge.value))
+                //         && (*self.edge_status.get(edge).unwrap() == EdgeStatus::Dom)
+                //     {
+                //         let _ = next_kfa.insert(*edge);
+                //     }
+                // }
             }
             current_kfa = next_kfa;
         }

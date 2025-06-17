@@ -31,4 +31,4 @@ for INPUT_FILE in "$INPUT_DIR"/*.dzn; do
 done
 
 echo "All files processed. Outputs saved to $OUTPUT_DIR"
-python3 "experiments/extract_fzn_stats.py" $OUTPUT_DIR "experiments/experiment_1/marketsplit_srv_branch_first.csv"
+python3 "experiments/extract_fzn_stats.py" $OUTPUT_DIR "experiments/${OUTPUT_FOLDER}/marketsplit_srv_branch_first.csv"
