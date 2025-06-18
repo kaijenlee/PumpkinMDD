@@ -1,0 +1,20 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=30
+%%%mzn-stat: flatIntConstraints=4
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.0223765
+%%%mzn-stat-end
+
+% Processing MDD constraints group 1 of 4
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30]
+% Compiled MDD with 30 layers and 15984 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 60), (x2, 21), (x3, 35), (x4, 40), (x5, 43), (x6, 84), (x7, 75), (x8, 91), (x9, 39), (x10, 95), (x11, 53), (x12, 50), (x13, 22), (x14, 2), (x15, 81), (x16, 34), (x17, 57), (x18, 72), (x19, 10), (x20, 5), (x21, 29), (x22, 31), (x23, 23), (x24, 94), (x25, 58), (x26, 50), (x27, 68), (x28, 24), (x29, 96), (x30, 25)], lower_bound: Some(733), upper_bound: Some(733) }] solver post status: Ok(())
+% Processing MDD constraints group 2 of 4
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30]
+% Compiled MDD with 30 layers and 16813 transitions
+=====ERROR=====

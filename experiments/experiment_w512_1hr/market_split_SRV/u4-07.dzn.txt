@@ -1,0 +1,26 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=30
+%%%mzn-stat: flatIntConstraints=4
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.0371723
+%%%mzn-stat-end
+
+% Processing MDD constraints group 1 of 4
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30]
+% Compiled MDD with 30 layers and 15606 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 45), (x2, 77), (x3, 95), (x4, 55), (x5, 7), (x6, 11), (x7, 89), (x8, 37), (x9, 10), (x10, 13), (x11, 24), (x12, 55), (x13, 32), (x14, 29), (x15, 25), (x16, 4), (x17, 47), (x18, 3), (x19, 79), (x20, 87), (x21, 51), (x22, 98), (x23, 85), (x24, 15), (x25, 91), (x26, 8), (x27, 4), (x28, 13), (x29, 94), (x30, 39)], lower_bound: Some(661), upper_bound: Some(661) }] solver post status: Ok(())
+% Processing MDD constraints group 2 of 4
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30]
+% Compiled MDD with 30 layers and 17004 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 73), (x2, 39), (x3, 16), (x4, 68), (x5, 47), (x6, 24), (x7, 79), (x8, 36), (x9, 61), (x10, 41), (x11, 2), (x12, 38), (x13, 97), (x14, 34), (x15, 19), (x16, 74), (x17, 38), (x18, 18), (x19, 77), (x20, 70), (x21, 6), (x22, 81), (x23, 68), (x24, 91), (x25, 96), (x26, 59), (x27, 51), (x28, 52), (x29, 24), (x30, 98)], lower_bound: Some(788), upper_bound: Some(788) }] solver post status: Ok(())
+% Processing MDD constraints group 3 of 4
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30]
+% Compiled MDD with 30 layers and 60 transitions
+=====ERROR=====

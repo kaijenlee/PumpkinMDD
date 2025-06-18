@@ -1,0 +1,22 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=40
+%%%mzn-stat: flatIntConstraints=5
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.0229887
+%%%mzn-stat-end
+
+=====UNKNOWN=====
+%%%mzn-stat: engineStatisticsNumDecisions=83762121
+%%%mzn-stat: engineStatisticsNumConflicts=83758975
+%%%mzn-stat: engineStatisticsNumRestarts=0
+%%%mzn-stat: engineStatisticsNumPropagations=485454517
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=3599794
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=20.585602271278987
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=15.442487088697062
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0
+%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=0
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=16.670883747085014
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1.0000373691296962
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=15.670881514488448
+%%%mzn-stat-end

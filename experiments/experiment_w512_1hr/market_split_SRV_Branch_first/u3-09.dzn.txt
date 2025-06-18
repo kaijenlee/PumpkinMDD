@@ -1,0 +1,42 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=20
+%%%mzn-stat: flatIntConstraints=3
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.0189911
+%%%mzn-stat-end
+
+% Processing MDD constraints group 1 of 3
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20]
+% Compiled MDD with 20 layers and 40 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 84), (x2, 11), (x3, 82), (x4, 67), (x5, 55), (x6, 90), (x7, 98), (x8, 23), (x9, 99), (x10, 39), (x11, 93), (x12, 73), (x13, 79), (x14, 39), (x15, 49), (x16, 55), (x17, 6), (x18, 5), (x19, 32), (x20, 19)], lower_bound: Some(549), upper_bound: Some(549) }] solver post status: Ok(())
+% Processing MDD constraints group 2 of 3
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20]
+% Compiled MDD with 20 layers and 2255 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 63), (x2, 43), (x3, 76), (x4, 95), (x5, 63), (x6, 69), (x7, 66), (x8, 77), (x9, 50), (x10, 79), (x11, 22), (x12, 34), (x13, 90), (x14, 56), (x15, 54), (x16, 97), (x17, 99), (x18, 52), (x19, 20), (x20, 50)], lower_bound: Some(627), upper_bound: Some(627) }] solver post status: Ok(())
+% Processing MDD constraints group 3 of 3
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20]
+% Compiled MDD with 20 layers and 2832 transitions
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 91), (x2, 65), (x3, 23), (x4, 22), (x5, 5), (x6, 25), (x7, 77), (x8, 63), (x9, 82), (x10, 61), (x11, 34), (x12, 45), (x13, 57), (x14, 10), (x15, 93), (x16, 20), (x17, 79), (x18, 11), (x19, 97), (x20, 82)], lower_bound: Some(521), upper_bound: Some(521) }] solver post status: Ok(())
+%%%mzn-stat: mddCompilationTime=0.16326319
+% Configuring to branch on SRVs first
+=====UNSATISFIABLE=====
+%%%mzn-stat: engineStatisticsNumDecisions=1853
+%%%mzn-stat: engineStatisticsNumConflicts=1683
+%%%mzn-stat: engineStatisticsNumRestarts=0
+%%%mzn-stat: engineStatisticsNumPropagations=410434
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=11724
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=9.696195005945302
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=6.6521997621878715
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0
+%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=9
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=8.511296076099882
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1.1016646848989298
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=4.904961147638972
+%%%mzn-stat-end
