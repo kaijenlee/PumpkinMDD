@@ -63,12 +63,14 @@ pub(crate) fn run(
                         let _ = srv_layers.pop(); // Remove one element as we dont need the source layer for SRV
                         assert_eq!(srv_layers.len(), layer_to_indices.len());
 
-                        for (layer, index) in layer_to_indices {
+                        for (layer, index) in layer_to_indices.clone() {
                             if let Some(srv_layer) = srv_layers.get_mut(layer - 1) {
                                 *srv_layer = context.solver.new_bounded_integer(0, index as i32);
                             }
                         }
                         mdd_graph.set_srv_layer(srv_layers);
+                        warn!("MDD SRVs : {:?}", mdd_graph.srv_layers);
+                        warn!("MDD Width: {}", layer_to_indices.values().max().unwrap() + 1);  
                         constraints::srv_mdd(mdd_graph).post(context.solver, None)
                     }
                     false => constraints::base_mdd(mdd_graph).post(context.solver, None),

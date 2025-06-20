@@ -1,0 +1,33 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=625
+%%%mzn-stat: flatIntConstraints=50
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.216131
+%%%mzn-stat-end
+% Processing MDD constraints group 1 of 50
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25]
+% Compiled MDD with 25 layers and 746 transitions
+% MDD SRvs : [x294, x296, x295, x291, x290, x293, x292, x302, x301, x304, x303, x298, x297, x300, x299, x310, x309, x312, x311, x306, x305, x308, x307, x313]
+% MDD Width: 125
+% MDD constraints group [AllDifferent([x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25])] solver post status: Ok(())
+% Processing MDD constraints group 2 of 50
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x26, x27, x15, x28, x29, x30, x11, x31, x17, x32, x33, x34, x35, x36, x37, x38, x1, x39, x40, x7, x41, x14, x42, x10, x43]
+% Compiled MDD with 25 layers and 1937 transitions
+% MDD SRvs : [x318, x320, x319, x315, x314, x317, x316, x326, x325, x328, x327, x322, x321, x324, x323, x334, x333, x336, x335, x330, x329, x332, x331, x337]
+% MDD Width: 329
+% MDD constraints group [AllDifferent([x26, x27, x15, x28, x29, x30, x11, x31, x17, x32, x33, x34, x35, x36, x37, x38, x1, x39, x40, x7, x41, x14, x42, x10, x43])] solver post status: Ok(())
+% Processing MDD constraints group 3 of 50
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x44, x32, x30, x2, x40, x45, x17, x46, x47, x24, x29, x48, x1, x4, x49, x50, x15, x51, x11, x52, x53, x54, x55, x13, x56]
+% Compiled MDD with 25 layers and 1684 transitions
+% MDD SRvs : [x342, x344, x343, x339, x338, x341, x340, x350, x349, x352, x351, x346, x345, x348, x347, x358, x357, x360, x359, x354, x353, x356, x355, x361]
+% MDD Width: 292
+=====UNKNOWN=====
+%%%mzn-stat: nSolutions=0
+%%%mzn-stat-end
