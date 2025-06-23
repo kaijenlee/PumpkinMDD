@@ -1,0 +1,689 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=225
+%%%mzn-stat: flatIntConstraints=30
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.236271
+%%%mzn-stat-end
+% Processing MDD constraints group 1 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15]
+% Compiled MDD with 15 layers and 63 transitions
+% MDD constraints group [AllDifferent([x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15])] solver post status: Ok(())
+% Processing MDD constraints group 2 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x16, x7, x17, x18, x19, x20, x21, x22, x6, x15, x23, x24, x14, x25, x26]
+% Compiled MDD with 15 layers and 604 transitions
+% MDD constraints group [AllDifferent([x16, x7, x17, x18, x19, x20, x21, x22, x6, x15, x23, x24, x14, x25, x26])] solver post status: Ok(())
+% Processing MDD constraints group 3 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x27, x13, x25, x28, x29, x30, x31, x24, x32, x33, x34, x9, x35, x36, x14]
+% Compiled MDD with 15 layers and 132 transitions
+% MDD constraints group [AllDifferent([x27, x13, x25, x28, x29, x30, x31, x24, x32, x33, x34, x9, x35, x36, x14])] solver post status: Ok(())
+% Processing MDD constraints group 4 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x13, x37, x15, x7, x38, x39, x40, x41, x42, x9, x43, x22, x44, x45, x28]
+% Compiled MDD with 15 layers and 544 transitions
+% MDD constraints group [AllDifferent([x13, x37, x15, x7, x38, x39, x40, x41, x42, x9, x43, x22, x44, x45, x28])] solver post status: Ok(())
+% Processing MDD constraints group 5 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x46, x47, x48, x49, x50, x7, x38, x51, x13, x52, x9, x53, x22, x54, x6]
+% Compiled MDD with 15 layers and 730 transitions
+% MDD constraints group [AllDifferent([x46, x47, x48, x49, x50, x7, x38, x51, x13, x52, x9, x53, x22, x54, x6])] solver post status: Ok(())
+% Processing MDD constraints group 6 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x55, x56, x57, x25, x58, x13, x22, x14, x59, x60, x38, x7, x61, x62, x9]
+% Compiled MDD with 15 layers and 367 transitions
+% MDD constraints group [AllDifferent([x55, x56, x57, x25, x58, x13, x22, x14, x59, x60, x38, x7, x61, x62, x9])] solver post status: Ok(())
+% Processing MDD constraints group 7 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x9, x63, x38, x15, x22, x25, x8, x64, x65, x31, x66, x67, x68, x69, x70]
+% Compiled MDD with 15 layers and 713 transitions
+% MDD constraints group [AllDifferent([x9, x63, x38, x15, x22, x25, x8, x64, x65, x31, x66, x67, x68, x69, x70])] solver post status: Ok(())
+% Processing MDD constraints group 8 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x71, x6, x72, x73, x74, x75, x28, x76, x38, x77, x7, x78, x25, x24, x22]
+% Compiled MDD with 15 layers and 461 transitions
+% MDD constraints group [AllDifferent([x71, x6, x72, x73, x74, x75, x28, x76, x38, x77, x7, x78, x25, x24, x22])] solver post status: Ok(())
+% Processing MDD constraints group 9 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x79, x8, x24, x80, x81, x14, x82, x83, x84, x51, x22, x85, x33, x86, x87]
+% Compiled MDD with 15 layers and 422 transitions
+% MDD constraints group [AllDifferent([x79, x8, x24, x80, x81, x14, x82, x83, x84, x51, x22, x85, x33, x86, x87])] solver post status: Ok(())
+% Processing MDD constraints group 10 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x22, x88, x89, x13, x33, x90, x25, x91, x92, x93, x94, x15, x31, x6, x95]
+% Compiled MDD with 15 layers and 645 transitions
+% MDD constraints group [AllDifferent([x22, x88, x89, x13, x33, x90, x25, x91, x92, x93, x94, x15, x31, x6, x95])] solver post status: Ok(())
+% Processing MDD constraints group 11 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x8, x28, x6, x96, x51, x31, x97, x98, x15, x99, x100, x101, x102, x7, x103]
+% Compiled MDD with 15 layers and 388 transitions
+% MDD constraints group [AllDifferent([x8, x28, x6, x96, x51, x31, x97, x98, x15, x99, x100, x101, x102, x7, x103])] solver post status: Ok(())
+% Processing MDD constraints group 12 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x38, x104, x105, x51, x15, x24, x106, x9, x107, x13, x25, x108, x109, x110, x111]
+% Compiled MDD with 15 layers and 482 transitions
+% MDD constraints group [AllDifferent([x38, x104, x105, x51, x15, x24, x106, x9, x107, x13, x25, x108, x109, x110, x111])] solver post status: Ok(())
+% Processing MDD constraints group 13 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x6, x22, x112, x113, x114, x115, x116, x117, x25, x28, x118, x13, x24, x51, x119]
+% Compiled MDD with 15 layers and 709 transitions
+% MDD constraints group [AllDifferent([x6, x22, x112, x113, x114, x115, x116, x117, x25, x28, x118, x13, x24, x51, x119])] solver post status: Ok(())
+% Processing MDD constraints group 14 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x24, x51, x28, x9, x7, x120, x121, x122, x123, x124, x31, x125, x126, x127, x13]
+% Compiled MDD with 15 layers and 1000 transitions
+% MDD constraints group [AllDifferent([x24, x51, x28, x9, x7, x120, x121, x122, x123, x124, x31, x125, x126, x127, x13])] solver post status: Ok(())
+% Processing MDD constraints group 15 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x128, x129, x13, x130, x25, x131, x132, x33, x31, x133, x14, x8, x134, x22, x135]
+% Compiled MDD with 15 layers and 175 transitions
+% MDD constraints group [AllDifferent([x128, x129, x13, x130, x25, x131, x132, x33, x31, x133, x14, x8, x134, x22, x135])] solver post status: Ok(())
+% Processing MDD constraints group 16 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x16, x27, x13, x46, x55, x9, x71, x79, x22, x8, x38, x6, x24, x128]
+% Compiled MDD with 15 layers and 413 transitions
+% MDD constraints group [AllDifferent([x1, x16, x27, x13, x46, x55, x9, x71, x79, x22, x8, x38, x6, x24, x128])] solver post status: Ok(())
+% Processing MDD constraints group 17 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x2, x7, x13, x37, x47, x56, x63, x6, x8, x88, x28, x104, x22, x51, x129]
+% Compiled MDD with 15 layers and 484 transitions
+% MDD constraints group [AllDifferent([x2, x7, x13, x37, x47, x56, x63, x6, x8, x88, x28, x104, x22, x51, x129])] solver post status: Ok(())
+% Processing MDD constraints group 18 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x3, x17, x25, x15, x48, x57, x38, x72, x24, x89, x6, x105, x112, x28, x13]
+% Compiled MDD with 15 layers and 235 transitions
+% MDD constraints group [AllDifferent([x3, x17, x25, x15, x48, x57, x38, x72, x24, x89, x6, x105, x112, x28, x13])] solver post status: Ok(())
+% Processing MDD constraints group 19 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x4, x18, x28, x7, x49, x25, x15, x73, x80, x13, x96, x51, x113, x9, x130]
+% Compiled MDD with 15 layers and 149 transitions
+% MDD constraints group [AllDifferent([x4, x18, x28, x7, x49, x25, x15, x73, x80, x13, x96, x51, x113, x9, x130])] solver post status: Ok(())
+% Processing MDD constraints group 20 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x5, x19, x29, x38, x50, x58, x22, x74, x81, x33, x51, x15, x114, x7, x25]
+% Compiled MDD with 15 layers and 350 transitions
+% MDD constraints group [AllDifferent([x5, x19, x29, x38, x50, x58, x22, x74, x81, x33, x51, x15, x114, x7, x25])] solver post status: Ok(())
+% Processing MDD constraints group 21 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x6, x20, x30, x39, x7, x13, x25, x75, x14, x90, x31, x24, x115, x120, x131]
+% Compiled MDD with 15 layers and 411 transitions
+% MDD constraints group [AllDifferent([x6, x20, x30, x39, x7, x13, x25, x75, x14, x90, x31, x24, x115, x120, x131])] solver post status: Ok(())
+% Processing MDD constraints group 22 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x7, x21, x31, x40, x38, x22, x8, x28, x82, x25, x97, x106, x116, x121, x132]
+% Compiled MDD with 15 layers and 701 transitions
+% MDD constraints group [AllDifferent([x7, x21, x31, x40, x38, x22, x8, x28, x82, x25, x97, x106, x116, x121, x132])] solver post status: Ok(())
+% Processing MDD constraints group 23 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x8, x22, x24, x41, x51, x14, x64, x76, x83, x91, x98, x9, x117, x122, x33]
+% Compiled MDD with 15 layers and 468 transitions
+% MDD constraints group [AllDifferent([x8, x22, x24, x41, x51, x14, x64, x76, x83, x91, x98, x9, x117, x122, x33])] solver post status: Ok(())
+% Processing MDD constraints group 24 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x9, x6, x32, x42, x13, x59, x65, x38, x84, x92, x15, x107, x25, x123, x31]
+% Compiled MDD with 15 layers and 235 transitions
+% MDD constraints group [AllDifferent([x9, x6, x32, x42, x13, x59, x65, x38, x84, x92, x15, x107, x25, x123, x31])] solver post status: Ok(())
+% Processing MDD constraints group 25 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x10, x15, x33, x9, x52, x60, x31, x77, x51, x93, x99, x13, x28, x124, x133]
+% Compiled MDD with 15 layers and 185 transitions
+% MDD constraints group [AllDifferent([x10, x15, x33, x9, x52, x60, x31, x77, x51, x93, x99, x13, x28, x124, x133])] solver post status: Ok(())
+% Processing MDD constraints group 26 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x11, x23, x34, x43, x9, x38, x66, x7, x22, x94, x100, x25, x118, x31, x14]
+% Compiled MDD with 15 layers and 512 transitions
+% MDD constraints group [AllDifferent([x11, x23, x34, x43, x9, x38, x66, x7, x22, x94, x100, x25, x118, x31, x14])] solver post status: Ok(())
+% Processing MDD constraints group 27 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x12, x24, x9, x22, x53, x7, x67, x78, x85, x15, x101, x108, x13, x125, x8]
+% Compiled MDD with 15 layers and 385 transitions
+% MDD constraints group [AllDifferent([x12, x24, x9, x22, x53, x7, x67, x78, x85, x15, x101, x108, x13, x125, x8])] solver post status: Ok(())
+% Processing MDD constraints group 28 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x13, x14, x35, x44, x22, x61, x68, x25, x33, x31, x102, x109, x24, x126, x134]
+% Compiled MDD with 15 layers and 225 transitions
+% MDD constraints group [AllDifferent([x13, x14, x35, x44, x22, x61, x68, x25, x33, x31, x102, x109, x24, x126, x134])] solver post status: Ok(())
+% Processing MDD constraints group 29 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x14, x25, x36, x45, x54, x62, x69, x24, x86, x6, x7, x110, x51, x127, x22]
+% Compiled MDD with 15 layers and 610 transitions
+% MDD constraints group [AllDifferent([x14, x25, x36, x45, x54, x62, x69, x24, x86, x6, x7, x110, x51, x127, x22])] solver post status: Ok(())
+% Processing MDD constraints group 30 of 30
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x15, x26, x14, x28, x6, x9, x70, x22, x87, x95, x103, x111, x119, x13, x135]
+% Compiled MDD with 15 layers and 408 transitions
+% MDD constraints group [AllDifferent([x15, x26, x14, x28, x6, x9, x70, x22, x87, x95, x103, x111, x119, x13, x135])] solver post status: Ok(())
+%%%mzn-stat: mddCompilationTime=10.651285275
+% Decision made: [x102 <= 10] at decision level 1
+% Decision made: [x29 <= 12] at decision level 2
+% Decision made: [x80 <= 11] at decision level 3
+% Decision made: [x70 <= 6] at decision level 4
+% Decision made: [x135 <= 7] at decision level 5
+% Decision made: [x18 <= 9] at decision level 6
+% Decision made: [x96 <= 3] at decision level 7
+% Decision made: [x45 <= 9] at decision level 8
+% Decision made: [x69 <= 0] at decision level 9
+% Decision made: [x110 <= 13] at decision level 10
+% Decision made: [x68 <= 8] at decision level 11
+% Decision made: [x44 <= 12] at decision level 12
+% Decision made: [x40 <= 4] at decision level 13
+% Decision made: [x106 <= 9] at decision level 14
+% Decision made: [x63 <= 7] at decision level 15
+% Decision made: [x88 <= 10] at decision level 16
+% Decision made: [x95 <= 8] at decision level 17
+% Decision made: [x26 <= 11] at decision level 18
+% Decision made: [x105 <= 3] at decision level 19
+% Decision made: [x103 <= 5] at decision level 20
+% Decision made: [x3 <= 8] at decision level 21
+% Decision made: [x17 <= 10] at decision level 22
+% Decision made: [x57 <= 9] at decision level 23
+% Decision made: [x65 <= 4] at decision level 24
+% Decision made: [x67 <= 9] at decision level 25
+% Decision made: [x133 <= 6] at decision level 26
+% Decision made: [x4 <= 7] at decision level 27
+% Decision made: [x27 <= 2] at decision level 28
+% Decision made: [x36 <= 11] at decision level 29
+% Decision made: [x34 <= 8] at decision level 30
+% Decision made: [x39 <= 8] at decision level 31
+% Decision made: [x79 <= 0] at decision level 32
+% Learned nogood: [[x79 <= 0], [x128 != 2], [x55 != 2], [x128 != 6], [x55 != 9], [x16 != 9]] with backjump level 28
+% Decision made: [x79 <= 5] at decision level 29
+% Decision made: [x36 <= 11] at decision level 30
+% Decision made: [x34 <= 8] at decision level 31
+% Decision made: [x39 <= 8] at decision level 32
+% Decision made: [x84 <= 0] at decision level 33
+% Learned nogood: [[x84 <= 0], [x85 != 5], [x85 <= 12], [x107 != 3], [x109 <= 6], [x107 <= 6], [x108 != 4], [x107 != 4], [x108 != 9], [x108 <= 12], [x85 != 11]] with backjump level 29
+% Decision made: [x35 <= 11] at decision level 30
+% Learned nogood: [[x36 >= 14], [x62 != 13], [x54 != 13], [x62 >= 2], [x54 >= 2], [x62 != 9], [x54 != 9]] with backjump level 10
+% Decision made: [x68 <= 8] at decision level 11
+% Decision made: [x44 <= 12] at decision level 12
+% Decision made: [x40 <= 4] at decision level 13
+% Decision made: [x106 <= 9] at decision level 14
+% Decision made: [x63 <= 7] at decision level 15
+% Decision made: [x88 <= 10] at decision level 16
+% Decision made: [x95 <= 8] at decision level 17
+% Decision made: [x26 <= 11] at decision level 18
+% Decision made: [x105 <= 3] at decision level 19
+% Decision made: [x103 <= 5] at decision level 20
+% Decision made: [x3 <= 8] at decision level 21
+% Decision made: [x17 <= 10] at decision level 22
+% Decision made: [x57 <= 9] at decision level 23
+% Decision made: [x65 <= 4] at decision level 24
+% Decision made: [x67 <= 9] at decision level 25
+% Decision made: [x133 <= 6] at decision level 26
+% Decision made: [x4 <= 7] at decision level 27
+% Decision made: [x27 <= 2] at decision level 28
+% Decision made: [x79 <= 5] at decision level 29
+% Learned nogood: [[x84 >= 6], [x35 != 11], [x30 != 11], [x35 >= 6], [x34 >= 8], [x30 >= 3], [x107 != 3], [x109 <= 6], [x107 <= 6], [x107 != 4], [x35 != 8], [x35 != 12], [x34 != 12]] with backjump level 28
+% Decision made: [x90 <= 11] at decision level 29
+% Decision made: [x34 <= 8] at decision level 30
+% Decision made: [x39 <= 8] at decision level 31
+% Decision made: [x97 <= 1] at decision level 32
+% Learned nogood: [[x97 <= 1], [x125 <= 11], [x125 != 5], [x12 != 5], [x11 != 7], [x5 != 7], [x125 != 9], [x101 != 9], [x12 != 9], [x12 != 8], [x11 != 8], [x101 != 5], [x99 != 5], [x98 != 5], [x99 >= 4]] with backjump level 28
+% Decision made: [x90 <= 11] at decision level 29
+% Decision made: [x34 <= 8] at decision level 30
+% Decision made: [x39 <= 8] at decision level 31
+% Decision made: [x21 <= 1] at decision level 32
+% Decision made: [x42 <= 7] at decision level 33
+% Learned nogood: [[x42 == 7], [x23 != 1], [x20 != 8], [x43 != 8], [x23 != 8], [x32 != 8], [x30 != 8], [x92 >= 7], [x32 != 6], [x30 != 11], [x30 >= 3], [x20 != 10], [x20 != 11], [x92 != 8], [x43 != 12], [x43 != 9], [x23 != 9], [x20 != 9]] with backjump level 32
+% Learned nogood: [[x23 != 1], [x20 != 8], [x42 != 8], [x43 != 8], [x23 != 8], [x32 != 8], [x30 != 8], [x94 >= 7], [x92 >= 7], [x32 != 6], [x30 != 11], [x30 >= 3], [x20 != 10], [x20 != 11], [x94 != 8], [x92 != 8], [x42 >= 7], [x43 != 12], [x43 != 9], [x42 != 9], [x23 != 9], [x20 != 9]] with backjump level 31
+% Learned nogood: [[x98 >= 11], [x99 != 7], [x101 != 9], [x101 != 5], [x99 != 5], [x99 >= 4]] with backjump level 28
+% Learned nogood: [[x84 <= 1], [x11 != 7], [x5 != 7], [x125 != 9], [x101 != 9], [x12 != 9], [x12 != 8], [x11 != 8], [x85 <= 12], [x101 != 5], [x99 != 5], [x98 != 5], [x107 != 3], [x109 <= 6], [x107 <= 6], [x108 != 4], [x107 != 4], [x97 <= 7], [x108 != 9], [x97 != 4], [x108 <= 12], [x99 >= 4], [x85 != 11]] with backjump level 27
+% Decision made: [x79 <= 0] at decision level 28
+% Learned nogood: [[x85 == 5], [x125 <= 11], [x11 != 7], [x5 != 7], [x125 != 9], [x101 != 9], [x12 != 9], [x12 != 8], [x11 != 8], [x101 != 5], [x99 != 5], [x98 != 5], [x97 <= 7], [x97 != 4], [x99 >= 4]] with backjump level 27
+% Decision made: [x79 <= 2] at decision level 28
+% Decision made: [x27 <= 6] at decision level 29
+% Decision made: [x90 <= 11] at decision level 30
+% Decision made: [x39 <= 8] at decision level 31
+% Decision made: [x97 <= 1] at decision level 32
+% Decision made: [x60 <= 12] at decision level 33
+% Decision made: [x82 <= 10] at decision level 34
+% Learned nogood: [[x82 == 10], [x86 != 2], [x81 >= 1], [x81 <= 10], [x86 <= 10], [x86 >= 1]] with backjump level 28
+% Decision made: [x27 <= 6] at decision level 29
+% Decision made: [x90 <= 11] at decision level 30
+% Decision made: [x39 <= 8] at decision level 31
+% Decision made: [x97 <= 1] at decision level 32
+% Learned nogood: [[x97 <= 1], [x82 != 10], [x82 != 2], [x21 <= 8], [x121 != 9], [x116 != 9], [x121 != 4], [x116 != 4], [x132 <= 10], [x132 != 7]] with backjump level 28
+% Decision made: [x125 <= 4] at decision level 29
+% Decision made: [x75 <= 9] at decision level 30
+% Decision made: [x27 <= 6] at decision level 31
+% Decision made: [x52 <= 5] at decision level 32
+% Learned nogood: [[x121 <= 2], [x127 != 11], [x126 != 11], [x126 != 12], [x127 != 9]] with backjump level 28
+% Learned nogood: [[x79 == 2], [x83 >= 1], [x81 >= 1], [x83 != 6], [x101 != 9], [x21 <= 8], [x83 <= 12], [x81 <= 10], [x101 != 5], [x99 != 5], [x98 != 5], [x121 != 9], [x116 != 9], [x97 <= 7], [x121 != 4], [x116 != 4], [x97 != 4], [x126 != 12], [x41 != 12], [x86 <= 10], [x86 >= 1], [x64 >= 1], [x127 != 9], [x99 >= 4], [x132 <= 10], [x132 != 7], [x64 != 6], [x83 != 11]] with backjump level 27
+% Decision made: [x90 <= 11] at decision level 28
+% Decision made: [x27 <= 2] at decision level 29
+% Learned nogood: [[x27 <= 2], [x30 != 11], [x84 >= 6], [x107 != 3], [x109 <= 6], [x107 <= 6], [x107 != 4], [x35 != 8], [x36 <= 11], [x35 != 12], [x34 != 12]] with backjump level 28
+% Decision made: [x27 <= 6] at decision level 29
+% Decision made: [x39 <= 8] at decision level 30
+% Decision made: [x97 <= 1] at decision level 31
+% Decision made: [x60 <= 12] at decision level 32
+% Decision made: [x78 <= 8] at decision level 33
+% Decision made: [x2 <= 5] at decision level 34
+% Learned nogood: [[x62 >= 14], [x36 <= 11], [x54 != 13], [x54 >= 2], [x127 != 9], [x54 != 9]] with backjump level 10
+% Learned nogood: [[x110 == 13], [x62 >= 2], [x54 >= 2], [x127 != 9], [x62 != 9], [x54 != 9]] with backjump level 9
+% Decision made: [x68 <= 8] at decision level 10
+% Decision made: [x44 <= 12] at decision level 11
+% Decision made: [x40 <= 4] at decision level 12
+% Decision made: [x106 <= 9] at decision level 13
+% Decision made: [x63 <= 7] at decision level 14
+% Decision made: [x88 <= 10] at decision level 15
+% Decision made: [x103 <= 9] at decision level 16
+% Decision made: [x105 <= 3] at decision level 17
+% Decision made: [x119 <= 11] at decision level 18
+% Decision made: [x3 <= 8] at decision level 19
+% Decision made: [x17 <= 10] at decision level 20
+% Decision made: [x57 <= 9] at decision level 21
+% Decision made: [x65 <= 4] at decision level 22
+% Decision made: [x67 <= 9] at decision level 23
+% Decision made: [x133 <= 6] at decision level 24
+% Decision made: [x4 <= 7] at decision level 25
+% Decision made: [x26 <= 8] at decision level 26
+% Decision made: [x89 <= 4] at decision level 27
+% Decision made: [x48 <= 13] at decision level 28
+% Learned nogood: [[x54 == 2], [x127 <= 11], [x36 <= 11], [x127 != 9]] with backjump level 9
+% Learned nogood: [[x69 <= 0], [x127 != 9], [x110 != 9], [x62 != 9], [x54 != 9]] with backjump level 8
+% Decision made: [x63 <= 4] at decision level 9
+% Decision made: [x88 <= 7] at decision level 10
+% Decision made: [x104 <= 9] at decision level 11
+% Decision made: [x111 <= 13] at decision level 12
+% Decision made: [x103 <= 9] at decision level 13
+% Decision made: [x119 <= 11] at decision level 14
+% Decision made: [x133 <= 6] at decision level 15
+% Decision made: [x4 <= 7] at decision level 16
+% Decision made: [x17 <= 8] at decision level 17
+% Decision made: [x23 <= 0] at decision level 18
+% Decision made: [x11 <= 8] at decision level 19
+% Decision made: [x20 <= 10] at decision level 20
+% Learned nogood: [[x20 == 10], [x19 <= 10], [x19 >= 1], [x21 != 8], [x21 != 9]] with backjump level 18
+% Decision made: [x11 <= 8] at decision level 19
+% Decision made: [x27 <= 6] at decision level 20
+% Decision made: [x79 <= 0] at decision level 21
+% Decision made: [x85 <= 12] at decision level 22
+% Decision made: [x36 <= 11] at decision level 23
+% Decision made: [x1 <= 5] at decision level 24
+% Decision made: [x2 <= 11] at decision level 25
+% Decision made: [x3 <= 9] at decision level 26
+% Decision made: [x57 <= 13] at decision level 27
+% Decision made: [x55 <= 8] at decision level 28
+% Decision made: [x89 <= 4] at decision level 29
+% Decision made: [x65 <= 7] at decision level 30
+% Learned nogood: [[x68 == 8], [x126 != 11], [x61 != 8], [x62 != 2], [x61 != 2], [x62 != 13], [x127 != 11], [x35 != 11], [x35 >= 8], [x127 != 9], [x62 != 9], [x35 != 12]] with backjump level 28
+% Decision made: [x89 <= 4] at decision level 29
+% Decision made: [x65 <= 7] at decision level 30
+% Learned nogood: [[x66 >= 12], [x68 != 8], [x64 != 1], [x68 != 6], [x64 != 6]] with backjump level 28
+% Decision made: [x89 <= 4] at decision level 29
+% Decision made: [x65 <= 8] at decision level 30
+% Decision made: [x40 <= 4] at decision level 31
+% Decision made: [x99 <= 4] at decision level 32
+% Decision made: [x52 <= 5] at decision level 33
+% Learned nogood: [[x47 >= 13], [x73 <= 13], [x117 != 6], [x49 <= 13], [x41 != 12], [x115 != 10], [x115 != 9], [x49 != 7], [x117 != 11], [x115 != 11], [x37 != 7], [x37 >= 5], [x37 != 9], [x113 != 9], [x73 != 9], [x49 != 9], [x113 != 11]] with backjump level 32
+% Decision made: [x108 <= 0] at decision level 33
+% Learned nogood: [[x108 <= 0], [x53 != 5], [x67 != 8], [x54 <= 13], [x49 <= 13], [x62 != 2], [x62 != 13], [x12 != 9], [x12 != 11], [x12 != 5], [x36 <= 11], [x67 <= 9], [x12 != 8], [x49 != 7], [x110 != 13], [x67 != 4], [x127 != 9], [x110 != 9], [x62 != 9], [x54 != 9], [x49 != 9]] with backjump level 32
+% Learned nogood: [[x99 == 4], [x67 != 8], [x107 >= 4], [x117 != 6], [x54 <= 13], [x52 <= 7], [x50 <= 13], [x49 <= 13], [x41 != 12], [x115 != 10], [x46 >= 4], [x47 >= 5], [x62 != 2], [x62 != 13], [x12 != 9], [x12 != 11], [x46 != 5], [x12 != 5], [x36 <= 11], [x108 <= 4], [x67 <= 9], [x107 != 6], [x115 != 9], [x12 != 8], [x46 <= 9], [x49 != 7], [x117 != 11], [x115 != 11], [x110 != 13], [x47 != 9], [x107 != 9], [x47 != 7], [x37 != 7], [x37 >= 5], [x67 != 4], [x127 != 9], [x110 != 9], [x62 != 9], [x54 != 9], [x37 != 9], [x113 != 9], [x73 != 9], [x49 != 9], [x113 != 11]] with backjump level 30
+% Decision made: [x99 <= 5] at decision level 31
+% Learned nogood: [[x108 <= 1], [x67 != 8], [x54 <= 13], [x49 <= 13], [x47 >= 5], [x62 != 2], [x62 != 13], [x12 != 9], [x12 != 11], [x12 != 5], [x36 <= 11], [x67 <= 9], [x12 != 8], [x49 != 7], [x110 != 13], [x47 != 9], [x47 != 7], [x67 != 4], [x127 != 9], [x110 != 9], [x62 != 9], [x54 != 9], [x49 != 9]] with backjump level 30
+% Learned nogood: [[x108 == 4], [x107 >= 4], [x54 <= 13], [x52 <= 7], [x50 <= 13], [x49 <= 13], [x46 >= 4], [x47 >= 5], [x62 != 2], [x62 != 13], [x46 != 5], [x36 <= 11], [x107 != 6], [x46 <= 9], [x49 != 7], [x110 != 13], [x47 != 9], [x107 != 9], [x47 != 7], [x127 != 9], [x110 != 9], [x62 != 9], [x54 != 9], [x49 != 9]] with backjump level 29
+% Learned nogood: [[x89 <= 4], [x46 >= 4], [x47 >= 5], [x62 != 2], [x112 != 13], [x72 != 13], [x48 != 13], [x62 != 13], [x72 != 9], [x48 != 9], [x12 != 9], [x12 != 11], [x46 != 5], [x12 != 5], [x36 <= 11], [x108 <= 4], [x107 != 6], [x92 <= 4], [x112 != 9], [x12 != 8], [x46 <= 9], [x72 != 8], [x49 != 7], [x110 != 13], [x105 != 13], [x47 != 9], [x107 != 9], [x105 != 9], [x47 != 7], [x127 != 9], [x110 != 9], [x62 != 9], [x54 != 9], [x49 != 9]] with backjump level 28
+% Decision made: [x40 <= 4] at decision level 29
+% Decision made: [x92 <= 0] at decision level 30
+% Learned nogood: [[x91 >= 11], [x99 != 7], [x98 >= 5], [x41 != 12], [x47 >= 5], [x62 != 2], [x62 != 13], [x36 <= 11], [x108 <= 4], [x93 <= 11], [x93 != 6], [x101 != 9], [x110 != 13], [x47 != 9], [x47 != 7], [x37 != 7], [x93 != 7], [x37 >= 5], [x127 != 9], [x110 != 9], [x62 != 9], [x54 != 9], [x37 != 9], [x99 >= 4]] with backjump level 29
+% Decision made: [x65 <= 8] at decision level 30
+% Decision made: [x99 <= 4] at decision level 31
+% Decision made: [x52 <= 5] at decision level 32
+% Decision made: [x76 <= 1] at decision level 33
+% Decision made: [x61 <= 12] at decision level 34
+% Decision made: [x86 <= 10] at decision level 35
+% Learned nogood: [[x62 <= 0], [x54 != 13], [x127 != 11], [x36 <= 11], [x110 != 13], [x127 != 9], [x110 != 9], [x54 != 9]] with backjump level 32
+% Learned nogood: [[x54 != 13], [x62 != 2], [x62 != 13], [x127 != 11], [x36 <= 11], [x110 != 13], [x127 != 9], [x110 != 9], [x62 != 9], [x54 != 9]] with backjump level 27
+% Decision made: [x55 <= 8] at decision level 28
+% Learned nogood: [[x127 >= 14], [x62 != 2], [x62 != 13], [x110 != 13], [x110 != 9], [x62 != 9]] with backjump level 27
+% Decision made: [x55 <= 8] at decision level 28
+% Learned nogood: [[x55 == 8], [x41 <= 12], [x132 <= 8], [x131 <= 8], [x47 >= 5], [x62 != 2], [x61 != 2], [x112 != 13], [x72 != 13], [x48 != 13], [x62 != 13], [x72 != 9], [x48 != 9], [x12 != 9], [x12 != 11], [x46 != 5], [x12 != 5], [x127 != 11], [x35 != 11], [x36 <= 11], [x108 <= 4], [x92 <= 4], [x79 <= 0], [x35 >= 8], [x66 != 9], [x112 != 9], [x66 != 8], [x43 != 8], [x12 != 8], [x90 <= 10], [x43 <= 12], [x89 <= 10], [x46 <= 9], [x66 >= 7], [x90 != 8], [x89 != 8], [x72 != 8], [x49 != 7], [x134 != 6], [x128 != 6], [x100 <= 7], [x110 != 13], [x105 != 13], [x47 != 9], [x107 != 9], [x105 != 9], [x47 != 7], [x64 != 1], [x127 != 9], [x110 != 9], [x62 != 9], [x54 != 9], [x43 != 9], [x49 != 9], [x16 != 9], [x134 <= 11], [x132 != 7], [x68 != 6], [x64 != 6], [x35 != 12], [x134 != 10]] with backjump level 27
+% Decision made: [x82 <= 1] at decision level 28
+% Decision made: [x46 <= 2] at decision level 29
+% Learned nogood: [[x71 == 4], [x74 >= 4], [x74 != 13], [x72 != 13], [x72 != 9], [x72 != 8]] with backjump level 28
+% Decision made: [x46 <= 2] at decision level 29
+% Learned nogood: [[x46 == 2], [x71 != 4], [x71 <= 8], [x128 >= 2], [x128 != 6]] with backjump level 28
+% Learned nogood: [[x46 == 4], [x49 != 13], [x48 != 13], [x48 != 9], [x49 != 7], [x49 != 9]] with backjump level 27
+% Learned nogood: [[x57 == 13], [x72 != 9], [x48 != 9], [x12 != 9], [x129 <= 10], [x12 != 11], [x46 != 5], [x12 != 5], [x127 != 11], [x35 != 11], [x36 <= 11], [x108 <= 4], [x82 <= 10], [x92 <= 4], [x86 >= 2], [x79 <= 0], [x35 >= 8], [x66 != 9], [x112 != 9], [x66 != 8], [x43 != 8], [x12 != 8], [x131 <= 10], [x90 <= 10], [x43 <= 12], [x89 <= 10], [x71 <= 9], [x55 <= 9], [x46 <= 9], [x19 <= 10], [x66 >= 7], [x19 >= 1], [x90 != 8], [x89 != 8], [x72 != 8], [x21 != 8], [x49 != 7], [x134 != 6], [x128 != 6], [x100 <= 7], [x110 != 13], [x105 != 13], [x56 != 9], [x47 != 9], [x107 != 9], [x105 != 9], [x56 != 7], [x47 != 7], [x37 != 7], [x47 != 4], [x37 >= 5], [x64 != 1], [x127 != 9], [x110 != 9], [x62 != 9], [x54 != 9], [x43 != 9], [x37 != 9], [x73 != 9], [x49 != 9], [x21 != 9], [x16 != 9], [x134 <= 11], [x132 <= 10], [x132 != 7], [x129 != 7], [x68 != 6], [x64 != 6], [x86 != 11], [x35 != 12], [x134 != 10]] with backjump level 26
+% Decision made: [x105 <= 3] at decision level 27
+% Decision made: [x92 <= 0] at decision level 28
+% Decision made: [x59 <= 7] at decision level 29
+% Decision made: [x65 <= 8] at decision level 30
+% Decision made: [x89 <= 4] at decision level 31
+% Decision made: [x47 <= 2] at decision level 32
+% Learned nogood: [[x61 == 8], [x44 != 12], [x35 != 11], [x35 >= 8], [x35 != 12]] with backjump level 30
+% Decision made: [x61 <= 0] at decision level 31
+% Learned nogood: [[x61 <= 0], [x58 != 7], [x62 <= 13], [x58 <= 13], [x56 != 9], [x56 != 7], [x62 != 9], [x58 != 12]] with backjump level 29
+% Decision made: [x65 <= 8] at decision level 30
+% Learned nogood: [[x61 <= 2], [x58 != 7], [x62 <= 13], [x58 <= 13], [x56 != 9], [x56 != 7], [x62 != 9], [x58 != 12]] with backjump level 29
+% Learned nogood: [[x61 == 8], [x35 != 11], [x35 >= 8], [x66 != 9], [x66 != 8], [x43 != 8], [x43 <= 12], [x66 >= 7], [x64 != 1], [x43 != 9], [x68 != 6], [x64 != 6], [x35 != 12]] with backjump level 23
+% Decision made: [x1 <= 5] at decision level 24
+% Decision made: [x2 <= 11] at decision level 25
+% Decision made: [x3 <= 9] at decision level 26
+% Decision made: [x105 <= 3] at decision level 27
+% Decision made: [x92 <= 0] at decision level 28
+% Decision made: [x59 <= 7] at decision level 29
+% Learned nogood: [[x59 == 7], [x62 <= 13], [x61 <= 12], [x60 <= 12], [x58 <= 13], [x61 != 8], [x56 != 9], [x56 != 7], [x62 != 9], [x58 != 12]] with backjump level 26
+% Decision made: [x105 <= 3] at decision level 27
+% Decision made: [x92 <= 0] at decision level 28
+% Decision made: [x59 <= 8] at decision level 29
+% Decision made: [x65 <= 7] at decision level 30
+% Decision made: [x61 <= 0] at decision level 31
+% Decision made: [x89 <= 4] at decision level 32
+% Learned nogood: [[x41 <= 5], [x121 <= 4], [x125 >= 5], [x101 >= 5], [x132 != 8], [x116 >= 4], [x126 != 12], [x98 >= 5], [x125 != 9], [x129 <= 10], [x127 != 11], [x125 <= 11], [x82 <= 10], [x116 != 9], [x21 != 8], [x101 != 9], [x56 != 9], [x56 != 7], [x37 != 7], [x37 >= 5], [x127 != 9], [x37 != 9], [x21 != 9], [x132 <= 10], [x132 != 7], [x129 != 7]] with backjump level 30
+% Learned nogood: [[x65 == 7], [x42 != 8], [x32 != 8], [x115 != 10], [x107 >= 4], [x91 >= 6], [x62 <= 13], [x61 <= 12], [x60 <= 12], [x58 <= 13], [x124 >= 4], [x129 <= 10], [x127 != 11], [x35 != 11], [x125 <= 11], [x108 <= 4], [x67 <= 9], [x82 <= 10], [x107 != 6], [x35 >= 8], [x32 != 6], [x66 != 9], [x116 != 9], [x115 != 9], [x30 >= 3], [x66 != 8], [x43 != 8], [x30 != 11], [x43 <= 12], [x93 <= 11], [x66 >= 7], [x21 != 8], [x93 != 6], [x117 != 11], [x115 != 11], [x101 != 9], [x100 <= 7], [x97 <= 7], [x110 != 13], [x56 != 9], [x107 != 9], [x106 != 9], [x56 != 7], [x37 != 7], [x93 != 7], [x37 >= 5], [x67 != 4], [x64 != 1], [x127 != 9], [x110 != 9], [x62 != 9], [x43 != 9], [x42 != 9], [x40 != 9], [x39 != 9], [x37 != 9], [x99 >= 4], [x21 != 9], [x132 <= 10], [x132 != 7], [x129 != 7], [x68 != 6], [x64 != 6], [x58 != 12], [x35 != 12]] with backjump level 29
+% Decision made: [x89 <= 4] at decision level 30
+% Decision made: [x47 <= 2] at decision level 31
+% Learned nogood: [[x47 <= 2], [x62 >= 2], [x54 != 13], [x62 <= 13], [x127 != 11], [x110 != 13], [x56 != 9], [x56 != 7], [x127 != 9], [x110 != 9], [x62 != 9], [x54 != 9]] with backjump level 30
+% Decision made: [x46 <= 2] at decision level 31
+% Learned nogood: [[x46 == 2], [x132 <= 8], [x71 <= 8], [x74 != 10], [x117 != 6], [x82 <= 10], [x128 >= 2], [x116 != 9], [x19 <= 10], [x19 >= 1], [x21 != 8], [x128 != 6], [x117 != 11], [x113 != 9], [x73 != 9], [x21 != 9], [x132 != 7], [x113 != 11]] with backjump level 30
+% Learned nogood: [[x89 <= 4], [x67 <= 8], [x55 != 8], [x91 >= 6], [x72 <= 13], [x48 <= 13], [x62 <= 13], [x72 != 9], [x48 != 9], [x12 != 9], [x129 <= 10], [x12 != 11], [x46 != 5], [x12 != 5], [x127 != 11], [x36 <= 11], [x108 <= 4], [x82 <= 10], [x128 >= 2], [x55 >= 2], [x46 >= 2], [x86 >= 2], [x81 >= 1], [x116 != 9], [x12 != 8], [x93 <= 11], [x71 <= 9], [x55 <= 9], [x46 <= 9], [x19 <= 10], [x19 >= 1], [x72 != 8], [x21 != 8], [x49 != 7], [x5 != 7], [x93 != 6], [x128 != 6], [x117 != 11], [x110 != 13], [x56 != 9], [x47 != 9], [x56 != 7], [x47 != 7], [x37 != 7], [x93 != 7], [x47 != 4], [x37 >= 5], [x67 != 4], [x127 != 9], [x110 != 9], [x62 != 9], [x54 != 9], [x37 != 9], [x113 != 9], [x73 != 9], [x49 != 9], [x21 != 9], [x132 <= 10], [x132 != 7], [x129 != 7], [x113 != 11], [x86 != 11], [x81 != 12]] with backjump level 29
+% Decision made: [x52 <= 5] at decision level 30
+% Decision made: [x124 <= 11] at decision level 31
+% Decision made: [x40 <= 7] at decision level 32
+% Decision made: [x76 <= 1] at decision level 33
+% Decision made: [x125 <= 4] at decision level 34
+% Learned nogood: [[x125 <= 4], [x78 != 8], [x53 != 5], [x12 != 9], [x12 != 11], [x12 != 5], [x108 <= 4], [x12 != 8]] with backjump level 33
+% Decision made: [x61 <= 0] at decision level 34
+% Decision made: [x86 <= 10] at decision level 35
+% Learned nogood: [[x115 >= 14], [x120 != 9], [x126 != 12], [x44 != 12], [x126 != 11], [x30 >= 3], [x120 != 11], [x30 != 11], [x39 != 9]] with backjump level 33
+% Learned nogood: [[x83 == 2], [x44 != 12], [x121 <= 9], [x122 != 5], [x121 != 4], [x116 != 4], [x126 != 11], [x122 != 11], [x115 != 10], [x127 != 11], [x82 <= 10], [x116 != 9], [x115 != 9], [x30 >= 3], [x120 != 11], [x30 != 11], [x21 != 8], [x115 != 11], [x127 != 9], [x39 != 9], [x21 != 9]] with backjump level 32
+% Learned nogood: [[x43 == 12], [x121 <= 9], [x50 != 7], [x122 != 5], [x41 >= 12], [x121 != 4], [x116 != 4], [x126 != 11], [x122 != 11], [x55 != 8], [x115 != 10], [x48 <= 13], [x48 != 9], [x46 != 5], [x127 != 11], [x83 != 12], [x82 <= 10], [x83 != 6], [x128 >= 2], [x55 >= 2], [x46 >= 2], [x83 >= 1], [x81 >= 1], [x116 != 9], [x115 != 9], [x30 >= 3], [x120 != 11], [x30 != 11], [x55 <= 9], [x46 <= 9], [x19 <= 10], [x19 >= 1], [x21 != 8], [x49 != 7], [x5 != 7], [x128 != 6], [x115 != 11], [x83 != 5], [x127 != 9], [x39 != 9], [x49 != 9], [x21 != 9], [x132 <= 10], [x132 != 7], [x83 != 11], [x81 != 12]] with backjump level 31
+% Learned nogood: [[x66 >= 11], [x67 <= 8], [x67 != 4], [x64 != 1], [x68 != 6], [x64 != 6]] with backjump level 29
+% Decision made: [x76 <= 1] at decision level 30
+% Decision made: [x52 <= 5] at decision level 31
+% Learned nogood: [[x116 >= 10], [x82 != 2], [x82 <= 10], [x21 != 8], [x21 != 9]] with backjump level 30
+% Decision made: [x52 <= 5] at decision level 31
+% Learned nogood: [[x124 == 11], [x116 <= 4], [x126 != 12], [x121 <= 9], [x99 >= 7], [x97 >= 4], [x44 != 12], [x115 != 10], [x127 != 11], [x115 != 9], [x30 >= 3], [x120 != 11], [x30 != 11], [x115 != 11], [x97 <= 7], [x127 != 9], [x39 != 9]] with backjump level 30
+% Learned nogood: [[x126 >= 14], [x44 != 12], [x35 != 11], [x35 >= 8], [x35 != 12]] with backjump level 29
+% Decision made: [x76 <= 1] at decision level 30
+% Learned nogood: [[x83 == 2], [x126 <= 12], [x122 != 5], [x101 != 5], [x99 >= 7], [x97 >= 4], [x44 != 12], [x124 <= 12], [x52 <= 7], [x124 >= 5], [x52 >= 5], [x122 != 11], [x67 <= 8], [x115 != 10], [x12 != 9], [x12 != 11], [x12 != 5], [x127 != 11], [x125 <= 11], [x108 <= 4], [x82 <= 10], [x116 != 9], [x115 != 9], [x30 >= 3], [x12 != 8], [x120 != 11], [x30 != 11], [x21 != 8], [x115 != 11], [x101 != 9], [x97 <= 7], [x110 != 13], [x67 != 4], [x64 != 1], [x127 != 9], [x110 != 9], [x39 != 9], [x21 != 9], [x64 != 6]] with backjump level 29
+% Decision made: [x75 <= 8] at decision level 30
+% Learned nogood: [[x75 == 8], [x44 != 12], [x32 != 8], [x35 != 11], [x35 >= 8], [x32 != 6], [x30 >= 3], [x30 != 11], [x39 != 9], [x35 != 12]] with backjump level 29
+% Decision made: [x52 <= 5] at decision level 30
+% Learned nogood: [[x124 == 11], [x50 != 7], [x126 != 12], [x121 <= 9], [x122 != 5], [x41 >= 12], [x99 >= 7], [x97 >= 4], [x43 == 12], [x122 != 11], [x55 != 8], [x115 != 10], [x48 <= 13], [x48 != 9], [x46 != 5], [x127 != 11], [x83 != 12], [x82 <= 10], [x83 != 6], [x128 >= 2], [x55 >= 2], [x46 >= 2], [x83 >= 1], [x81 >= 1], [x116 != 9], [x115 != 9], [x30 >= 3], [x120 != 11], [x30 != 11], [x55 <= 9], [x46 <= 9], [x19 <= 10], [x19 >= 1], [x21 != 8], [x49 != 7], [x5 != 7], [x128 != 6], [x115 != 11], [x97 <= 7], [x83 != 5], [x127 != 9], [x39 != 9], [x49 != 9], [x21 != 9], [x132 <= 10], [x132 != 7], [x83 != 11], [x81 != 12]] with backjump level 29
+% Learned nogood: [[x59 == 8], [x115 != 10], [x75 != 10], [x89 <= 6], [x107 >= 4], [x65 >= 7], [x91 >= 6], [x72 <= 13], [x48 <= 13], [x62 <= 13], [x61 <= 12], [x60 <= 12], [x58 <= 13], [x72 != 9], [x48 != 9], [x12 != 9], [x124 >= 4], [x129 <= 10], [x12 != 11], [x46 != 5], [x12 != 5], [x127 != 11], [x35 != 11], [x36 <= 11], [x125 <= 11], [x108 <= 4], [x67 <= 9], [x83 != 12], [x82 <= 10], [x107 != 6], [x83 != 6], [x128 >= 2], [x55 >= 2], [x46 >= 2], [x86 >= 2], [x83 >= 1], [x81 >= 1], [x35 >= 8], [x32 != 6], [x66 != 9], [x116 != 9], [x115 != 9], [x30 >= 3], [x66 != 8], [x43 != 8], [x12 != 8], [x120 != 11], [x30 != 11], [x43 <= 12], [x93 <= 11], [x71 <= 9], [x55 <= 9], [x46 <= 9], [x19 <= 10], [x66 >= 7], [x19 >= 1], [x72 != 8], [x21 != 8], [x49 != 7], [x5 != 7], [x93 != 6], [x128 != 6], [x117 != 11], [x115 != 11], [x101 != 9], [x100 <= 7], [x97 <= 7], [x83 != 5], [x110 != 13], [x56 != 9], [x47 != 9], [x107 != 9], [x106 != 9], [x56 != 7], [x47 != 7], [x37 != 7], [x93 != 7], [x47 != 4], [x37 >= 5], [x67 != 4], [x64 != 1], [x127 != 9], [x110 != 9], [x62 != 9], [x54 != 9], [x43 != 9], [x42 != 9], [x40 != 9], [x39 != 9], [x37 != 9], [x99 >= 4], [x113 != 9], [x73 != 9], [x49 != 9], [x21 != 9], [x132 <= 10], [x132 != 7], [x129 != 7], [x68 != 6], [x64 != 6], [x113 != 11], [x86 != 11], [x83 != 11], [x81 != 12], [x58 != 12], [x35 != 12]] with backjump level 28
+% Decision made: [x65 <= 7] at decision level 29
+% Decision made: [x61 <= 0] at decision level 30
+% Decision made: [x89 <= 4] at decision level 31
+% Decision made: [x49 <= 4] at decision level 32
+%%%mzn-stat: 1AutonomousSearchNumBackupCalled=0
+%%%mzn-stat: 1AutonomousSearchNumPredicatesRemoved=0
+%%%mzn-stat: 1AutonomousSearchNumCalls=1
+%%%mzn-stat: 1AutonomousSearchNumPredicatesAdded=1994
+%%%mzn-stat: 1AutonomousSearchAverageSizeOfHeap=1994
+%%%mzn-stat: 1AutonomousSearchNumAssignedPredicatesEncountered=1994
+%%%mzn-stat: engineStatisticsNumDecisions=195
+%%%mzn-stat: engineStatisticsNumConflicts=59
+%%%mzn-stat: engineStatisticsNumRestarts=0
+%%%mzn-stat: engineStatisticsNumPropagations=4691
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=77
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=2.2033898305084745
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=0.4576271186440678
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0.4745762711864407
+%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=0
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=19.440677966101696
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=2.76271186440678
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=9.135593220338983
+%%%mzn-stat-end
+v_0 = 5;
+v_1 = 11;
+v_2 = 9;
+v_3 = 7;
+v_4 = 0;
+v_5 = 12;
+v_6 = 6;
+v_7 = 14;
+v_8 = 10;
+v_9 = 3;
+v_10 = 8;
+v_11 = 13;
+v_12 = 1;
+v_13 = 4;
+v_14 = 2;
+v_15 = 13;
+v_16 = 6;
+v_17 = 8;
+v_18 = 9;
+v_19 = 10;
+v_20 = 11;
+v_21 = 1;
+v_22 = 3;
+v_23 = 12;
+v_24 = 2;
+v_25 = 0;
+v_26 = 7;
+v_27 = 4;
+v_28 = 5;
+v_29 = 14;
+v_30 = 6;
+v_31 = 1;
+v_32 = 5;
+v_33 = 0;
+v_34 = 12;
+v_35 = 8;
+v_36 = 13;
+v_37 = 7;
+v_38 = 3;
+v_39 = 9;
+v_40 = 2;
+v_41 = 10;
+v_42 = 14;
+v_43 = 11;
+v_44 = 4;
+v_45 = 1;
+v_46 = 13;
+v_47 = 2;
+v_48 = 6;
+v_49 = 11;
+v_50 = 14;
+v_51 = 4;
+v_52 = 5;
+v_53 = 8;
+v_54 = 10;
+v_55 = 7;
+v_56 = 3;
+v_57 = 12;
+v_58 = 9;
+v_59 = 0;
+v_60 = 9;
+v_61 = 5;
+v_62 = 13;
+v_63 = 4;
+v_64 = 14;
+v_65 = 6;
+v_66 = 11;
+v_67 = 8;
+v_68 = 1;
+v_69 = 7;
+v_70 = 10;
+v_71 = 0;
+v_72 = 3;
+v_73 = 2;
+v_74 = 12;
+v_75 = 8;
+v_76 = 2;
+v_77 = 14;
+v_78 = 5;
+v_79 = 7;
+v_80 = 1;
+v_81 = 3;
+v_82 = 4;
+v_83 = 9;
+v_84 = 12;
+v_85 = 11;
+v_86 = 6;
+v_87 = 0;
+v_88 = 13;
+v_89 = 10;
+v_90 = 10;
+v_91 = 4;
+v_92 = 11;
+v_93 = 2;
+v_94 = 3;
+v_95 = 5;
+v_96 = 14;
+v_97 = 0;
+v_98 = 7;
+v_99 = 13;
+v_100 = 12;
+v_101 = 9;
+v_102 = 8;
+v_103 = 1;
+v_104 = 6;
+v_105 = 4;
+v_106 = 12;
+v_107 = 10;
+v_108 = 13;
+v_109 = 1;
+v_110 = 9;
+v_111 = 0;
+v_112 = 2;
+v_113 = 11;
+v_114 = 14;
+v_115 = 6;
+v_116 = 8;
+v_117 = 5;
+v_118 = 7;
+v_119 = 3;
+v_120 = 0;
+v_121 = 14;
+v_122 = 7;
+v_123 = 11;
+v_124 = 13;
+v_125 = 4;
+v_126 = 2;
+v_127 = 1;
+v_128 = 6;
+v_129 = 8;
+v_130 = 3;
+v_131 = 12;
+v_132 = 9;
+v_133 = 10;
+v_134 = 5;
+v_135 = 3;
+v_136 = 7;
+v_137 = 4;
+v_138 = 1;
+v_139 = 9;
+v_140 = 10;
+v_141 = 5;
+v_142 = 6;
+v_143 = 0;
+v_144 = 11;
+v_145 = 14;
+v_146 = 2;
+v_147 = 13;
+v_148 = 12;
+v_149 = 8;
+v_150 = 14;
+v_151 = 0;
+v_152 = 12;
+v_153 = 3;
+v_154 = 8;
+v_155 = 13;
+v_156 = 7;
+v_157 = 11;
+v_158 = 2;
+v_159 = 4;
+v_160 = 1;
+v_161 = 5;
+v_162 = 10;
+v_163 = 6;
+v_164 = 9;
+v_165 = 11;
+v_166 = 9;
+v_167 = 3;
+v_168 = 8;
+v_169 = 2;
+v_170 = 7;
+v_171 = 12;
+v_172 = 10;
+v_173 = 14;
+v_174 = 1;
+v_175 = 5;
+v_176 = 4;
+v_177 = 6;
+v_178 = 0;
+v_179 = 13;
+v_180 = 12;
+v_181 = 3;
+v_182 = 6;
+v_183 = 14;
+v_184 = 4;
+v_185 = 2;
+v_186 = 10;
+v_187 = 13;
+v_188 = 5;
+v_189 = 0;
+v_190 = 9;
+v_191 = 1;
+v_192 = 7;
+v_193 = 8;
+v_194 = 11;
+v_195 = 7;
+v_196 = 8;
+v_197 = 0;
+v_198 = 10;
+v_199 = 6;
+v_200 = 3;
+v_201 = 9;
+v_202 = 12;
+v_203 = 4;
+v_204 = 5;
+v_205 = 13;
+v_206 = 11;
+v_207 = 2;
+v_208 = 14;
+v_209 = 1;
+v_210 = 2;
+v_211 = 10;
+v_212 = 1;
+v_213 = 12;
+v_214 = 5;
+v_215 = 0;
+v_216 = 8;
+v_217 = 9;
+v_218 = 13;
+v_219 = 6;
+v_220 = 4;
+v_221 = 14;
+v_222 = 11;
+v_223 = 3;
+v_224 = 7;
+----------
+%%%mzn-stat: nSolutions=1
+%%%mzn-stat-end

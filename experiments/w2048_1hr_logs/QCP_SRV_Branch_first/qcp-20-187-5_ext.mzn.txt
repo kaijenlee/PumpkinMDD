@@ -1,0 +1,39 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=400
+%%%mzn-stat: flatIntConstraints=40
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.449068
+%%%mzn-stat-end
+% Processing MDD constraints group 1 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20]
+% Compiled MDD with 20 layers and 252 transitions
+% MDD SRVs : [x212, x214, x213, x209, x208, x211, x210, x220, x219, x222, x221, x216, x215, x218, x217, x224, x223, x226, x225]
+% MDD Width: 36
+% MDD constraints group [AllDifferent([x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20])] solver post status: Ok(())
+% Processing MDD constraints group 2 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x7, x21, x22, x23, x15, x16, x24, x25, x26, x27, x20, x28, x29, x12, x10, x30, x31, x32, x18, x6]
+% Compiled MDD with 20 layers and 76 transitions
+% MDD SRVs : [x231, x233, x232, x228, x227, x230, x229, x239, x238, x241, x240, x235, x234, x237, x236, x243, x242, x245, x244]
+% MDD Width: 1
+% MDD constraints group [AllDifferent([x7, x21, x22, x23, x15, x16, x24, x25, x26, x27, x20, x28, x29, x12, x10, x30, x31, x32, x18, x6])] solver post status: Ok(())
+% Processing MDD constraints group 3 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x12, x33, x16, x6, x34, x35, x29, x20, x36, x37, x38, x39, x40, x41, x30, x42, x13, x43, x44, x45]
+% Compiled MDD with 20 layers and 322 transitions
+% MDD SRVs : [x250, x252, x251, x247, x246, x249, x248, x258, x257, x260, x259, x254, x253, x256, x255, x262, x261, x264, x263]
+% MDD Width: 34
+% MDD constraints group [AllDifferent([x12, x33, x16, x6, x34, x35, x29, x20, x36, x37, x38, x39, x40, x41, x30, x42, x13, x43, x44, x45])] solver post status: Ok(())
+% Processing MDD constraints group 4 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x13, x46, x47, x48, x6, x49, x12, x50, x51, x33, x52, x15, x53, x54, x55, x29, x56, x30, x43, x24]
+% Compiled MDD with 20 layers and 1065 transitions
+% MDD SRVs : [x269, x271, x270, x266, x265, x268, x267, x277, x276, x279, x278, x273, x272, x275, x274, x281, x280, x283, x282]
+% MDD Width: 120
+=====UNKNOWN=====

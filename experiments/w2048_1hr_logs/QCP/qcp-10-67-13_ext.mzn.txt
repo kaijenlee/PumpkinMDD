@@ -1,0 +1,173 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=100
+%%%mzn-stat: flatIntConstraints=20
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.298494
+%%%mzn-stat-end
+% Processing MDD constraints group 1 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10]
+% Compiled MDD with 10 layers and 179 transitions
+% MDD constraints group [AllDifferent([x1, x2, x3, x4, x5, x6, x7, x8, x9, x10])] solver post status: Ok(())
+% Processing MDD constraints group 2 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x11, x12, x13, x14, x6, x15, x16, x17, x10, x18]
+% Compiled MDD with 10 layers and 141 transitions
+% MDD constraints group [AllDifferent([x11, x12, x13, x14, x6, x15, x16, x17, x10, x18])] solver post status: Ok(())
+% Processing MDD constraints group 3 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x10, x19, x20, x21, x22, x23, x24, x25, x26, x27]
+% Compiled MDD with 10 layers and 261 transitions
+% MDD constraints group [AllDifferent([x10, x19, x20, x21, x22, x23, x24, x25, x26, x27])] solver post status: Ok(())
+% Processing MDD constraints group 4 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x5, x28, x29, x6, x30, x22, x9, x31, x32, x33]
+% Compiled MDD with 10 layers and 114 transitions
+% MDD constraints group [AllDifferent([x5, x28, x29, x6, x30, x22, x9, x31, x32, x33])] solver post status: Ok(())
+% Processing MDD constraints group 5 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x34, x9, x5, x35, x36, x37, x38, x22, x39, x40]
+% Compiled MDD with 10 layers and 286 transitions
+% MDD constraints group [AllDifferent([x34, x9, x5, x35, x36, x37, x38, x22, x39, x40])] solver post status: Ok(())
+% Processing MDD constraints group 6 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x41, x42, x43, x18, x44, x45, x46, x47, x12, x48]
+% Compiled MDD with 10 layers and 429 transitions
+% MDD constraints group [AllDifferent([x41, x42, x43, x18, x44, x45, x46, x47, x12, x48])] solver post status: Ok(())
+% Processing MDD constraints group 7 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x49, x50, x22, x51, x52, x9, x5, x53, x54, x55]
+% Compiled MDD with 10 layers and 214 transitions
+% MDD constraints group [AllDifferent([x49, x50, x22, x51, x52, x9, x5, x53, x54, x55])] solver post status: Ok(())
+% Processing MDD constraints group 8 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x56, x57, x58, x22, x59, x60, x48, x12, x61, x62]
+% Compiled MDD with 10 layers and 267 transitions
+% MDD constraints group [AllDifferent([x56, x57, x58, x22, x59, x60, x48, x12, x61, x62])] solver post status: Ok(())
+% Processing MDD constraints group 9 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x63, x22, x64, x12, x65, x66, x67, x68, x69, x70]
+% Compiled MDD with 10 layers and 376 transitions
+% MDD constraints group [AllDifferent([x63, x22, x64, x12, x65, x66, x67, x68, x69, x70])] solver post status: Ok(())
+% Processing MDD constraints group 10 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x71, x72, x6, x73, x9, x74, x75, x76, x77, x63]
+% Compiled MDD with 10 layers and 378 transitions
+% MDD constraints group [AllDifferent([x71, x72, x6, x73, x9, x74, x75, x76, x77, x63])] solver post status: Ok(())
+% Processing MDD constraints group 11 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x11, x10, x5, x34, x41, x49, x56, x63, x71]
+% Compiled MDD with 10 layers and 313 transitions
+% MDD constraints group [AllDifferent([x1, x11, x10, x5, x34, x41, x49, x56, x63, x71])] solver post status: Ok(())
+% Processing MDD constraints group 12 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x2, x12, x19, x28, x9, x42, x50, x57, x22, x72]
+% Compiled MDD with 10 layers and 272 transitions
+% MDD constraints group [AllDifferent([x2, x12, x19, x28, x9, x42, x50, x57, x22, x72])] solver post status: Ok(())
+% Processing MDD constraints group 13 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x3, x13, x20, x29, x5, x43, x22, x58, x64, x6]
+% Compiled MDD with 10 layers and 284 transitions
+% MDD constraints group [AllDifferent([x3, x13, x20, x29, x5, x43, x22, x58, x64, x6])] solver post status: Ok(())
+% Processing MDD constraints group 14 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x4, x14, x21, x6, x35, x18, x51, x22, x12, x73]
+% Compiled MDD with 10 layers and 93 transitions
+% MDD constraints group [AllDifferent([x4, x14, x21, x6, x35, x18, x51, x22, x12, x73])] solver post status: Ok(())
+% Processing MDD constraints group 15 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x5, x6, x22, x30, x36, x44, x52, x59, x65, x9]
+% Compiled MDD with 10 layers and 190 transitions
+% MDD constraints group [AllDifferent([x5, x6, x22, x30, x36, x44, x52, x59, x65, x9])] solver post status: Ok(())
+% Processing MDD constraints group 16 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x6, x15, x23, x22, x37, x45, x9, x60, x66, x74]
+% Compiled MDD with 10 layers and 249 transitions
+% MDD constraints group [AllDifferent([x6, x15, x23, x22, x37, x45, x9, x60, x66, x74])] solver post status: Ok(())
+% Processing MDD constraints group 17 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x7, x16, x24, x9, x38, x46, x5, x48, x67, x75]
+% Compiled MDD with 10 layers and 247 transitions
+% MDD constraints group [AllDifferent([x7, x16, x24, x9, x38, x46, x5, x48, x67, x75])] solver post status: Ok(())
+% Processing MDD constraints group 18 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x8, x17, x25, x31, x22, x47, x53, x12, x68, x76]
+% Compiled MDD with 10 layers and 160 transitions
+% MDD constraints group [AllDifferent([x8, x17, x25, x31, x22, x47, x53, x12, x68, x76])] solver post status: Ok(())
+% Processing MDD constraints group 19 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x9, x10, x26, x32, x39, x12, x54, x61, x69, x77]
+% Compiled MDD with 10 layers and 224 transitions
+% MDD constraints group [AllDifferent([x9, x10, x26, x32, x39, x12, x54, x61, x69, x77])] solver post status: Ok(())
+% Processing MDD constraints group 20 of 20
+% Building mdd graph with haddock...
+% MDD post status from haddock: false
+% Failed to compile an MDD from a constraint group [AllDifferent([x10, x18, x27, x33, x40, x48, x55, x62, x70, x63])]
+%%%mzn-stat: mddCompilationTime=0.243943815
+% Decision made: [x33 <= 2] at decision level 1
+% Decision made: [x40 <= 4] at decision level 2
+% Decision made: [x27 <= 3] at decision level 3
+% Learned nogood: [[x27 == 3], [x70 <= 5], [x62 <= 5], [x70 != 4], [x62 != 4]] with backjump level 2
+% Learned nogood: [[x40 == 4], [x55 >= 4], [x27 >= 3]] with backjump level 1
+% Learned nogood: [[x33 <= 2]] with backjump level 0
+% Decision made: [x62 <= 3] at decision level 1
+% Decision made: [x70 <= 5] at decision level 2
+% Decision made: [x56 <= 4] at decision level 3
+% Decision made: [x4 <= 0] at decision level 4
+% Decision made: [x13 <= 0] at decision level 5
+% Decision made: [x58 <= 7] at decision level 6
+% Decision made: [x20 <= 1] at decision level 7
+% Decision made: [x3 <= 2] at decision level 8
+% Decision made: [x43 <= 3] at decision level 9
+% Decision made: [x21 <= 3] at decision level 10
+% Decision made: [x67 <= 6] at decision level 11
+% Decision made: [x41 <= 6] at decision level 12
+% Decision made: [x14 <= 1] at decision level 13
+% Decision made: [x15 <= 4] at decision level 14
+% Decision made: [x7 <= 4] at decision level 15
+% Decision made: [x27 <= 2] at decision level 16
+% Learned nogood: [[x27 <= 2]] with backjump level 0
+% Decision made: [x27 <= 3] at decision level 1
+% Decision made: [x62 <= 5] at decision level 2
+% Learned nogood: [[x70 >= 6]] with backjump level 0
+% Decision made: [x70 <= 3] at decision level 1
+% Decision made: [x27 <= 5] at decision level 2
+% Learned nogood: [[x62 >= 6]] with backjump level 0
+% Decision made: [x27 <= 5] at decision level 1
+% Learned nogood: [[x27 <= 5]] with backjump level 0
+=====UNSATISFIABLE=====
+%%%mzn-stat: engineStatisticsNumDecisions=24
+%%%mzn-stat: engineStatisticsNumConflicts=8
+%%%mzn-stat: engineStatisticsNumRestarts=0
+%%%mzn-stat: engineStatisticsNumPropagations=588
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=9
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=2
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=0.7142857142857143
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0.2857142857142857
+%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=5
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=1.8571428571428572
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=3.4285714285714284
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=1
+%%%mzn-stat-end
+%%%mzn-stat: nSolutions=0
+%%%mzn-stat-end

@@ -1,0 +1,31 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=625
+%%%mzn-stat: flatIntConstraints=50
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.172552
+%%%mzn-stat-end
+% Processing MDD constraints group 1 of 50
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25]
+% Compiled MDD with 25 layers and 2662 transitions
+% MDD constraints group [AllDifferent([x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25])] solver post status: Ok(())
+% Processing MDD constraints group 2 of 50
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x26, x27, x28, x29, x30, x3, x31, x32, x23, x33, x34, x6, x35, x36, x16, x9, x37, x38, x14, x39, x40, x41, x42, x12, x11]
+% Compiled MDD with 25 layers and 298 transitions
+% MDD constraints group [AllDifferent([x26, x27, x28, x29, x30, x3, x31, x32, x23, x33, x34, x6, x35, x36, x16, x9, x37, x38, x14, x39, x40, x41, x42, x12, x11])] solver post status: Ok(())
+% Processing MDD constraints group 3 of 50
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x43, x41, x11, x44, x3, x45, x9, x6, x2, x25, x46, x13, x10, x16, x40, x38, x47, x48, x49, x50, x51, x52, x53, x23, x12]
+% Compiled MDD with 25 layers and 819 transitions
+% MDD constraints group [AllDifferent([x43, x41, x11, x44, x3, x45, x9, x6, x2, x25, x46, x13, x10, x16, x40, x38, x47, x48, x49, x50, x51, x52, x53, x23, x12])] solver post status: Ok(())
+% Processing MDD constraints group 4 of 50
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x41, x54, x55, x10, x56, x16, x14, x57, x58, x59, x60, x61, x9, x25, x62, x63, x24, x2, x27, x64, x65, x13, x40, x1, x50]
+% Compiled MDD with 25 layers and 4100 transitions
+=====UNKNOWN=====

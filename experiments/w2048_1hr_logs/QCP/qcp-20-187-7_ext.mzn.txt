@@ -1,0 +1,121 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=400
+%%%mzn-stat: flatIntConstraints=40
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.365357
+%%%mzn-stat-end
+% Processing MDD constraints group 1 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20]
+% Compiled MDD with 20 layers and 436 transitions
+% MDD constraints group [AllDifferent([x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20])] solver post status: Ok(())
+% Processing MDD constraints group 2 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x12, x21, x7, x8, x22, x5, x23, x24, x25, x26, x27, x28, x29, x30, x31, x32, x10, x33, x34, x2]
+% Compiled MDD with 20 layers and 565 transitions
+% MDD constraints group [AllDifferent([x12, x21, x7, x8, x22, x5, x23, x24, x25, x26, x27, x28, x29, x30, x31, x32, x10, x33, x34, x2])] solver post status: Ok(())
+% Processing MDD constraints group 3 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x8, x32, x35, x36, x2, x37, x38, x39, x5, x40, x41, x42, x10, x43, x44, x22, x1, x45, x46, x28]
+% Compiled MDD with 20 layers and 278 transitions
+% MDD constraints group [AllDifferent([x8, x32, x35, x36, x2, x37, x38, x39, x5, x40, x41, x42, x10, x43, x44, x22, x1, x45, x46, x28])] solver post status: Ok(())
+% Processing MDD constraints group 4 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x42, x26, x47, x48, x49, x7, x9, x19, x44, x20, x22, x50, x51, x2, x1, x52, x53, x10, x54, x55]
+% Compiled MDD with 20 layers and 386 transitions
+% MDD constraints group [AllDifferent([x42, x26, x47, x48, x49, x7, x9, x19, x44, x20, x22, x50, x51, x2, x1, x52, x53, x10, x54, x55])] solver post status: Ok(())
+% Processing MDD constraints group 5 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x56, x57, x39, x32, x7, x58, x44, x59, x60, x19, x61, x62, x63, x42, x64, x20, x5, x1, x8, x65]
+% Compiled MDD with 20 layers and 564 transitions
+% MDD constraints group [AllDifferent([x56, x57, x39, x32, x7, x58, x44, x59, x60, x19, x61, x62, x63, x42, x64, x20, x5, x1, x8, x65])] solver post status: Ok(())
+% Processing MDD constraints group 6 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x66, x8, x19, x67, x68, x69, x70, x12, x10, x1, x71, x72, x20, x22, x73, x74, x34, x26, x9, x75]
+% Compiled MDD with 20 layers and 857 transitions
+% MDD constraints group [AllDifferent([x66, x8, x19, x67, x68, x69, x70, x12, x10, x1, x71, x72, x20, x22, x73, x74, x34, x26, x9, x75])] solver post status: Ok(())
+% Processing MDD constraints group 7 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x76, x77, x78, x42, x79, x34, x22, x80, x28, x7, x1, x15, x81, x39, x20, x82, x65, x32, x83, x84]
+% Compiled MDD with 20 layers and 500 transitions
+% MDD constraints group [AllDifferent([x76, x77, x78, x42, x79, x34, x22, x80, x28, x7, x1, x15, x81, x39, x20, x82, x65, x32, x83, x84])] solver post status: Ok(())
+% Processing MDD constraints group 8 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x65, x12, x85, x86, x28, x9, x87, x88, x42, x89, x90, x26, x5, x91, x7, x92, x44, x22, x39, x93]
+% Compiled MDD with 20 layers and 285 transitions
+% MDD constraints group [AllDifferent([x65, x12, x85, x86, x28, x9, x87, x88, x42, x89, x90, x26, x5, x91, x7, x92, x44, x22, x39, x93])] solver post status: Ok(())
+% Processing MDD constraints group 9 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x94, x95, x20, x96, x19, x15, x12, x34, x97, x39, x9, x10, x98, x99, x100, x101, x102, x103, x42, x7]
+% Compiled MDD with 20 layers and 3137 transitions
+% MDD constraints group [AllDifferent([x94, x95, x20, x96, x19, x15, x12, x34, x97, x39, x9, x10, x98, x99, x100, x101, x102, x103, x42, x7])] solver post status: Ok(())
+% Processing MDD constraints group 10 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x104, x105, x9, x15, x106, x107, x65, x26, x108, x34, x32, x22, x1, x20, x12, x109, x110, x111, x7, x112]
+% Compiled MDD with 20 layers and 528 transitions
+% MDD constraints group [AllDifferent([x104, x105, x9, x15, x106, x107, x65, x26, x108, x34, x32, x22, x1, x20, x12, x109, x110, x111, x7, x112])] solver post status: Ok(())
+% Processing MDD constraints group 11 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x32, x113, x114, x34, x115, x42, x19, x116, x117, x2, x5, x118, x8, x28, x119, x65, x120, x121, x122, x12]
+% Compiled MDD with 20 layers and 461 transitions
+% MDD constraints group [AllDifferent([x32, x113, x114, x34, x115, x42, x19, x116, x117, x2, x5, x118, x8, x28, x119, x65, x120, x121, x122, x12])] solver post status: Ok(())
+% Processing MDD constraints group 12 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x123, x65, x124, x125, x126, x127, x128, x129, x15, x22, x130, x19, x12, x131, x26, x132, x9, x7, x1, x42]
+% Compiled MDD with 20 layers and 3094 transitions
+% MDD constraints group [AllDifferent([x123, x65, x124, x125, x126, x127, x128, x129, x15, x22, x130, x19, x12, x131, x26, x132, x9, x7, x1, x42])] solver post status: Ok(())
+% Processing MDD constraints group 13 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x7, x9, x133, x134, x20, x28, x32, x22, x135, x136, x137, x1, x65, x138, x10, x2, x139, x140, x141, x15]
+% Compiled MDD with 20 layers and 700 transitions
+% MDD constraints group [AllDifferent([x7, x9, x133, x134, x20, x28, x32, x22, x135, x136, x137, x1, x65, x138, x10, x2, x139, x140, x141, x15])] solver post status: Ok(())
+% Processing MDD constraints group 14 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x44, x142, x1, x39, x42, x22, x34, x143, x144, x145, x8, x20, x15, x10, x146, x19, x147, x148, x149, x150]
+% Compiled MDD with 20 layers and 688 transitions
+% MDD constraints group [AllDifferent([x44, x142, x1, x39, x42, x22, x34, x143, x144, x145, x8, x20, x15, x10, x146, x19, x147, x148, x149, x150])] solver post status: Ok(())
+% Processing MDD constraints group 15 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x20, x151, x12, x9, x152, x153, x154, x155, x156, x157, x158, x159, x160, x44, x5, x42, x22, x39, x65, x8]
+% Compiled MDD with 20 layers and 3175 transitions
+% MDD constraints group [AllDifferent([x20, x151, x12, x9, x152, x153, x154, x155, x156, x157, x158, x159, x160, x44, x5, x42, x22, x39, x65, x8])] solver post status: Ok(())
+% Processing MDD constraints group 16 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x34, x161, x162, x2, x32, x163, x10, x9, x164, x65, x15, x7, x165, x1, x166, x44, x167, x19, x168, x169]
+% Compiled MDD with 20 layers and 232 transitions
+% MDD constraints group [AllDifferent([x34, x161, x162, x2, x32, x163, x10, x9, x164, x65, x15, x7, x165, x1, x166, x44, x167, x19, x168, x169])] solver post status: Ok(())
+% Processing MDD constraints group 17 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x170, x39, x8, x20, x44, x171, x28, x15, x34, x172, x173, x174, x42, x26, x175, x5, x176, x177, x178, x1]
+% Compiled MDD with 20 layers and 539 transitions
+% MDD constraints group [AllDifferent([x170, x39, x8, x20, x44, x171, x28, x15, x34, x172, x173, x174, x42, x26, x175, x5, x176, x177, x178, x1])] solver post status: Ok(())
+% Processing MDD constraints group 18 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x5, x179, x65, x7, x180, x20, x181, x44, x22, x182, x10, x183, x19, x184, x34, x185, x32, x186, x15, x187]
+% Compiled MDD with 20 layers and 82 transitions
+% MDD constraints group [AllDifferent([x5, x179, x65, x7, x180, x20, x181, x44, x22, x182, x10, x183, x19, x184, x34, x185, x32, x186, x15, x187])] solver post status: Ok(())
+% Processing MDD constraints group 19 of 40
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x188, x28, x15, x12, x189, x8, x190, x2, x20, x191, x42, x192, x193, x194, x65, x195, x26, x34, x196, x197]
+% Compiled MDD with 20 layers and 89 transitions
+=====UNKNOWN=====

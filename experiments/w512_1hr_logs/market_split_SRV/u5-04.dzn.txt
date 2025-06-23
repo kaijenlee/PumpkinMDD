@@ -1,0 +1,15 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=40
+%%%mzn-stat: flatIntConstraints=5
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.0844326
+%%%mzn-stat-end
+% Processing MDD constraints group 1 of 5
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20, x21, x22, x23, x24, x25, x26, x27, x28, x29, x30, x31, x32, x33, x34, x35, x36, x37, x38, x39, x40]
+% Compiled MDD with 40 layers and 25695 transitions
+% MDD SRVs : [x64, x47, x66, x42, x60, x44, x62, x50, x70, x51, x71, x48, x68, x49, x69, x54, x74, x55, x75, x52, x72, x53, x73, x58, x78, x59, x79, x56, x76, x57, x77, x65, x45, x67, x46, x61, x41, x63, x43]
+% MDD Width: 512
+=====UNKNOWN=====
