@@ -1,0 +1,1220 @@
+% Generated FlatZinc statistics:
+%%%mzn-stat: paths=0
+%%%mzn-stat: flatIntVars=20
+%%%mzn-stat: flatIntConstraints=3
+%%%mzn-stat: method="satisfy"
+%%%mzn-stat: flatTime=0.0410442
+%%%mzn-stat-end
+% Processing MDD constraints group 1 of 3
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20]
+% Compiled MDD with 20 layers and 40 transitions
+% MDD SRVs : [x25, x27, x26, x22, x21, x24, x23, x33, x32, x35, x34, x29, x28, x31, x30, x37, x36, x39, x38]
+% MDD Width: 1
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 84), (x2, 11), (x3, 82), (x4, 67), (x5, 55), (x6, 90), (x7, 98), (x8, 23), (x9, 99), (x10, 39), (x11, 93), (x12, 73), (x13, 79), (x14, 39), (x15, 49), (x16, 55), (x17, 6), (x18, 5), (x19, 32), (x20, 19)], lower_bound: Some(549), upper_bound: Some(549) }] solver post status: Ok(())
+% Processing MDD constraints group 2 of 3
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20]
+% Compiled MDD with 20 layers and 2255 transitions
+% MDD SRVs : [x44, x46, x45, x41, x40, x43, x42, x52, x51, x54, x53, x48, x47, x50, x49, x56, x55, x58, x57]
+% MDD Width: 256
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 63), (x2, 43), (x3, 76), (x4, 95), (x5, 63), (x6, 69), (x7, 66), (x8, 77), (x9, 50), (x10, 79), (x11, 22), (x12, 34), (x13, 90), (x14, 56), (x15, 54), (x16, 97), (x17, 99), (x18, 52), (x19, 20), (x20, 50)], lower_bound: Some(627), upper_bound: Some(627) }] solver post status: Ok(())
+% Processing MDD constraints group 3 of 3
+% Building mdd graph with haddock...
+% MDD post status from haddock: true
+% MDD graph layers: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12, x13, x14, x15, x16, x17, x18, x19, x20]
+% Compiled MDD with 20 layers and 2832 transitions
+% MDD SRVs : [x63, x65, x64, x60, x59, x62, x61, x71, x70, x73, x72, x67, x66, x69, x68, x75, x74, x77, x76]
+% MDD Width: 335
+% MDD constraints group [LinearInequality { linear_expr: [(x1, 91), (x2, 65), (x3, 23), (x4, 22), (x5, 5), (x6, 25), (x7, 77), (x8, 63), (x9, 82), (x10, 61), (x11, 34), (x12, 45), (x13, 57), (x14, 10), (x15, 93), (x16, 20), (x17, 79), (x18, 11), (x19, 97), (x20, 82)], lower_bound: Some(521), upper_bound: Some(521) }] solver post status: Ok(())
+%%%mzn-stat: mddCompilationTime=0.114402114
+% Decision made: [x1 <= 0] at decision level 1
+% Decision made: [x2 <= 0] at decision level 2
+% Decision made: [x3 <= 0] at decision level 3
+% Decision made: [x4 <= 0] at decision level 4
+% Decision made: [x5 <= 0] at decision level 5
+% Decision made: [x6 <= 0] at decision level 6
+% Decision made: [x7 <= 0] at decision level 7
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Decision made: [x8 <= 0] at decision level 7
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Decision made: [x9 <= 0] at decision level 7
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x7 <= 0] at decision level 6
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x6 <= 0] at decision level 5
+% Decision made: [x7 <= 0] at decision level 6
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Decision made: [x9 <= 0] at decision level 7
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Learned nogood: [[x8 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x4 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x5 <= 0] at decision level 4
+% Decision made: [x6 <= 0] at decision level 5
+% Decision made: [x7 <= 0] at decision level 6
+% Decision made: [x8 <= 0] at decision level 7
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Decision made: [x9 <= 0] at decision level 7
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Decision made: [x11 <= 0] at decision level 7
+% Learned nogood: [[x11 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Decision made: [x9 <= 0] at decision level 7
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Decision made: [x11 <= 0] at decision level 7
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x8 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x8 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x10 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x5 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x6 <= 0] at decision level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x6 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Decision made: [x11 <= 0] at decision level 5
+% Decision made: [x12 <= 0] at decision level 6
+% Learned nogood: [[x12 <= 0], [x11 <= 0], [x10 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x10 <= 0], [x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x3 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x4 <= 0] at decision level 3
+% Decision made: [x5 <= 0] at decision level 4
+% Decision made: [x6 <= 0] at decision level 5
+% Decision made: [x7 <= 0] at decision level 6
+% Decision made: [x8 <= 0] at decision level 7
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Decision made: [x11 <= 0] at decision level 7
+% Learned nogood: [[x11 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Decision made: [x9 <= 0] at decision level 7
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Decision made: [x11 <= 0] at decision level 7
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x10 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x5 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x6 <= 0] at decision level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x11 <= 0] at decision level 5
+% Learned nogood: [[x11 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x6 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x7 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x7 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Learned nogood: [[x8 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x4 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x5 <= 0] at decision level 3
+% Decision made: [x6 <= 0] at decision level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Decision made: [x11 <= 0] at decision level 7
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x9 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x5 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x6 <= 0] at decision level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x10 >= 1], [x6 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x6 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x2 <= 0], [x1 <= 0]] with backjump level 2
+% Learned nogood: [[x2 <= 0], [x1 <= 0]] with backjump level 1
+% Decision made: [x3 <= 0] at decision level 2
+% Decision made: [x4 <= 0] at decision level 3
+% Decision made: [x5 <= 0] at decision level 4
+% Decision made: [x6 <= 0] at decision level 5
+% Decision made: [x7 <= 0] at decision level 6
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Decision made: [x9 <= 0] at decision level 7
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x9 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x5 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x6 <= 0] at decision level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Decision made: [x9 <= 0] at decision level 7
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 6
+% Decision made: [x11 <= 0] at decision level 7
+% Learned nogood: [[x11 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x6 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x11 <= 0] at decision level 5
+% Decision made: [x12 <= 0] at decision level 6
+% Learned nogood: [[x12 <= 0], [x11 <= 0], [x8 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x11 <= 0], [x8 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x4 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x5 <= 0] at decision level 3
+% Decision made: [x6 <= 0] at decision level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x7 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x11 <= 0] at decision level 5
+% Learned nogood: [[x11 <= 0], [x8 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Learned nogood: [[x10 <= 0], [x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x5 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x6 <= 0] at decision level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x6 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x3 <= 0], [x1 <= 0]] with backjump level 2
+% Learned nogood: [[x3 <= 0], [x1 <= 0]] with backjump level 1
+% Decision made: [x4 <= 0] at decision level 2
+% Decision made: [x5 <= 0] at decision level 3
+% Decision made: [x6 <= 0] at decision level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x10 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x5 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x6 <= 0] at decision level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x9 <= 0], [x6 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Decision made: [x11 <= 0] at decision level 5
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x6 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x10 <= 0], [x6 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x6 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x7 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x4 <= 0], [x1 <= 0]] with backjump level 2
+% Learned nogood: [[x4 <= 0], [x1 <= 0]] with backjump level 1
+% Decision made: [x5 <= 0] at decision level 2
+% Decision made: [x6 <= 0] at decision level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 5
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x1 <= 0]] with backjump level 2
+% Learned nogood: [[x5 <= 0], [x1 <= 0]] with backjump level 1
+% Decision made: [x6 <= 0] at decision level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x1 <= 0]] with backjump level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x1 <= 0]] with backjump level 2
+% Decision made: [x9 <= 0] at decision level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x10 >= 1], [x6 <= 0], [x1 <= 0]] with backjump level 2
+% Learned nogood: [[x6 <= 0], [x1 <= 0]] with backjump level 1
+% Decision made: [x7 <= 0] at decision level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x7 <= 0], [x1 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x1 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x1 <= 0]] with backjump level 2
+% Learned nogood: [[x7 <= 0], [x1 <= 0]] with backjump level 1
+% Learned nogood: [[x1 <= 0]] with backjump level 0
+% Decision made: [x2 <= 0] at decision level 1
+% Decision made: [x3 <= 0] at decision level 2
+% Decision made: [x4 <= 0] at decision level 3
+% Decision made: [x5 <= 0] at decision level 4
+% Decision made: [x6 <= 0] at decision level 5
+% Decision made: [x7 <= 0] at decision level 6
+% Decision made: [x8 <= 0] at decision level 7
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 6
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Decision made: [x9 <= 0] at decision level 7
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 6
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 6
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Learned nogood: [[x8 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x10 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x5 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x6 <= 0] at decision level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Decision made: [x11 <= 0] at decision level 7
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x9 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x6 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x9 <= 0], [x8 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x11 >= 1], [x8 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Learned nogood: [[x4 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 2
+% Decision made: [x5 <= 0] at decision level 3
+% Decision made: [x6 <= 0] at decision level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 6
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Decision made: [x11 <= 0] at decision level 7
+% Learned nogood: [[x11 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 6
+% Decision made: [x12 <= 0] at decision level 7
+% Learned nogood: [[x12 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x9 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Learned nogood: [[x5 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 2
+% Decision made: [x6 <= 0] at decision level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x14 >= 1], [x10 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x9 >= 1], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Decision made: [x11 <= 0] at decision level 5
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x10 <= 0], [x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Learned nogood: [[x6 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x3 <= 0], [x2 <= 0]] with backjump level 2
+% Learned nogood: [[x3 <= 0], [x2 <= 0]] with backjump level 1
+% Decision made: [x4 <= 0] at decision level 2
+% Decision made: [x5 <= 0] at decision level 3
+% Decision made: [x6 <= 0] at decision level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Learned nogood: [[x8 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 3
+% Learned nogood: [[x5 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 2
+% Decision made: [x6 <= 0] at decision level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 3
+% Learned nogood: [[x6 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x7 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x7 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Learned nogood: [[x8 <= 0], [x4 <= 0], [x2 <= 0]] with backjump level 2
+% Learned nogood: [[x4 <= 0], [x2 <= 0]] with backjump level 1
+% Decision made: [x5 <= 0] at decision level 2
+% Decision made: [x6 <= 0] at decision level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Decision made: [x12 <= 0] at decision level 7
+% Learned nogood: [[x12 <= 0], [x11 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 6
+% Learned nogood: [[x11 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 3
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x2 <= 0]] with backjump level 2
+% Learned nogood: [[x5 <= 0], [x2 <= 0]] with backjump level 1
+% Decision made: [x6 <= 0] at decision level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x2 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x2 <= 0]] with backjump level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x2 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x2 <= 0]] with backjump level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x2 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x2 <= 0]] with backjump level 2
+% Decision made: [x10 <= 0] at decision level 3
+% Learned nogood: [[x10 <= 0], [x6 <= 0], [x2 <= 0]] with backjump level 2
+% Learned nogood: [[x6 <= 0], [x2 <= 0]] with backjump level 1
+% Decision made: [x7 <= 0] at decision level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x2 <= 0]] with backjump level 3
+% Learned nogood: [[x9 >= 1], [x2 <= 0]] with backjump level 1
+% Decision made: [x7 <= 0] at decision level 2
+% Learned nogood: [[x7 <= 0], [x2 <= 0]] with backjump level 1
+% Learned nogood: [[x2 <= 0]] with backjump level 0
+% Decision made: [x3 <= 0] at decision level 1
+% Decision made: [x4 <= 0] at decision level 2
+% Decision made: [x5 <= 0] at decision level 3
+% Decision made: [x6 <= 0] at decision level 4
+% Decision made: [x7 <= 0] at decision level 5
+% Decision made: [x8 <= 0] at decision level 6
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 >= 1], [x8 >= 1], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 5
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Decision made: [x10 <= 0] at decision level 7
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 3
+% Learned nogood: [[x5 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 2
+% Decision made: [x6 <= 0] at decision level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x9 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Decision made: [x11 <= 0] at decision level 5
+% Learned nogood: [[x11 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x9 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 3
+% Learned nogood: [[x6 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 2
+% Decision made: [x9 <= 0] at decision level 3
+% Learned nogood: [[x9 <= 0], [x4 <= 0], [x3 <= 0]] with backjump level 2
+% Learned nogood: [[x4 <= 0], [x3 <= 0]] with backjump level 1
+% Decision made: [x5 <= 0] at decision level 2
+% Decision made: [x6 <= 0] at decision level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Decision made: [x8 <= 0] at decision level 5
+% Decision made: [x9 <= 0] at decision level 6
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x14 >= 1], [x9 >= 1], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 5
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 4
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 3
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x5 <= 0], [x3 <= 0]] with backjump level 2
+% Learned nogood: [[x5 <= 0], [x3 <= 0]] with backjump level 1
+% Decision made: [x6 <= 0] at decision level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0]] with backjump level 5
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x3 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x3 <= 0]] with backjump level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x3 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x3 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x3 <= 0]] with backjump level 2
+% Learned nogood: [[x6 <= 0], [x3 <= 0]] with backjump level 1
+% Decision made: [x7 <= 0] at decision level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x3 <= 0]] with backjump level 2
+% Learned nogood: [[x7 <= 0], [x3 <= 0]] with backjump level 1
+% Decision made: [x8 <= 0] at decision level 2
+% Decision made: [x9 <= 0] at decision level 3
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x3 <= 0]] with backjump level 2
+% Learned nogood: [[x8 <= 0], [x3 <= 0]] with backjump level 1
+% Learned nogood: [[x3 <= 0]] with backjump level 0
+% Decision made: [x4 <= 0] at decision level 1
+% Decision made: [x5 <= 0] at decision level 2
+% Decision made: [x6 <= 0] at decision level 3
+% Decision made: [x7 <= 0] at decision level 4
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 5
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 3
+% Learned nogood: [[x6 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Decision made: [x10 <= 0] at decision level 6
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x9 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x7 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 4
+% Learned nogood: [[x10 >= 1], [x7 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Learned nogood: [[x8 <= 0], [x5 <= 0], [x4 <= 0]] with backjump level 2
+% Learned nogood: [[x5 <= 0], [x4 <= 0]] with backjump level 1
+% Decision made: [x6 <= 0] at decision level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Decision made: [x9 <= 0] at decision level 5
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0]] with backjump level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0]] with backjump level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Learned nogood: [[x10 <= 0], [x7 <= 0], [x6 <= 0], [x4 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x4 <= 0]] with backjump level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x4 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x4 <= 0]] with backjump level 2
+% Decision made: [x9 <= 0] at decision level 3
+% Learned nogood: [[x9 <= 0], [x6 <= 0], [x4 <= 0]] with backjump level 2
+% Learned nogood: [[x6 <= 0], [x4 <= 0]] with backjump level 1
+% Decision made: [x7 <= 0] at decision level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Decision made: [x11 <= 0] at decision level 6
+% Learned nogood: [[x11 <= 0], [x10 <= 0], [x9 <= 0], [x8 <= 0], [x7 <= 0], [x4 <= 0]] with backjump level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x7 <= 0], [x4 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x4 <= 0]] with backjump level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x7 <= 0], [x4 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x4 <= 0]] with backjump level 2
+% Learned nogood: [[x7 <= 0], [x4 <= 0]] with backjump level 1
+% Learned nogood: [[x4 <= 0]] with backjump level 0
+% Decision made: [x5 <= 0] at decision level 1
+% Decision made: [x6 <= 0] at decision level 2
+% Decision made: [x7 <= 0] at decision level 3
+% Decision made: [x8 <= 0] at decision level 4
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0]] with backjump level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x7 <= 0], [x6 <= 0], [x5 <= 0]] with backjump level 3
+% Learned nogood: [[x7 <= 0], [x6 <= 0], [x5 <= 0]] with backjump level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0]] with backjump level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Learned nogood: [[x10 <= 0], [x8 <= 0], [x6 <= 0], [x5 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x6 <= 0], [x5 <= 0]] with backjump level 2
+% Learned nogood: [[x6 <= 0], [x5 <= 0]] with backjump level 1
+% Decision made: [x7 <= 0] at decision level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Decision made: [x10 <= 0] at decision level 5
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0]] with backjump level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x5 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x5 <= 0]] with backjump level 2
+% Learned nogood: [[x7 <= 0], [x5 <= 0]] with backjump level 1
+% Learned nogood: [[x5 <= 0]] with backjump level 0
+% Decision made: [x6 <= 0] at decision level 1
+% Decision made: [x7 <= 0] at decision level 2
+% Decision made: [x8 <= 0] at decision level 3
+% Decision made: [x9 <= 0] at decision level 4
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0], [x6 <= 0]] with backjump level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Learned nogood: [[x10 <= 0], [x9 >= 1], [x8 <= 0], [x7 <= 0]] with backjump level 3
+% Learned nogood: [[x8 <= 0], [x7 <= 0], [x6 <= 0]] with backjump level 2
+% Learned nogood: [[x7 <= 0], [x6 <= 0]] with backjump level 1
+% Decision made: [x8 <= 0] at decision level 2
+% Decision made: [x9 <= 0] at decision level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Learned nogood: [[x14 <= 0], [x9 <= 0], [x8 <= 0], [x6 <= 0]] with backjump level 3
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x6 <= 0]] with backjump level 2
+% Learned nogood: [[x8 <= 0], [x6 <= 0]] with backjump level 1
+% Learned nogood: [[x6 <= 0]] with backjump level 0
+% Decision made: [x7 <= 0] at decision level 1
+% Decision made: [x8 <= 0] at decision level 2
+% Decision made: [x9 <= 0] at decision level 3
+% Decision made: [x10 <= 0] at decision level 4
+% Learned nogood: [[x10 <= 0], [x9 <= 0], [x8 <= 0], [x7 <= 0]] with backjump level 3
+% Learned nogood: [[x9 <= 0], [x8 <= 0], [x7 <= 0]] with backjump level 2
+% Learned nogood: [[x8 <= 0], [x7 <= 0]] with backjump level 1
+% Learned nogood: [[x7 <= 0]] with backjump level 0
+=====UNSATISFIABLE=====
+%%%mzn-stat: engineStatisticsNumDecisions=588
+%%%mzn-stat: engineStatisticsNumConflicts=585
+%%%mzn-stat: engineStatisticsNumRestarts=0
+%%%mzn-stat: engineStatisticsNumPropagations=118769
+%%%mzn-stat: engineStatisticsTimeSpentInSolver=3657
+%%%mzn-stat: learnedClauseStatisticsAverageConflictSize=9.592465753424657
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsRecursive=3.041095890410959
+%%%mzn-stat: learnedClauseStatisticsAverageNumberOfRemovedLiteralsSemantic=0
+%%%mzn-stat: learnedClauseStatisticsNumUnitClausesLearned=7
+%%%mzn-stat: learnedClauseStatisticsAverageLearnedClauseLength=4.813356164383562
+%%%mzn-stat: learnedClauseStatisticsAverageBacktrackAmount=1.0068493150684932
+%%%mzn-stat: learnedClauseStatisticsAverageLbd=3.850953206239168
+%%%mzn-stat-end
+%%%mzn-stat: nSolutions=0
+%%%mzn-stat-end
