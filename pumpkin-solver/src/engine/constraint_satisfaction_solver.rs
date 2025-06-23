@@ -866,11 +866,11 @@ impl ConstraintSatisfactionSolver {
         self.assignments
             .post_predicate(decision_predicate, None)
             .expect("Decisions are expected not to fail.");
-        warn!(
-            "Decision made: {} at decision level {}",
-            decision_predicate,
-            self.get_decision_level()
-        );
+        // warn!(
+        //     "Decision made: {} at decision level {}",
+        //     decision_predicate,
+        //     self.get_decision_level()
+        // );
         Ok(())
     }
 
@@ -971,11 +971,11 @@ impl ConstraintSatisfactionSolver {
                 .learned_clause_statistics
                 .average_learned_clause_length
                 .add_term(learned_nogood.predicates.len() as u64);
-            warn!(
-                "Learned nogood: {:?} with backjump level {}",
-                learned_nogood.predicates,
-                learned_nogood.backjump_level
-            );
+            // warn!(
+            //     "Learned nogood: {:?} with backjump level {}",
+            //     learned_nogood.predicates,
+            //     learned_nogood.backjump_level
+            // );
             self.add_learned_nogood(learned_nogood);
         }
 
