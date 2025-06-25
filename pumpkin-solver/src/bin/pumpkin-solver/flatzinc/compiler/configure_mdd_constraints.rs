@@ -36,6 +36,7 @@ pub(crate) fn run(
                     mdd_graph.layers.len(),
                     mdd_graph.transitions.len()
                 );
+                // warn!("{:?}", mdd_graph.transitions);
                 let status = match options.srv_enable {
                     true => {
                         let layer_to_indices: HashMap<usize, usize> =

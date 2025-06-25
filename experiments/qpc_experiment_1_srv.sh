@@ -22,7 +22,7 @@ for INPUT_FILE in "$INPUT_DIR"/*.mzn; do
 
     echo "Processing $INPUT_FILE -> $OUTPUT_FILE"
 
-    minizinc --time-limit 600000 --solver "minizinc/pumpkin.msc" $INPUT_FILE -s --dd-enable --dd-srv-enable --dd-max-width $DD_WIDTH > $OUTPUT_FILE
+    minizinc --time-limit 3600000 --solver "minizinc/pumpkin.msc" $INPUT_FILE -s --dd-enable --dd-srv-enable --dd-max-width $DD_WIDTH > $OUTPUT_FILE
 
   fi
 done

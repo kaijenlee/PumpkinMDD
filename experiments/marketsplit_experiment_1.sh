@@ -12,7 +12,7 @@ fi
 OUTPUT_DIR="experiments/${OUTPUT_FOLDER}/market_split" # Replace with your desired output file
 SKIP=false
 if [ -n "$3" ]; then
-    SKIP=false
+    SKIP=true
 fi
 
 MODEL="$INPUT_DIR/market_split.mzn"
@@ -21,7 +21,13 @@ mkdir -p "$OUTPUT_DIR"
 # Loop through all files in the input directory
 for INPUT_FILE in "$INPUT_DIR"/*.dzn; do
   if [ -f "$INPUT_FILE" ]; then
-    if $SKIP && (grep -q "s5\|u5" "$INPUT_FILE"); then
+    echo "skip is set to $SKIP"
+    if grep -q "s5\|u5\|u4" <<< "$INPUT_FILE"; then
+        echo "Grep found match"
+    else
+        echo "Grep found no match"
+    fi
+    if $SKIP && grep -q "s5\|u5\|u4" <<< "$INPUT_FILE"; then
         echo "Skipping $INPUT_FILE due to s5 or u5 in the file."
         continue
     fi

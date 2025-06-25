@@ -1,7 +1,8 @@
-import sys
 import csv
-import re
 import os
+import re
+import sys
+
 
 def extract_stats(file_path):
     stats = {
@@ -22,7 +23,9 @@ def extract_stats(file_path):
         'learnedClauseStatisticsAverageBacktrackAmount': None,
         'learnedClauseStatisticsAverageLbd': None,
         'UNSATISFIABLE': 0,
-        'ERROR': 0
+        'ERROR': 0,
+        'reportedMdd': 0,
+        'mddMaxWidth': None,
     }
 
     try:
@@ -36,14 +39,17 @@ def extract_stats(file_path):
                 if "UNSATISFIABLE" in line:
                     stats['UNSATISFIABLE'] = 1
 
-
                 if "ERROR" in line:
                     stats['ERROR'] = 1
-
 
                 if "UNKNOWN" in line:
                     stats['UNKNOWN'] = 1
 
+                w = re.match(r'% MDD Width:\s*(\d+)', line)
+                if w:
+                    stats['reportedMdd'] += 1
+                    stats['mddMaxWidth'] = max(stats['mddMaxWidth'],
+                                               int(w.group(1))) if stats['mddMaxWidth'] is not None else int(w.group(1))
 
                 m = re.match(r'%%%mzn-stat:\s*([^=]+)=(.*)', line)
                 if m:
@@ -58,6 +64,7 @@ def extract_stats(file_path):
         print(f"Failed to read {file_path}: {e}")
 
     return stats
+
 
 def main():
     if len(sys.argv) != 3:
@@ -88,7 +95,7 @@ def main():
         writer.writerow(['Filename'] + all_keys)
 
         for fname, stats in sorted(file_stats.items()):
-            print(fname+",")
+            print(fname + ",")
             row = [fname] + [stats.get(key, '') for key in all_keys]
             writer.writerow(row)
 
